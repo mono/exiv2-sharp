@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<metadata>
+  <add-node path="/api/namespace/object[@cname='Exiv2ExifData']"><implements><interface name="IEnumerable"/></implements></add-node>"
+  <attr path="/api/namespace/object[@cname='Exiv2ExifDatum']/method[@name='Next']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2ExifData']/method[@name='Begin']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2ExifData']/method[@name='End']" name="hidden">1</attr>
+</metadata>

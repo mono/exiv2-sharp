@@ -7,9 +7,79 @@
 
 -->
   <namespace name="Exiv2" library="libexiv2glue.dll">
+    <object name="ExifData" cname="Exiv2ExifData" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2ExifDataPrivate*" />
+      <method name="Begin" cname="exiv2_exifdata_begin">
+        <return-type type="Exiv2ExifDatum*" />
+      </method>
+      <method name="End" cname="exiv2_exifdata_end">
+        <return-type type="Exiv2ExifDatum*" />
+      </method>
+      <method name="GetCount" cname="exiv2_exifdata_get_count">
+        <return-type type="long" />
+      </method>
+      <method name="GetIsEmpty" cname="exiv2_exifdata_get_isEmpty">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetType" cname="exiv2_exifdata_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </object>
+    <object name="ExifDatum" cname="Exiv2ExifDatum" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2ExifDatumPrivate*" />
+      <method name="Equals" cname="exiv2_exifdatum_equals">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="Exiv2ExifDatum*" name="other" />
+        </parameters>
+      </method>
+      <method name="GetCount" cname="exiv2_exifdatum_get_count">
+        <return-type type="glong" />
+      </method>
+      <method name="GetKey" cname="exiv2_exifdatum_get_key">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetTag" cname="exiv2_exifdatum_get_tag">
+        <return-type type="guint16" />
+      </method>
+      <method name="GetType" cname="exiv2_exifdatum_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetTypename" cname="exiv2_exifdatum_get_typename">
+        <return-type type="const-char*" />
+      </method>
+      <method name="Next" cname="exiv2_exifdatum_next">
+        <return-type type="void" />
+      </method>
+      <method name="ToString" cname="exiv2_exifdatum_toString">
+        <return-type type="const-char*" />
+      </method>
+    </object>
+    <object name="Image" cname="Exiv2Image" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2ImagePrivate*" />
+      <method name="GetExifData" cname="exiv2_image_get_exifData">
+        <return-type type="Exiv2ExifData*" />
+      </method>
+      <method name="GetGood" cname="exiv2_image_get_good">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetType" cname="exiv2_image_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="ReadMetadata" cname="exiv2_image_readMetadata">
+        <return-type type="void" />
+      </method>
+    </object>
     <object name="ImageFactory" cname="Exiv2ImageFactory" parent="GObject">
       <method name="GetType" cname="exiv2_imagefactory_get_type" shared="true">
         <return-type type="GType" />
+      </method>
+      <method name="Open" cname="exiv2_imagefactory_open" shared="true">
+        <return-type type="Exiv2Image*" />
+        <parameters>
+          <parameter type="const-char*" name="path" />
+          <parameter type="GError**" name="error" />
+        </parameters>
       </method>
     </object>
   </namespace>

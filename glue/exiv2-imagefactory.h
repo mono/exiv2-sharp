@@ -11,7 +11,10 @@
 #define __EXIV2_IMAGEFACTORY_H__
 
 #include <glib-object.h>
-#include <exiv2/image.hpp>
+
+#include "exiv2-image.h"
+
+G_BEGIN_DECLS
 
 #define EXIV2_TYPE_IMAGEFACTORY			(exiv2_imagefactory_get_type ())
 #define EXIV2_IMAGEFACTORY(obj)			(G_TYPE_CHECK_INSTANCE_CAST ((obj), EXIV2_TYPE_IMAGEFACTORY, Exiv2ImageFactory))
@@ -31,10 +34,12 @@ struct _Exiv2ImageFactory
 
 struct _Exiv2ImageFactoryClass
 {
-	GObject parent_class;
+	GObjectClass parent_class;
 
 };
 
 GType exiv2_imagefactory_get_type (void);
+Exiv2Image* exiv2_imagefactory_open (const char *path, GError **error);
 
+G_END_DECLS
 #endif /*  __EXIV2_IMAGEFACTORY_H__ */

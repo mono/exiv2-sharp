@@ -1,0 +1,19 @@
+/*
+ * ExifDatum.custom - customization to Exiv2.ExifData
+ *
+ * Author(s):
+ *	Stephane Delcroix  <stephane@delcroix.org>
+ *
+ * This is free software. See COPYING for details.
+ *
+ */
+
+
+[DllImport("libexiv2glue.dll")]
+static extern void exiv2_exifdatum_next(IntPtr raw);
+
+internal void Next() {
+	exiv2_exifdatum_next(Handle);
+}
+
+

@@ -1,0 +1,71 @@
+/*
+ * ExifData.custom - customization to Exiv2.ExifData
+ *
+ * Author(s):
+ *	Stephane Delcroix  <stephane@delcroix.org>
+ *
+ * This is free software. See COPYING for details.
+ *
+ */
+
+[DllImport("libexiv2glue.dll")]
+static extern IntPtr exiv2_exifdata_begin(IntPtr raw);
+
+private Exiv2.ExifDatum Begin() {
+	IntPtr raw_ret = exiv2_exifdata_begin(Handle);
+	Exiv2.ExifDatum ret = GLib.Object.GetObject(raw_ret) as Exiv2.ExifDatum;
+	return ret;
+}
+
+
+[DllImport("libexiv2glue.dll")]
+static extern IntPtr exiv2_exifdata_end(IntPtr raw);
+
+private Exiv2.ExifDatum End() {
+	IntPtr raw_ret = exiv2_exifdata_end(Handle);
+	Exiv2.ExifDatum ret = GLib.Object.GetObject(raw_ret) as Exiv2.ExifDatum;
+	return ret;
+}
+
+
+public IEnumerator GetEnumerator ()
+{
+	return new Enumerator (this);
+}
+
+class Enumerator : IEnumerator
+{
+	ExifData exifdata;
+
+	public Enumerator (ExifData exifdata)
+	{
+		this.exifdata = exifdata;
+	}
+
+	ExifDatum current = null;
+	ExifDatum end = null;
+
+	public object Current {
+		get { return current; } 
+	}
+
+	public bool MoveNext ()
+	{
+		if (exifdata.IsEmpty)
+			return false;
+		if (end == null)
+			end = exifdata.End ();
+		if (current == null)
+			current = exifdata.Begin ();
+		else
+			current.Next ();
+		if (current.Equals (end))
+			return false;
+		return true;
+	}
+
+	public void Reset ()
+	{
+		current = null;
+	}
+}
