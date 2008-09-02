@@ -10,10 +10,16 @@
     <object name="ExifData" cname="Exiv2ExifData" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2ExifDataPrivate*" />
       <method name="Begin" cname="exiv2_exifdata_begin">
-        <return-type type="Exiv2ExifDatum*" />
+        <return-type type="Exiv2ExifDatumIterator*" />
       </method>
       <method name="End" cname="exiv2_exifdata_end">
-        <return-type type="Exiv2ExifDatum*" />
+        <return-type type="Exiv2ExifDatumIterator*" />
+      </method>
+      <method name="Erase" cname="exiv2_exifdata_erase">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="key" />
+        </parameters>
       </method>
       <method name="GetCount" cname="exiv2_exifdata_get_count">
         <return-type type="long" />
@@ -21,18 +27,19 @@
       <method name="GetIsEmpty" cname="exiv2_exifdata_get_isEmpty">
         <return-type type="gboolean" />
       </method>
+      <method name="GetThis" cname="exiv2_exifdata_get_this">
+        <return-type type="Exiv2ExifDatum*" />
+        <parameters>
+          <parameter type="const-char*" name="key" />
+        </parameters>
+      </method>
       <method name="GetType" cname="exiv2_exifdata_get_type" shared="true">
         <return-type type="GType" />
       </method>
+      <constructor cname="exiv2_exifdata_new" />
     </object>
     <object name="ExifDatum" cname="Exiv2ExifDatum" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2ExifDatumPrivate*" />
-      <method name="Equals" cname="exiv2_exifdatum_equals">
-        <return-type type="gboolean" />
-        <parameters>
-          <parameter type="Exiv2ExifDatum*" name="other" />
-        </parameters>
-      </method>
       <method name="GetCount" cname="exiv2_exifdatum_get_count">
         <return-type type="glong" />
       </method>
@@ -48,11 +55,67 @@
       <method name="GetTypename" cname="exiv2_exifdatum_get_typename">
         <return-type type="const-char*" />
       </method>
-      <method name="Next" cname="exiv2_exifdatum_next">
+      <method name="SetValueRational" cname="exiv2_exifdatum_setValueRational">
         <return-type type="void" />
+        <parameters>
+          <parameter type="const-gint32" name="numerator" />
+          <parameter type="const-gint32" name="denominator" />
+        </parameters>
+      </method>
+      <method name="SetValueSLong" cname="exiv2_exifdatum_setValueSLong">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gint32" name="value" />
+        </parameters>
+      </method>
+      <method name="SetValueSShort" cname="exiv2_exifdatum_setValueSShort">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gint16" name="value" />
+        </parameters>
+      </method>
+      <method name="SetValueString" cname="exiv2_exifdatum_setValueString">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="value" />
+        </parameters>
+      </method>
+      <method name="SetValueULong" cname="exiv2_exifdatum_setValueULong">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-guint32" name="value" />
+        </parameters>
+      </method>
+      <method name="SetValueURational" cname="exiv2_exifdatum_setValueURational">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-guint32" name="numerator" />
+          <parameter type="const-guint32" name="denominator" />
+        </parameters>
+      </method>
+      <method name="SetValueUShort" cname="exiv2_exifdatum_setValueUShort">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-guint16" name="value" />
+        </parameters>
       </method>
       <method name="ToString" cname="exiv2_exifdatum_toString">
         <return-type type="const-char*" />
+      </method>
+    </object>
+    <object name="ExifDatumIterator" cname="Exiv2ExifDatumIterator" parent="Exiv2ExifDatum">
+      <field name="Priv" cname="priv" type="Exiv2ExifDatumIteratorPrivate*" />
+      <method name="Equals" cname="exiv2_exifdatumiterator_equals">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="Exiv2ExifDatumIterator*" name="other" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="exiv2_exifdatumiterator_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="Next" cname="exiv2_exifdatumiterator_next">
+        <return-type type="void" />
       </method>
     </object>
     <object name="Image" cname="Exiv2Image" parent="GObject">
@@ -68,6 +131,21 @@
       </method>
       <method name="ReadMetadata" cname="exiv2_image_readMetadata">
         <return-type type="void" />
+        <parameters>
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+      <method name="SetExifData" cname="exiv2_image_set_exifData">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="Exiv2ExifData*" name="data" />
+        </parameters>
+      </method>
+      <method name="WriteMetadata" cname="exiv2_image_writeMetadata">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="GError**" name="error" />
+        </parameters>
       </method>
     </object>
     <object name="ImageFactory" cname="Exiv2ImageFactory" parent="GObject">

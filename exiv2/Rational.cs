@@ -1,5 +1,5 @@
 /*
- * ExifDatum.custom
+ * Exiv2.Rational.cs
  *
  * Author(s):
  *	Stephane Delcroix  (stephane@delcroix.org)
@@ -28,24 +28,24 @@
  *
  */
 
-public object Value {
-	set {
-		if (value is UInt16)
-			ValueUShort = (UInt16) value;
-		else if (value is UInt32)
-			ValueULong = (UInt32) value;
-		else if (value is Exiv2.URational)
-			SetValueURational (((Exiv2.URational)value).Numerator, ((Exiv2.URational)value).Denominator);
-		else if (value is Int16)
-			ValueSShort = (Int16) value;
-		else if (value is Int32)
-			ValueSLong = (Int32) value;
-		else if (value is Exiv2.Rational)
-			SetValueRational (((Exiv2.Rational)value).Numerator, ((Exiv2.Rational)value).Denominator);
-		else if (value is string)
-			ValueString = value as string;
-		else
-			throw new NotImplementedException ();
+namespace Exiv2
+{
+	public struct Rational
+	{
+		public Rational (int numerator, int denominator)
+		{
+			this.numerator = numerator;
+			this.denominator = denominator;
+		}
+
+		int numerator;
+		public int Numerator {
+			get { return numerator; }
+		}
+
+		int denominator;
+		public int Denominator {
+			get {return denominator; }
+		}
 	}
 }
-

@@ -1,0 +1,36 @@
+exiv2-sharp: a .Net and a GObject bindings for exiv2 (http://www.exiv2.org)
+
+Author(s):
+	Stephane Delcroix <stephane@delcroix.org>
+
+Copyright 2008 Novell, Inc.
+
+ABOUT exiv2-sharp:
+==================
+The exiv2-sharp package contains actually two bindings for exiv2. A GObject
+one, located in glue/, and a managed (.Net, Mono) in exiv2. The managed binding
+depends on the GObject one and require it to be installed.
+
+FEATURES:
+=========
+exiv2-sharp aim to be as featurefull as exiv2 is in both bindings
+
+SAMPLE CODE:
+============
+Find both gobject (.c files) and managed (.cs files) samples using the bindings
+in samples/
+
+USING IT:
+=========
+Look at the samples, do NOT forget to GLib.GType.Init () or g_type_init () before
+using any part of both bindings.
+
+BUGS:
+=====
+There's no such things as bugs in exiv2-sharp. But in case you'd find something
+that could eventually looks like it was a bug, drop me mail (no bugtracker yet)
+
+LICENSE:
+========
+This code is release under the MIT.X11 license, see COPYING or file headers for
+details.

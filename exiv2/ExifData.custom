@@ -2,28 +2,46 @@
  * ExifData.custom - customization to Exiv2.ExifData
  *
  * Author(s):
- *	Stephane Delcroix  <stephane@delcroix.org>
+ *	Stephane Delcroix  (stephane@delcroix.org)
  *
- * This is free software. See COPYING for details.
+ * Copyright (c) 2008 Novell
+ *
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
 
 [DllImport("libexiv2glue.dll")]
 static extern IntPtr exiv2_exifdata_begin(IntPtr raw);
 
-private Exiv2.ExifDatum Begin() {
+private Exiv2.ExifDatumIterator Begin() {
 	IntPtr raw_ret = exiv2_exifdata_begin(Handle);
-	Exiv2.ExifDatum ret = GLib.Object.GetObject(raw_ret) as Exiv2.ExifDatum;
+	Exiv2.ExifDatumIterator ret = GLib.Object.GetObject(raw_ret) as Exiv2.ExifDatumIterator;
 	return ret;
-}
+}[DllImport("libexiv2glue.dll")]
 
-
-[DllImport("libexiv2glue.dll")]
 static extern IntPtr exiv2_exifdata_end(IntPtr raw);
 
-private Exiv2.ExifDatum End() {
+private Exiv2.ExifDatumIterator End() {
 	IntPtr raw_ret = exiv2_exifdata_end(Handle);
-	Exiv2.ExifDatum ret = GLib.Object.GetObject(raw_ret) as Exiv2.ExifDatum;
+	Exiv2.ExifDatumIterator ret = GLib.Object.GetObject(raw_ret) as Exiv2.ExifDatumIterator;
 	return ret;
 }
 
@@ -42,8 +60,8 @@ class Enumerator : IEnumerator
 		this.exifdata = exifdata;
 	}
 
-	ExifDatum current = null;
-	ExifDatum end = null;
+	ExifDatumIterator current = null;
+	ExifDatumIterator end = null;
 
 	public object Current {
 		get { return current; } 
@@ -69,3 +87,26 @@ class Enumerator : IEnumerator
 		current = null;
 	}
 }
+
+[DllImport("libexiv2glue.dll")]
+static extern IntPtr exiv2_exifdata_get_this(IntPtr raw, IntPtr key);
+
+private Exiv2.ExifDatum GetThis(string key) {
+	IntPtr native_key = GLib.Marshaller.StringToPtrGStrdup (key);
+	IntPtr raw_ret = exiv2_exifdata_get_this(Handle, native_key);
+	Exiv2.ExifDatum ret = GLib.Object.GetObject(raw_ret) as Exiv2.ExifDatum;
+	GLib.Marshaller.Free (native_key);
+	return ret;
+}
+
+public object this [string key]
+{
+	get { return GetThis (key); }
+	set {
+		(GetThis (key) as ExifDatum).Value = value;
+	}
+}
+
+
+
+

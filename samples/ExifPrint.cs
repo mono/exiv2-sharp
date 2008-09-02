@@ -23,6 +23,7 @@ namespace Sample
 				GLib.LogFunc logFunc = new GLib.LogFunc (GLib.Log.PrintTraceLogFunction);
 				GLib.Log.SetLogHandler ("GLib", GLib.LogLevelFlags.Critical, logFunc);
 				GLib.Log.SetLogHandler ("GLib-GObject", GLib.LogLevelFlags.Critical, logFunc);
+				GLib.Log.SetLogHandler ("GLib-GObject", GLib.LogLevelFlags.Warning, logFunc);
 				if (args.Length != 1) {
 					Console.WriteLine ("Usage: ExifPrint.exe file");
 					System.Environment.Exit (1);

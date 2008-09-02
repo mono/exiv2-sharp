@@ -1,0 +1,12 @@
+exiv2-sharp 0.2 - Aug 29 2008 - private release
+-----------------------------------------------
+- can run the exifcomment sample
+- fixed the license and (c) headers
+- ready to be pushed on a VCS somewhere
+
+exiv2-sharp 0.1 - Aug 29 2008 - private release
+-----------------------------------------------
+- can run the exifprint sample
+- buildsystem working
+- private release 1, as checkpoint
+

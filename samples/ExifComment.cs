@@ -16,6 +16,7 @@ namespace Sample
 	{
 		static void Main (string [] args)
 		{
+			GLib.GType.Init ();
 			try {
 				if (args.Length != 1) {
 					Console.WriteLine ("Usage: ExifPrint.exe file");
@@ -37,9 +38,8 @@ namespace Sample
 				Following are a few examples of valid comments. The last one is written to
 				the file.
 				*/
-				Console.WriteLine ("usercomment {0}", exif_data ["Exif.Photo.UserComment"].ToString ());
-				Console.WriteLine ("usercomment {0}", exif_data ["Exif.Photo.UserComment"].ToString ());
-				Console.WriteLine ("usercomment {0}", exif_data ["Exif.Photo.UserComment"].ToString ());
+				
+				Console.WriteLine ("Reading user comment '{0}' from the image", exif_data["Exif.Photo.UserComment"]);
 
 			//	exif_data["Exif.Photo.UserComment"] = "charset=\"Unicode\" An Unicode Exif comment added with Exiv2";
 			//	exif_data["Exif.Photo.UserComment"] = "charset=\"Undefined\" An undefined Exif comment added with Exiv2";
@@ -49,8 +49,8 @@ namespace Sample
 				Console.WriteLine ("Writing user comment '{0}' back to the image", exif_data ["Exif.Photo.UserComment"]);
 				
 
-			} catch (Exiv2Exception e) {
-				Console.WriteLine ("Exiv2.Exception caught {0} {1}", e.Code, e.What);
+			} catch (GLib.GException e) {
+				Console.WriteLine ("Exiv2.Exception caught {0}", e);
 			}
 		}
 	}

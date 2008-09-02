@@ -1,5 +1,5 @@
 /*
- * ExifDatum.custom
+ * ExifDatumIterator.custom - customization to Exiv2.ExifData
  *
  * Author(s):
  *	Stephane Delcroix  (stephane@delcroix.org)
@@ -28,24 +28,20 @@
  *
  */
 
-public object Value {
-	set {
-		if (value is UInt16)
-			ValueUShort = (UInt16) value;
-		else if (value is UInt32)
-			ValueULong = (UInt32) value;
-		else if (value is Exiv2.URational)
-			SetValueURational (((Exiv2.URational)value).Numerator, ((Exiv2.URational)value).Denominator);
-		else if (value is Int16)
-			ValueSShort = (Int16) value;
-		else if (value is Int32)
-			ValueSLong = (Int32) value;
-		else if (value is Exiv2.Rational)
-			SetValueRational (((Exiv2.Rational)value).Numerator, ((Exiv2.Rational)value).Denominator);
-		else if (value is string)
-			ValueString = value as string;
-		else
-			throw new NotImplementedException ();
-	}
+[DllImport("libexiv2glue.dll")]
+static extern bool exiv2_exifdatumiterator_equals(IntPtr raw, IntPtr other);
+
+internal bool Equals(Exiv2.ExifDatumIterator other) {
+	bool raw_ret = exiv2_exifdatumiterator_equals(Handle, other == null ? IntPtr.Zero : other.Handle);
+	bool ret = raw_ret;
+	return ret;
 }
+
+[DllImport("libexiv2glue.dll")]
+static extern void exiv2_exifdatumiterator_next(IntPtr raw);
+
+internal void Next() {
+	exiv2_exifdatumiterator_next(Handle);
+}
+
 

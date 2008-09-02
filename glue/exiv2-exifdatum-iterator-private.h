@@ -1,5 +1,5 @@
 /*
- * ExifDatum.custom
+ * exiv2-exifdatum-private.h
  *
  * Author(s):
  *	Stephane Delcroix  (stephane@delcroix.org)
@@ -27,25 +27,19 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
+#ifndef __EXIV2_EXIFDATUMITERATOR_PRIVATE_H__
+#define __EXIV2_EXIFDATUMITERATOR_PRIVATE_H__
 
-public object Value {
-	set {
-		if (value is UInt16)
-			ValueUShort = (UInt16) value;
-		else if (value is UInt32)
-			ValueULong = (UInt32) value;
-		else if (value is Exiv2.URational)
-			SetValueURational (((Exiv2.URational)value).Numerator, ((Exiv2.URational)value).Denominator);
-		else if (value is Int16)
-			ValueSShort = (Int16) value;
-		else if (value is Int32)
-			ValueSLong = (Int32) value;
-		else if (value is Exiv2.Rational)
-			SetValueRational (((Exiv2.Rational)value).Numerator, ((Exiv2.Rational)value).Denominator);
-		else if (value is string)
-			ValueString = value as string;
-		else
-			throw new NotImplementedException ();
-	}
-}
+#include "exiv2-exifdatum-iterator.h"
+#include <exiv2/exif.hpp>
 
+G_BEGIN_DECLS
+
+struct _Exiv2ExifDatumIteratorPrivate
+{
+	Exiv2::ExifMetadata::iterator iterator;
+};
+
+G_END_DECLS
+
+#endif /* __EXIV2_EXIFDATUMITERATOR_PRIVATE_H__ */

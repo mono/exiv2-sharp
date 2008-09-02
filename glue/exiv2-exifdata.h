@@ -1,10 +1,31 @@
 /*
  * exiv2-exifdata.h
  *
- * Author(s)
- *	Stephane Delcroix  <stephane@delcroix.org>
+ * Author(s):
+ *	Stephane Delcroix  (stephane@delcroix.org)
  *
- * This is free software. See COPYING for details.
+ * Copyright (c) 2008 Novell
+ *
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
  */
 
 #ifndef __EXIV2_EXIFDATA_H__
@@ -12,6 +33,7 @@
 
 #include <glib-object.h>
 #include "exiv2-exifdatum.h"
+#include "exiv2-exifdatum-iterator.h"
 
 G_BEGIN_DECLS
 
@@ -42,11 +64,18 @@ struct _Exiv2ExifDataClass
 
 };
 
-GType		exiv2_exifdata_get_type 	(void);
-long		exiv2_exifdata_get_count 	(Exiv2ExifData *self);
-gboolean	exiv2_exifdata_get_isEmpty	(Exiv2ExifData *self);
-Exiv2ExifDatum*	exiv2_exifdata_begin		(Exiv2ExifData *self);
-Exiv2ExifDatum*	exiv2_exifdata_end		(Exiv2ExifData *self);
+GType			exiv2_exifdata_get_type 	(void);
+
+Exiv2ExifData*		exiv2_exifdata_new		();
+long			exiv2_exifdata_get_count 	(Exiv2ExifData *self);
+gboolean		exiv2_exifdata_get_isEmpty	(Exiv2ExifData *self);
+
+Exiv2ExifDatumIterator*	exiv2_exifdata_begin		(Exiv2ExifData *self);
+Exiv2ExifDatumIterator*	exiv2_exifdata_end		(Exiv2ExifData *self);
+
+Exiv2ExifDatum*		exiv2_exifdata_get_this		(Exiv2ExifData *self, const char* key);
+
+void			exiv2_exifdata_erase		(Exiv2ExifData *self, const char* key);
 
 G_END_DECLS
 

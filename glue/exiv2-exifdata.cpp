@@ -1,15 +1,36 @@
 /*
  * exiv2-exifdata.cpp
  *
- * Author(s)
- *	Stephane Delcroix  <stephane@delcroix.org>
+ * Author(s):
+ *	Stephane Delcroix  (stephane@delcroix.org)
  *
- * This is free software. See COPYING for details.
+ * Copyright (c) 2008 Novell
+ *
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
  */
-
 #include "exiv2-exifdata.h"
 #include "exiv2-exifdata-private.h"
 #include "exiv2-exifdatum-private.h"
+#include "exiv2-exifdatum-iterator-private.h"
 #include <exiv2/exif.hpp>
 
 G_BEGIN_DECLS
@@ -29,6 +50,17 @@ exiv2_exifdata_class_init (Exiv2ExifDataClass *klass)
 	g_type_class_add_private (klass, sizeof	(Exiv2ExifDataPrivate));
 }
 
+Exiv2ExifData*
+exiv2_exifdata_new ()
+{
+	Exiv2ExifData *exifdata;
+	exifdata = EXIV2_EXIFDATA (g_object_new (EXIV2_TYPE_EXIFDATA, NULL));
+	exifdata->priv->data = new Exiv2::ExifData ();
+
+	return exifdata;
+	
+}
+
 long
 exiv2_exifdata_get_count (Exiv2ExifData *self)
 {
@@ -43,28 +75,48 @@ exiv2_exifdata_get_isEmpty (Exiv2ExifData *self)
 	return self->priv->data->empty ();
 }
 
-Exiv2ExifDatum*
+Exiv2ExifDatumIterator*
 exiv2_exifdata_begin (Exiv2ExifData *self)
 {
 	g_return_val_if_fail (EXIV2_IS_EXIFDATA (self), NULL);
 
-	Exiv2ExifDatum *datum;
-	datum = EXIV2_EXIFDATUM (g_object_new (EXIV2_TYPE_EXIFDATUM, NULL));
+	Exiv2ExifDatumIterator *datum;
+	datum = EXIV2_EXIFDATUMITERATOR (g_object_new (EXIV2_TYPE_EXIFDATUMITERATOR, NULL));
 	datum->priv->iterator = self->priv->data->begin ();
 
 	return datum;
 }
 
-Exiv2ExifDatum*
+Exiv2ExifDatumIterator*
 exiv2_exifdata_end (Exiv2ExifData *self)
 {
 	g_return_val_if_fail (EXIV2_IS_EXIFDATA (self), NULL);
 
-	Exiv2ExifDatum *datum;
-	datum = EXIV2_EXIFDATUM (g_object_new (EXIV2_TYPE_EXIFDATUM, NULL));
+	Exiv2ExifDatumIterator *datum;
+	datum = EXIV2_EXIFDATUMITERATOR (g_object_new (EXIV2_TYPE_EXIFDATUMITERATOR, NULL));
 	datum->priv->iterator = self->priv->data->end ();
 
 	return datum;
+}
+
+Exiv2ExifDatum*
+exiv2_exifdata_get_this	(Exiv2ExifData *self, const char *key)
+{
+	g_return_val_if_fail (EXIV2_IS_EXIFDATA (self), NULL);
+	Exiv2ExifDatum *datum;
+	datum = EXIV2_EXIFDATUM (g_object_new (EXIV2_TYPE_EXIFDATUM, NULL));
+	Exiv2::ExifData* data = self->priv->data;
+	Exiv2::Exifdatum* edatum = &((*data) [key]);
+	datum->priv->datum = edatum;
+
+	return datum;
+}
+
+void
+exiv2_exifdata_erase (Exiv2ExifData *self, const char* key)
+{
+	g_return_if_fail (EXIV2_IS_EXIFDATA (self));
+	self->priv->data->erase (self->priv->data->findKey (Exiv2::ExifKey (key)));
 }
 
 G_END_DECLS
