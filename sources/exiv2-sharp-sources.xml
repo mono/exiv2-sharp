@@ -1,0 +1,9 @@
+<gapi-parser-input>
+  <api filename="../exiv2/exiv2-api.raw">
+    <library name="libexiv2glue.dll">
+      <namespace name="Exiv2">
+        <dir>../glue</dir>
+      </namespace>
+    </library>
+  </api>
+</gapi-parser-input>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<api>
+  <!--
+
+        This file was automatically generated.
+        Please DO NOT MODIFY THIS FILE, modify .metadata files instead.
+
+-->
+  <namespace name="Exiv2" library="libexiv2glue.dll">
+    <object name="ImageFactory" cname="Exiv2ImageFactory" parent="GObject">
+      <method name="GetType" cname="exiv2_imagefactory_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </object>
+  </namespace>
+</api>
