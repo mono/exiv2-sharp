@@ -27,6 +27,7 @@ CLEANFILES =			\
 	*.mdb
 
 EXTRA_DIST =		\
+	$(SOURCES)	\
 	$(CUSTOMS)	\
 	exiv2-api.raw	\
 	Exiv2.metadata	

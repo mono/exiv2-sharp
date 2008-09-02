@@ -18,7 +18,13 @@
       <method name="Erase" cname="exiv2_exifdata_erase">
         <return-type type="void" />
         <parameters>
-          <parameter type="const-char*" name="key" />
+          <parameter type="Exiv2ExifKey*" name="key" />
+        </parameters>
+      </method>
+      <method name="FindKey" cname="exiv2_exifdata_find_key">
+        <return-type type="Exiv2ExifDatum*" />
+        <parameters>
+          <parameter type="Exiv2ExifKey*" name="key" />
         </parameters>
       </method>
       <method name="GetCount" cname="exiv2_exifdata_get_count">
@@ -118,6 +124,26 @@
         <return-type type="void" />
       </method>
     </object>
+    <object name="ExifKey" cname="Exiv2ExifKey" parent="Exiv2Key">
+      <field name="Priv" cname="priv" type="Exiv2ExifKeyPrivate*" />
+      <method name="GetIdx" cname="exiv2_exifkey_get_idx">
+        <return-type type="gint" />
+      </method>
+      <method name="GetIfdName" cname="exiv2_exifkey_get_ifdName">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetSectionName" cname="exiv2_exifkey_get_sectionName">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetType" cname="exiv2_exifkey_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="exiv2_exifkey_new">
+        <parameters>
+          <parameter type="const-char*" name="key" />
+        </parameters>
+      </constructor>
+    </object>
     <object name="Image" cname="Exiv2Image" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2ImagePrivate*" />
       <method name="GetExifData" cname="exiv2_image_get_exifData">
@@ -158,6 +184,29 @@
           <parameter type="const-char*" name="path" />
           <parameter type="GError**" name="error" />
         </parameters>
+      </method>
+    </object>
+    <object name="Key" cname="Exiv2Key" parent="GObject">
+      <method name="GetFamilyName" cname="exiv2_key_get_familyName">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetGroupName" cname="exiv2_key_get_groupName">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetTag" cname="exiv2_key_get_tag">
+        <return-type type="guint16" />
+      </method>
+      <method name="GetTagLabel" cname="exiv2_key_get_tagLabel">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetTagName" cname="exiv2_key_get_tagName">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetType" cname="exiv2_key_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="ToString" cname="exiv2_key_to_string">
+        <return-type type="const-char*" />
       </method>
     </object>
   </namespace>

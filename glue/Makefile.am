@@ -15,11 +15,16 @@ libexiv2glue_la_SOURCES =			\
 	exiv2-exifdatum-iterator.cpp		\
 	exiv2-exifdatum-iterator.h		\
 	exiv2-exifdatum-iterator-private.h	\
+	exiv2-exifkey.cpp			\
+	exiv2-exifkey.h				\
+	exiv2-exifkey-private.h			\
 	exiv2-image.cpp				\
 	exiv2-image.h				\
 	exiv2-image-private.h			\
 	exiv2-imagefactory.cpp			\
-	exiv2-imagefactory.h
+	exiv2-imagefactory.h			\
+	exiv2-key.cpp				\
+	exiv2-key.h
 
 libexiv2glue_la_INCLUDES =		\
 	exiv2-exifdata.h		\

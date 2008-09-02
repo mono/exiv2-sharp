@@ -15,6 +15,13 @@ FEATURES:
 =========
 exiv2-sharp aim to be as featurefull as exiv2 is in both bindings
 
+BUILDING IT:
+============
+- build and install the code in glue/
+- if glue code was modified, reparse the sources
+	- "make api" in sources
+- build the managed binding: "make" in exiv2
+
 SAMPLE CODE:
 ============
 Find both gobject (.c files) and managed (.cs files) samples using the bindings

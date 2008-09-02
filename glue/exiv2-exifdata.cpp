@@ -28,6 +28,7 @@
  *
  */
 #include "exiv2-exifdata.h"
+#include "exiv2-exifkey-private.h"
 #include "exiv2-exifdata-private.h"
 #include "exiv2-exifdatum-private.h"
 #include "exiv2-exifdatum-iterator-private.h"
@@ -57,8 +58,7 @@ exiv2_exifdata_new ()
 	exifdata = EXIV2_EXIFDATA (g_object_new (EXIV2_TYPE_EXIFDATA, NULL));
 	exifdata->priv->data = new Exiv2::ExifData ();
 
-	return exifdata;
-	
+	return exifdata;	
 }
 
 long
@@ -112,11 +112,22 @@ exiv2_exifdata_get_this	(Exiv2ExifData *self, const char *key)
 	return datum;
 }
 
+Exiv2ExifDatum*
+exiv2_exifdata_find_key	(Exiv2ExifData *self, Exiv2ExifKey* key)
+{
+	g_return_val_if_fail (EXIV2_IS_EXIFDATA (self), NULL);
+	Exiv2ExifDatumIterator *iterator;
+	iterator = EXIV2_EXIFDATUMITERATOR (g_object_new (EXIV2_TYPE_EXIFDATUMITERATOR, NULL));
+	iterator->priv->iterator = self->priv->data->findKey (*(key->priv->key));
+
+	return EXIV2_EXIFDATUM(iterator);
+}
+
 void
-exiv2_exifdata_erase (Exiv2ExifData *self, const char* key)
+exiv2_exifdata_erase (Exiv2ExifData *self, Exiv2ExifKey* key)
 {
 	g_return_if_fail (EXIV2_IS_EXIFDATA (self));
-	self->priv->data->erase (self->priv->data->findKey (Exiv2::ExifKey (key)));
+	self->priv->data->erase (self->priv->data->findKey (*(key->priv->key)));
 }
 
 G_END_DECLS

@@ -32,6 +32,7 @@
 #define __EXIV2_EXIFDATA_H__
 
 #include <glib-object.h>
+#include "exiv2-exifkey.h"
 #include "exiv2-exifdatum.h"
 #include "exiv2-exifdatum-iterator.h"
 
@@ -75,7 +76,8 @@ Exiv2ExifDatumIterator*	exiv2_exifdata_end		(Exiv2ExifData *self);
 
 Exiv2ExifDatum*		exiv2_exifdata_get_this		(Exiv2ExifData *self, const char* key);
 
-void			exiv2_exifdata_erase		(Exiv2ExifData *self, const char* key);
+Exiv2ExifDatum*		exiv2_exifdata_find_key		(Exiv2ExifData *self, Exiv2ExifKey* key);
+void			exiv2_exifdata_erase		(Exiv2ExifData *self, Exiv2ExifKey* key);
 
 G_END_DECLS
 

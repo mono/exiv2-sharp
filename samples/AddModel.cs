@@ -100,7 +100,7 @@ namespace Sample
 //				          << "\", new value \"" << pos->value() << "\"\n";
 
 
-				exifData.Erase ("Exif.Image.XResolution");
+				exifData.Erase (new ExifKey("Exif.Image.XResolution"));
 
 				//Finally, write the remaining data to the image file
 				Exiv2.Image image = ImageFactory.Open (args [0]);

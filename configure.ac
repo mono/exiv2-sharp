@@ -1,5 +1,5 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_INIT(exiv2-sharp, 0.3.0, stephane@delcroix.org)
+AC_INIT(exiv2-sharp, 0.3.1, stephane@delcroix.org)
 AC_CONFIG_AUX_DIR(config)
 AC_CONFIG_SRCDIR(glue/exiv2-imagefactory.cpp)
 
