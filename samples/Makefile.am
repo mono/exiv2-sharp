@@ -29,14 +29,17 @@ $(top_builddir)/lib/Exiv2.dll:
 exiv2-sharp.dll: $(top_builddir)/exiv2/exiv2-sharp.dll
 	cp $<* .
 
-exifprint: exifprint.c
-	gcc -o exifprint -I ../glue/ -L ../glue/.libs/ `pkg-config --libs --cflags gobject-2.0` -lexiv2glue exifprint.c
+exifprint: $(srcdir)/exifprint.c
+	gcc -o exifprint -I $(top_srcdir)/glue/ -L $(top_builddir)/glue/.libs/ `pkg-config --libs --cflags gobject-2.0` -lexiv2glue $(srcdir)/exifprint.c
 
 CLEANFILES =			\
 	ExifPrint.exe		\
 	ExifPrint.exe.mdb	\
 	ExifComment.exe		\
 	ExifComment.exe.mdb	\
+	AddModel.exe		\
+	AddModel.exe.mdb	\
+	exifprint		\
 	exiv2-sharp.dll		\
 	exiv2-sharp.dll.mdb
 
@@ -45,6 +48,7 @@ EXTRA_DIST = 			\
 	$(EXIFPRINT_CFILES)	\
 	$(ADDMODEL_CSFILES)	\
 	$(EXIFCOMMENT_CSFILES)	\
+	exifprint.c		\
 	AddModel		\
 	ExifPrint		\
 	ExifComment
