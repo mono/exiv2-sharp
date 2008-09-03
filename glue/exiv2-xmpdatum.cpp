@@ -168,12 +168,12 @@ exiv2_xmpdatum_toString (Exiv2XmpDatum *self)
 //	return self->priv->datum->count ();	
 //}
 //
-//const char*
-//exiv2_xmpdatum_real_toString (Exiv2XmpDatum *self)
-//{
-//	g_return_val_if_fail (EXIV2_IS_XMPDATUM (self), NULL);
-//	return self->priv->datum->toString ().c_str ();	
-//}
+const char*
+exiv2_xmpdatum_real_toString (Exiv2XmpDatum *self)
+{
+	g_return_val_if_fail (EXIV2_IS_XMPDATUM (self), NULL);
+	return self->priv->datum->toString ().c_str ();	
+}
 //
 //void exiv2_xmpdatum_real_setValueUShort (Exiv2XmpDatum *self, const uint16_t value)
 //{
