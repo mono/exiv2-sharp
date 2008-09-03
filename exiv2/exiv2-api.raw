@@ -155,6 +155,9 @@
       <method name="GetType" cname="exiv2_image_get_type" shared="true">
         <return-type type="GType" />
       </method>
+      <method name="GetXmpData" cname="exiv2_image_get_xmpData">
+        <return-type type="Exiv2XmpData*" />
+      </method>
       <method name="ReadMetadata" cname="exiv2_image_readMetadata">
         <return-type type="void" />
         <parameters>
@@ -208,6 +211,19 @@
       <method name="ToString" cname="exiv2_key_to_string">
         <return-type type="const-char*" />
       </method>
+    </object>
+    <object name="XmpData" cname="Exiv2XmpData" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2XmpDataPrivate*" />
+      <method name="GetCount" cname="exiv2_xmpdata_get_count">
+        <return-type type="long" />
+      </method>
+      <method name="GetIsEmpty" cname="exiv2_xmpdata_get_isEmpty">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetType" cname="exiv2_xmpdata_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="exiv2_xmpdata_new" />
     </object>
   </namespace>
 </api>
