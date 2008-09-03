@@ -29,6 +29,9 @@
  */
 #include "exiv2-xmpdata.h"
 #include "exiv2-xmpdata-private.h"
+#include "exiv2-xmpdatum-private.h"
+#include "exiv2-xmpdatum-iterator-private.h"
+#include "exiv2-xmpkey-private.h"
 #include <exiv2/xmp.hpp>
 
 G_BEGIN_DECLS
@@ -72,59 +75,59 @@ exiv2_xmpdata_get_isEmpty (Exiv2XmpData *self)
 	return self->priv->data->empty ();
 }
 
-//Exiv2ExifDatumIterator*
-//exiv2_xmpdata_begin (Exiv2XmpData *self)
-//{
-//	g_return_val_if_fail (EXIV2_IS_XMPDATA (self), NULL);
-//
-//	Exiv2ExifDatumIterator *datum;
-//	datum = EXIV2_EXIFDATUMITERATOR (g_object_new (EXIV2_TYPE_EXIFDATUMITERATOR, NULL));
-//	datum->priv->iterator = self->priv->data->begin ();
-//
-//	return datum;
-//}
-//
-//Exiv2ExifDatumIterator*
-//exiv2_xmpdata_end (Exiv2XmpData *self)
-//{
-//	g_return_val_if_fail (EXIV2_IS_XMPDATA (self), NULL);
-//
-//	Exiv2ExifDatumIterator *datum;
-//	datum = EXIV2_EXIFDATUMITERATOR (g_object_new (EXIV2_TYPE_EXIFDATUMITERATOR, NULL));
-//	datum->priv->iterator = self->priv->data->end ();
-//
-//	return datum;
-//}
-//
-//Exiv2ExifDatum*
-//exiv2_xmpdata_get_this	(Exiv2XmpData *self, const char *key)
-//{
-//	g_return_val_if_fail (EXIV2_IS_XMPDATA (self), NULL);
-//	Exiv2ExifDatum *datum;
-//	datum = EXIV2_EXIFDATUM (g_object_new (EXIV2_TYPE_EXIFDATUM, NULL));
-//	Exiv2::XmpData* data = self->priv->data;
-//	Exiv2::Exifdatum* edatum = &((*data) [key]);
-//	datum->priv->datum = edatum;
-//
-//	return datum;
-//}
-//
-//Exiv2ExifDatum*
-//exiv2_xmpdata_find_key	(Exiv2XmpData *self, Exiv2ExifKey* key)
-//{
-//	g_return_val_if_fail (EXIV2_IS_XMPDATA (self), NULL);
-//	Exiv2ExifDatumIterator *iterator;
-//	iterator = EXIV2_EXIFDATUMITERATOR (g_object_new (EXIV2_TYPE_EXIFDATUMITERATOR, NULL));
-//	iterator->priv->iterator = self->priv->data->findKey (*(key->priv->key));
-//
-//	return EXIV2_EXIFDATUM(iterator);
-//}
-//
-//void
-//exiv2_xmpdata_erase (Exiv2XmpData *self, Exiv2ExifKey* key)
-//{
-//	g_return_if_fail (EXIV2_IS_XMPDATA (self));
-//	self->priv->data->erase (self->priv->data->findKey (*(key->priv->key)));
-//}
-//
+Exiv2XmpDatumIterator*
+exiv2_xmpdata_begin (Exiv2XmpData *self)
+{
+	g_return_val_if_fail (EXIV2_IS_XMPDATA (self), NULL);
+
+	Exiv2XmpDatumIterator *datum;
+	datum = EXIV2_XMPDATUMITERATOR (g_object_new (EXIV2_TYPE_XMPDATUMITERATOR, NULL));
+	datum->priv->iterator = self->priv->data->begin ();
+
+	return datum;
+}
+
+Exiv2XmpDatumIterator*
+exiv2_xmpdata_end (Exiv2XmpData *self)
+{
+	g_return_val_if_fail (EXIV2_IS_XMPDATA (self), NULL);
+
+	Exiv2XmpDatumIterator *datum;
+	datum = EXIV2_XMPDATUMITERATOR (g_object_new (EXIV2_TYPE_XMPDATUMITERATOR, NULL));
+	datum->priv->iterator = self->priv->data->end ();
+
+	return datum;
+}
+
+Exiv2XmpDatum*
+exiv2_xmpdata_get_this	(Exiv2XmpData *self, const char *key)
+{
+	g_return_val_if_fail (EXIV2_IS_XMPDATA (self), NULL);
+	Exiv2XmpDatum *datum;
+	datum = EXIV2_XMPDATUM (g_object_new (EXIV2_TYPE_XMPDATUM, NULL));
+	Exiv2::XmpData* data = self->priv->data;
+	Exiv2::Xmpdatum* edatum = &((*data) [key]);
+	datum->priv->datum = edatum;
+
+	return datum;
+}
+
+Exiv2XmpDatum*
+exiv2_xmpdata_find_key	(Exiv2XmpData *self, Exiv2XmpKey* key)
+{
+	g_return_val_if_fail (EXIV2_IS_XMPDATA (self), NULL);
+	Exiv2XmpDatumIterator *iterator;
+	iterator = EXIV2_XMPDATUMITERATOR (g_object_new (EXIV2_TYPE_XMPDATUMITERATOR, NULL));
+	iterator->priv->iterator = self->priv->data->findKey (*(key->priv->key));
+
+	return EXIV2_XMPDATUM(iterator);
+}
+
+void
+exiv2_xmpdata_erase (Exiv2XmpData *self, Exiv2XmpKey* key)
+{
+	g_return_if_fail (EXIV2_IS_XMPDATA (self));
+	self->priv->data->erase (self->priv->data->findKey (*(key->priv->key)));
+}
+
 G_END_DECLS

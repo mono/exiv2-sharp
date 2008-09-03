@@ -32,6 +32,8 @@
 #define __EXIV2_XMPDATA_H__
 
 #include <glib-object.h>
+#include "exiv2-xmpdatum-iterator.h"
+#include "exiv2-xmpkey.h"
 
 G_BEGIN_DECLS
 
@@ -68,13 +70,13 @@ Exiv2XmpData*		exiv2_xmpdata_new		();
 long			exiv2_xmpdata_get_count 	(Exiv2XmpData *self);
 gboolean		exiv2_xmpdata_get_isEmpty	(Exiv2XmpData *self);
 
-//Exiv2ExifDatumIterator*	exiv2_xmpdata_begin		(Exiv2XmpData *self);
-//Exiv2ExifDatumIterator*	exiv2_xmpdata_end		(Exiv2XmpData *self);
-//
-//Exiv2ExifDatum*		exiv2_xmpdata_get_this		(Exiv2XmpData *self, const char* key);
-//
-//Exiv2ExifDatum*		exiv2_xmpdata_find_key		(Exiv2XmpData *self, Exiv2ExifKey* key);
-//void			exiv2_xmpdata_erase		(Exiv2XmpData *self, Exiv2ExifKey* key);
+Exiv2XmpDatumIterator*	exiv2_xmpdata_begin		(Exiv2XmpData *self);
+Exiv2XmpDatumIterator*	exiv2_xmpdata_end		(Exiv2XmpData *self);
+
+Exiv2XmpDatum*		exiv2_xmpdata_get_this		(Exiv2XmpData *self, const char* key);
+
+Exiv2XmpDatum*		exiv2_xmpdata_find_key		(Exiv2XmpData *self, Exiv2XmpKey* key);
+void			exiv2_xmpdata_erase		(Exiv2XmpData *self, Exiv2XmpKey* key);
 
 G_END_DECLS
 

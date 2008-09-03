@@ -1,3 +1,16 @@
+2008-09-03  Stephane Delcroix  <stephane@delcroix.org>
+
+	* exiv2-xmpkey.h:
+	* exiv2-xmpkey.cpp:
+	* exiv2-xmpkey-private.h:
+	* exiv2-xmpdatum.h:
+	* exiv2-xmpdatum.cpp:
+	* exiv2-xmpdatum-private.h:
+	* exiv2-xmpdatum-iterator.h:
+	* exiv2-xmpdatum-iterator.cpp:
+	* exiv2-xmpdatum-iterator-private.h: XmpKey, XmpDatum, XmpDatumIterator 
+	types.
+
 2008-09-02  Stephane Delcroix  <stephane@delcroix.org>
 
 	* exiv2-xmpdata.h:
