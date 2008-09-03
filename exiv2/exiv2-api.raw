@@ -214,16 +214,78 @@
     </object>
     <object name="XmpData" cname="Exiv2XmpData" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2XmpDataPrivate*" />
+      <method name="Begin" cname="exiv2_xmpdata_begin">
+        <return-type type="Exiv2XmpDatumIterator*" />
+      </method>
+      <method name="End" cname="exiv2_xmpdata_end">
+        <return-type type="Exiv2XmpDatumIterator*" />
+      </method>
+      <method name="Erase" cname="exiv2_xmpdata_erase">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="Exiv2XmpKey*" name="key" />
+        </parameters>
+      </method>
+      <method name="FindKey" cname="exiv2_xmpdata_find_key">
+        <return-type type="Exiv2XmpDatum*" />
+        <parameters>
+          <parameter type="Exiv2XmpKey*" name="key" />
+        </parameters>
+      </method>
       <method name="GetCount" cname="exiv2_xmpdata_get_count">
         <return-type type="long" />
       </method>
       <method name="GetIsEmpty" cname="exiv2_xmpdata_get_isEmpty">
         <return-type type="gboolean" />
       </method>
+      <method name="GetThis" cname="exiv2_xmpdata_get_this">
+        <return-type type="Exiv2XmpDatum*" />
+        <parameters>
+          <parameter type="const-char*" name="key" />
+        </parameters>
+      </method>
       <method name="GetType" cname="exiv2_xmpdata_get_type" shared="true">
         <return-type type="GType" />
       </method>
       <constructor cname="exiv2_xmpdata_new" />
+    </object>
+    <object name="XmpDatum" cname="Exiv2XmpDatum" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2XmpDatumPrivate*" />
+      <method name="GetType" cname="exiv2_xmpdatum_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="ToString" cname="exiv2_xmpdatum_toString">
+        <return-type type="const-char*" />
+      </method>
+    </object>
+    <object name="XmpDatumIterator" cname="Exiv2XmpDatumIterator" parent="Exiv2XmpDatum">
+      <field name="Priv" cname="priv" type="Exiv2XmpDatumIteratorPrivate*" />
+      <method name="Equals" cname="exiv2_xmpdatumiterator_equals">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="Exiv2XmpDatumIterator*" name="other" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="exiv2_xmpdatumiterator_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="Next" cname="exiv2_xmpdatumiterator_next">
+        <return-type type="void" />
+      </method>
+    </object>
+    <object name="XmpKey" cname="Exiv2XmpKey" parent="Exiv2Key">
+      <field name="Priv" cname="priv" type="Exiv2XmpKeyPrivate*" />
+      <method name="GetNs" cname="exiv2_xmpkey_get_ns">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetType" cname="exiv2_xmpkey_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="exiv2_xmpkey_new">
+        <parameters>
+          <parameter type="const-char*" name="key" />
+        </parameters>
+      </constructor>
     </object>
   </namespace>
 </api>

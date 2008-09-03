@@ -1,5 +1,9 @@
 2008-09-03  Stephane Delcroix  <stephane@delcroix.org>
 
+	* exiv2-api.raw: regenerated
+
+2008-09-03  Stephane Delcroix  <stephane@delcroix.org>
+
 	* Makefile.am: include the generated files in distribution
 
 2008-09-02  Stephane Delcroix  <stephane@delcroix.org>
