@@ -1,0 +1,4 @@
+#!/bin/bash
+
+LD_LIBRARY_PATH=$LD_LIBRARY_PATH:../glue/.libs mono --debug XmpSample.exe $@
+#gdb --eval-command=run --args mono --debug XmpSample.exe $@
