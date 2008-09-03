@@ -12,7 +12,7 @@ using Exiv2;
 
 namespace Sample
 {
-	public class ExifPrint
+	public class XmpSample
 	{
 		static void Main (string [] args)
 		{
@@ -39,14 +39,9 @@ namespace Sample
 
 				Console.WriteLine ("Xmp count: {0}", xmp_data.Count);
 
-//				foreach (ExifDatum datum in exif_data)
-//					Console.WriteLine ("{0} {1} {2} {3} {4}",
-//							datum.Key,
-//							datum.Tag, 
-//							datum.Typename,
-//							datum.Count,
-//							datum.ToString ());
-//
+				foreach (XmpDatum datum in xmp_data)
+					Console.WriteLine ("{0} {1} {2} {3}", datum.Key, datum.Typename, datum.Count, datum.ToString ());
+
 			} catch (GLib.GException e) {
 				Console.WriteLine ("Exiv2.Exception caught {0}", e);
 			}

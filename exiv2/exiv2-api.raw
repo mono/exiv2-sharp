@@ -251,8 +251,20 @@
     </object>
     <object name="XmpDatum" cname="Exiv2XmpDatum" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2XmpDatumPrivate*" />
+      <method name="GetCount" cname="exiv2_xmpdatum_get_count">
+        <return-type type="glong" />
+      </method>
+      <method name="GetKey" cname="exiv2_xmpdatum_get_key">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetTag" cname="exiv2_xmpdatum_get_tag">
+        <return-type type="guint16" />
+      </method>
       <method name="GetType" cname="exiv2_xmpdatum_get_type" shared="true">
         <return-type type="GType" />
+      </method>
+      <method name="GetTypename" cname="exiv2_xmpdatum_get_typename">
+        <return-type type="const-char*" />
       </method>
       <method name="ToString" cname="exiv2_xmpdatum_toString">
         <return-type type="const-char*" />

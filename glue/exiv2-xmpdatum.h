@@ -60,10 +60,10 @@ struct _Exiv2XmpDatumClass
 	GObjectClass parent_class;
 
 	/* virtual public methods */
-//	const char* 	(*get_key) 		(Exiv2XmpDatum *self);
-//	guint16		(*get_tag)		(Exiv2XmpDatum *self);
-//	const char*	(*get_typename)		(Exiv2XmpDatum *self);
-//	glong		(*get_count)		(Exiv2XmpDatum *self);
+	const char* 	(*get_key) 		(Exiv2XmpDatum *self);
+	guint16		(*get_tag)		(Exiv2XmpDatum *self);
+	const char*	(*get_typename)		(Exiv2XmpDatum *self);
+	glong		(*get_count)		(Exiv2XmpDatum *self);
 	const char*	(*toString)		(Exiv2XmpDatum *self);
 
 	void		(*set_value_ushort)	(Exiv2XmpDatum *self, const guint16 value);
@@ -76,10 +76,10 @@ struct _Exiv2XmpDatumClass
 };
 
 GType		exiv2_xmpdatum_get_type 	(void);
-//const char*	exiv2_xmpdatum_get_key		(Exiv2XmpDatum *self);
-//guint16		exiv2_xmpdatum_get_tag		(Exiv2XmpDatum *self);
-//const char*	exiv2_xmpdatum_get_typename	(Exiv2XmpDatum *self);
-//glong		exiv2_xmpdatum_get_count	(Exiv2XmpDatum *self);
+const char*	exiv2_xmpdatum_get_key		(Exiv2XmpDatum *self);
+guint16		exiv2_xmpdatum_get_tag		(Exiv2XmpDatum *self);
+const char*	exiv2_xmpdatum_get_typename	(Exiv2XmpDatum *self);
+glong		exiv2_xmpdatum_get_count	(Exiv2XmpDatum *self);
 const char*	exiv2_xmpdatum_toString	(Exiv2XmpDatum *self);
 
 //void		exiv2_xmpdatum_setValueUShort		(Exiv2XmpDatum *self, const guint16 value);

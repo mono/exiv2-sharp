@@ -35,10 +35,10 @@ G_BEGIN_DECLS
 
 G_DEFINE_TYPE (Exiv2XmpDatum, exiv2_xmpdatum, G_TYPE_OBJECT);
 
-//const char*	exiv2_xmpdatum_real_get_key 		(Exiv2XmpDatum *self);
-//guint16		exiv2_xmpdatum_real_get_tag		(Exiv2XmpDatum *self);
-//const char*	exiv2_xmpdatum_real_get_typename	(Exiv2XmpDatum *self);
-//glong		exiv2_xmpdatum_real_get_count 		(Exiv2XmpDatum *self);
+const char*	exiv2_xmpdatum_real_get_key 		(Exiv2XmpDatum *self);
+guint16		exiv2_xmpdatum_real_get_tag		(Exiv2XmpDatum *self);
+const char*	exiv2_xmpdatum_real_get_typename	(Exiv2XmpDatum *self);
+glong		exiv2_xmpdatum_real_get_count 		(Exiv2XmpDatum *self);
 const char*	exiv2_xmpdatum_real_toString 		(Exiv2XmpDatum *self);
 
 //void		exiv2_xmpdatum_real_setValueUShort		(Exiv2XmpDatum *self, const guint16 value);
@@ -59,10 +59,10 @@ exiv2_xmpdatum_init (Exiv2XmpDatum *self)
 static void
 exiv2_xmpdatum_class_init (Exiv2XmpDatumClass *klass)
 {
-//	klass->get_key = exiv2_xmpdatum_real_get_key;
-//	klass->get_tag = exiv2_xmpdatum_real_get_tag;
-//	klass->get_typename = exiv2_xmpdatum_real_get_typename;
-//	klass->get_count = exiv2_xmpdatum_real_get_count;
+	klass->get_key = exiv2_xmpdatum_real_get_key;
+	klass->get_tag = exiv2_xmpdatum_real_get_tag;
+	klass->get_typename = exiv2_xmpdatum_real_get_typename;
+	klass->get_count = exiv2_xmpdatum_real_get_count;
 	klass->toString = exiv2_xmpdatum_real_toString;
 //	klass->set_value_ushort		= exiv2_xmpdatum_real_setValueUShort;
 //	klass->set_value_ulong		= exiv2_xmpdatum_real_setValueULong;
@@ -75,29 +75,29 @@ exiv2_xmpdatum_class_init (Exiv2XmpDatumClass *klass)
 	g_type_class_add_private (klass, sizeof	(Exiv2XmpDatumPrivate));
 }
 
-//const char*
-//exiv2_xmpdatum_get_key	(Exiv2XmpDatum *self)
-//{
-//	return EXIV2_XMPDATUM_GET_CLASS (self)->get_key (self);
-//}
-//
-//guint16
-//exiv2_xmpdatum_get_tag	(Exiv2XmpDatum *self)
-//{
-//	return EXIV2_XMPDATUM_GET_CLASS (self)->get_tag (self);
-//}
-//
-//const char*
-//exiv2_xmpdatum_get_typename (Exiv2XmpDatum *self)
-//{
-//	return EXIV2_XMPDATUM_GET_CLASS (self)->get_typename (self);
-//}
-//
-//glong
-//exiv2_xmpdatum_get_count (Exiv2XmpDatum *self)
-//{
-//	return EXIV2_XMPDATUM_GET_CLASS (self)->get_count (self);
-//}
+const char*
+exiv2_xmpdatum_get_key	(Exiv2XmpDatum *self)
+{
+	return EXIV2_XMPDATUM_GET_CLASS (self)->get_key (self);
+}
+
+guint16
+exiv2_xmpdatum_get_tag	(Exiv2XmpDatum *self)
+{
+	return EXIV2_XMPDATUM_GET_CLASS (self)->get_tag (self);
+}
+
+const char*
+exiv2_xmpdatum_get_typename (Exiv2XmpDatum *self)
+{
+	return EXIV2_XMPDATUM_GET_CLASS (self)->get_typename (self);
+}
+
+glong
+exiv2_xmpdatum_get_count (Exiv2XmpDatum *self)
+{
+	return EXIV2_XMPDATUM_GET_CLASS (self)->get_count (self);
+}
 
 const char*
 exiv2_xmpdatum_toString (Exiv2XmpDatum *self)
@@ -138,36 +138,36 @@ exiv2_xmpdatum_toString (Exiv2XmpDatum *self)
 //{
 //	return EXIV2_XMPDATUM_GET_CLASS (self)->set_value_string (self, value);		
 //}
-//
-//const char*
-//exiv2_xmpdatum_real_get_key (Exiv2XmpDatum *self)
-//{
-//	g_return_val_if_fail (EXIV2_IS_XMPDATUM (self), NULL);
-//	return self->priv->datum->key ().c_str ();	
-//}
-//
-//guint16
-//exiv2_xmpdatum_real_get_tag (Exiv2XmpDatum *self)
-//{
-//	g_return_val_if_fail (EXIV2_IS_XMPDATUM (self), -1);
-//	return self->priv->datum->tag ();	
-//}
-//
-//
-//const char*
-//exiv2_xmpdatum_real_get_typename (Exiv2XmpDatum *self)
-//{
-//	g_return_val_if_fail (EXIV2_IS_XMPDATUM (self), NULL);
-//	return self->priv->datum->typeName ();
-//}
-//
-//glong
-//exiv2_xmpdatum_real_get_count (Exiv2XmpDatum *self)
-//{
-//	g_return_val_if_fail (EXIV2_IS_XMPDATUM (self), -1);
-//	return self->priv->datum->count ();	
-//}
-//
+
+const char*
+exiv2_xmpdatum_real_get_key (Exiv2XmpDatum *self)
+{
+	g_return_val_if_fail (EXIV2_IS_XMPDATUM (self), NULL);
+	return self->priv->datum->key ().c_str ();	
+}
+
+guint16
+exiv2_xmpdatum_real_get_tag (Exiv2XmpDatum *self)
+{
+	g_return_val_if_fail (EXIV2_IS_XMPDATUM (self), -1);
+	return self->priv->datum->tag ();	
+}
+
+
+const char*
+exiv2_xmpdatum_real_get_typename (Exiv2XmpDatum *self)
+{
+	g_return_val_if_fail (EXIV2_IS_XMPDATUM (self), NULL);
+	return self->priv->datum->typeName ();
+}
+
+glong
+exiv2_xmpdatum_real_get_count (Exiv2XmpDatum *self)
+{
+	g_return_val_if_fail (EXIV2_IS_XMPDATUM (self), -1);
+	return self->priv->datum->count ();	
+}
+
 const char*
 exiv2_xmpdatum_real_toString (Exiv2XmpDatum *self)
 {

@@ -35,10 +35,10 @@ G_BEGIN_DECLS
 
 G_DEFINE_TYPE (Exiv2XmpDatumIterator, exiv2_xmpdatumiterator, EXIV2_TYPE_XMPDATUM);
 
-//const char*	exiv2_xmpdatumiterator_real_get_key 		(Exiv2XmpDatum *self);
-//guint16		exiv2_xmpdatumiterator_real_get_tag		(Exiv2XmpDatum *self);
-//const char*	exiv2_xmpdatumiterator_real_get_typename	(Exiv2XmpDatum *self);
-//glong		exiv2_xmpdatumiterator_real_get_count 		(Exiv2XmpDatum *self);
+const char*	exiv2_xmpdatumiterator_real_get_key 		(Exiv2XmpDatum *self);
+guint16		exiv2_xmpdatumiterator_real_get_tag		(Exiv2XmpDatum *self);
+const char*	exiv2_xmpdatumiterator_real_get_typename	(Exiv2XmpDatum *self);
+glong		exiv2_xmpdatumiterator_real_get_count 		(Exiv2XmpDatum *self);
 const char*	exiv2_xmpdatumiterator_real_toString 		(Exiv2XmpDatum *self);
 
 
@@ -54,10 +54,10 @@ exiv2_xmpdatumiterator_class_init (Exiv2XmpDatumIteratorClass *klass)
 {
 	Exiv2XmpDatumClass *xmpdatum_class = EXIV2_XMPDATUM_CLASS (klass);
 
-//	xmpdatum_class->get_key = 		exiv2_xmpdatumiterator_real_get_key;
-//	xmpdatum_class->get_tag = 		exiv2_xmpdatumiterator_real_get_tag;
-//	xmpdatum_class->get_typename =		exiv2_xmpdatumiterator_real_get_typename;
-//	xmpdatum_class->get_count = 		exiv2_xmpdatumiterator_real_get_count;
+	xmpdatum_class->get_key = 		exiv2_xmpdatumiterator_real_get_key;
+	xmpdatum_class->get_tag = 		exiv2_xmpdatumiterator_real_get_tag;
+	xmpdatum_class->get_typename =		exiv2_xmpdatumiterator_real_get_typename;
+	xmpdatum_class->get_count = 		exiv2_xmpdatumiterator_real_get_count;
 	xmpdatum_class->toString = 		exiv2_xmpdatumiterator_real_toString;
 
 	g_type_class_add_private (klass, sizeof	(Exiv2XmpDatumIteratorPrivate));
@@ -81,37 +81,37 @@ exiv2_xmpdatumiterator_equals (Exiv2XmpDatumIterator *self, Exiv2XmpDatumIterato
 	
 }
 
-//const char*
-//exiv2_xmpdatumiterator_real_get_key (Exiv2XmpDatum *self)
-//{
-//	g_return_val_if_fail (EXIV2_IS_XMPDATUMITERATOR (self), NULL);
-//	Exiv2XmpDatumIterator* iterator = EXIV2_XMPDATUMITERATOR (self);
-//	return iterator->priv->iterator->key ().c_str ();
-//}
-//
-//guint16
-//exiv2_xmpdatumiterator_real_get_tag	(Exiv2XmpDatum *self)
-//{
-//	g_return_val_if_fail (EXIV2_IS_XMPDATUMITERATOR (self), -1);
-//	Exiv2XmpDatumIterator* iterator = EXIV2_XMPDATUMITERATOR (self);
-//	return iterator->priv->iterator->tag ();	
-//}
-//
-//const char*
-//exiv2_xmpdatumiterator_real_get_typename (Exiv2XmpDatum *self)
-//{
-//	g_return_val_if_fail (EXIV2_IS_XMPDATUMITERATOR (self), NULL);
-//	Exiv2XmpDatumIterator* iterator = EXIV2_XMPDATUMITERATOR (self);
-//	return iterator->priv->iterator->typeName ();		
-//}
-//
-//glong
-//exiv2_xmpdatumiterator_real_get_count (Exiv2XmpDatum *self)
-//{
-//	g_return_val_if_fail (EXIV2_IS_XMPDATUMITERATOR (self), -1);
-//	Exiv2XmpDatumIterator* iterator = EXIV2_XMPDATUMITERATOR (self);
-//	return iterator->priv->iterator->count ();			
-//}
+const char*
+exiv2_xmpdatumiterator_real_get_key (Exiv2XmpDatum *self)
+{
+	g_return_val_if_fail (EXIV2_IS_XMPDATUMITERATOR (self), NULL);
+	Exiv2XmpDatumIterator* iterator = EXIV2_XMPDATUMITERATOR (self);
+	return iterator->priv->iterator->key ().c_str ();
+}
+
+guint16
+exiv2_xmpdatumiterator_real_get_tag	(Exiv2XmpDatum *self)
+{
+	g_return_val_if_fail (EXIV2_IS_XMPDATUMITERATOR (self), -1);
+	Exiv2XmpDatumIterator* iterator = EXIV2_XMPDATUMITERATOR (self);
+	return iterator->priv->iterator->tag ();	
+}
+
+const char*
+exiv2_xmpdatumiterator_real_get_typename (Exiv2XmpDatum *self)
+{
+	g_return_val_if_fail (EXIV2_IS_XMPDATUMITERATOR (self), NULL);
+	Exiv2XmpDatumIterator* iterator = EXIV2_XMPDATUMITERATOR (self);
+	return iterator->priv->iterator->typeName ();		
+}
+
+glong
+exiv2_xmpdatumiterator_real_get_count (Exiv2XmpDatum *self)
+{
+	g_return_val_if_fail (EXIV2_IS_XMPDATUMITERATOR (self), -1);
+	Exiv2XmpDatumIterator* iterator = EXIV2_XMPDATUMITERATOR (self);
+	return iterator->priv->iterator->count ();			
+}
 
 const char*
 exiv2_xmpdatumiterator_real_toString (Exiv2XmpDatum *self)

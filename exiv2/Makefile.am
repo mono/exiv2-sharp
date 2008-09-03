@@ -14,7 +14,8 @@ exiv2-api.xml: $(srcdir)/exiv2-api.raw $(srcdir)/Exiv2.metadata
 CUSTOMS =					\
 	$(srcdir)/ExifData.custom		\
 	$(srcdir)/ExifDatum.custom		\
-	$(srcdir)/ExifDatumIterator.custom
+	$(srcdir)/ExifDatumIterator.custom	\
+	$(srcdir)/XmpDatum.custom
 
 SOURCES =					\
 	$(srcdir)/Rational.cs			\
