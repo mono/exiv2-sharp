@@ -21,7 +21,6 @@ SOURCES =					\
 	$(srcdir)/URational.cs
 
 CLEANFILES =			\
-	generated/*		\
 	exiv2-api.xml		\
 	exiv2-sharp.dll		\
 	*.mdb
@@ -30,6 +29,7 @@ EXTRA_DIST =		\
 	$(SOURCES)	\
 	$(CUSTOMS)	\
 	exiv2-api.raw	\
+	generated/*.cs	\
 	Exiv2.metadata	
 
-
+.PHONY = codegen all
