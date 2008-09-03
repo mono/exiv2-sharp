@@ -32,6 +32,8 @@
 
 #include <glib-object.h>
 #include "exiv2-exifdata.h"
+#include "exiv2-xmpdata.h"
+
 
 G_BEGIN_DECLS
 
@@ -62,14 +64,15 @@ struct _Exiv2ImageClass
 
 };
 
-GType exiv2_image_get_type (void);
+GType 		exiv2_image_get_type		(void);
 
-void		exiv2_image_readMetadata (Exiv2Image *self, GError **error);
-void		exiv2_image_writeMetadata (Exiv2Image *self, GError **error);
+void		exiv2_image_readMetadata	(Exiv2Image *self, GError **error);
+void		exiv2_image_writeMetadata	(Exiv2Image *self, GError **error);
 
-gboolean	exiv2_image_get_good (Exiv2Image *self);
-Exiv2ExifData*	exiv2_image_get_exifData (Exiv2Image *self);
-void		exiv2_image_set_exifData (Exiv2Image *self, Exiv2ExifData *data);
+gboolean	exiv2_image_get_good		(Exiv2Image *self);
+Exiv2ExifData*	exiv2_image_get_exifData	(Exiv2Image *self);
+void		exiv2_image_set_exifData	(Exiv2Image *self, Exiv2ExifData *data);
+Exiv2XmpData*	exiv2_image_get_xmpData		(Exiv2Image *self);
 
 G_END_DECLS
 

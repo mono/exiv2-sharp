@@ -1,0 +1,12 @@
+2008-09-02  Stephane Delcroix  <stephane@delcroix.org>
+
+	* exiv2-xmpdata.h:
+	* exiv2-xmpdata.cpp:
+	* exiv2-xmpdata-private.h: XmpData type
+
+	* exiv2-image.h:
+	* exiv2-image.cpp: get_xmpData accessor
+
+2008-09-02  Stephane Delcroix  <stephane@delcroix.org>
+
+	First public commit

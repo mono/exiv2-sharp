@@ -31,8 +31,8 @@
 #include <exiv2/image.hpp>
 #include "exiv2-image.h"
 #include "exiv2-image-private.h"
-#include "exiv2-exifdata.h"
 #include "exiv2-exifdata-private.h"
+#include "exiv2-xmpdata-private.h"
 
 G_BEGIN_DECLS
 G_DEFINE_TYPE (Exiv2Image, exiv2_image, G_TYPE_OBJECT);
@@ -99,6 +99,18 @@ exiv2_image_set_exifData (Exiv2Image *self, Exiv2ExifData *data)
 	g_return_if_fail (EXIV2_IS_IMAGE (self));
 
 	self->priv->imptr->setExifData (*(data->priv->data));
+}
+
+Exiv2XmpData*
+exiv2_image_get_xmpData (Exiv2Image *self)
+{
+	g_return_val_if_fail (EXIV2_IS_IMAGE (self), NULL);
+
+	Exiv2XmpData *xmpdata;
+	xmpdata = EXIV2_XMPDATA (g_object_new (EXIV2_TYPE_XMPDATA, NULL));
+	xmpdata->priv->data = &(self->priv->imptr->xmpData ());
+
+	return xmpdata;
 }
 
 G_END_DECLS
