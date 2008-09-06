@@ -19,4 +19,5 @@ exiv2/Makefile
 glue/Makefile
 sources/Makefile
 samples/Makefile
+docs/Makefile
 )
