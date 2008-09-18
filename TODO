@@ -1,5 +1,4 @@
 Image:
 	byteorder
 	iptc set/get
-	clearmetadata
 	checkmode
