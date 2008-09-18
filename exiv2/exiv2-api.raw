@@ -146,6 +146,9 @@
     </object>
     <object name="Image" cname="Exiv2Image" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2ImagePrivate*" />
+      <method name="ClearMetadata" cname="exiv2_image_clearMetadata">
+        <return-type type="void" />
+      </method>
       <method name="ClearComment" cname="exiv2_image_clear_comment">
         <return-type type="void" />
       </method>
