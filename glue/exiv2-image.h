@@ -70,6 +70,9 @@ void		exiv2_image_readMetadata	(Exiv2Image *self, GError **error);
 void		exiv2_image_writeMetadata	(Exiv2Image *self, GError **error);
 
 gboolean	exiv2_image_get_good		(Exiv2Image *self);
+const char*	exiv2_image_get_mimeType	(Exiv2Image *self);
+int		exiv2_image_get_pixelWidth	(Exiv2Image *self);
+int		exiv2_image_get_pixelHeight	(Exiv2Image *self);
 Exiv2ExifData*	exiv2_image_get_exifData	(Exiv2Image *self);
 void		exiv2_image_set_exifData	(Exiv2Image *self, Exiv2ExifData *data);
 Exiv2XmpData*	exiv2_image_get_xmpData		(Exiv2Image *self);

@@ -81,6 +81,27 @@ exiv2_image_get_good (Exiv2Image *self)
 	return self->priv->imptr->good ();
 }
 
+const char*
+exiv2_image_get_mimeType (Exiv2Image *self)
+{
+	g_return_val_if_fail (EXIV2_IS_IMAGE (self), NULL);
+	return self->priv->imptr->mimeType ().c_str ();	
+}
+
+int
+exiv2_image_get_pixelWidth (Exiv2Image *self)
+{
+	g_return_val_if_fail (EXIV2_IS_IMAGE (self), -1);
+	return self->priv->imptr->pixelWidth ();	
+}
+
+int
+exiv2_image_get_pixelHeight (Exiv2Image *self)
+{
+	g_return_val_if_fail (EXIV2_IS_IMAGE (self), -1);
+	return self->priv->imptr->pixelHeight ();	
+}
+
 Exiv2ExifData*
 exiv2_image_get_exifData (Exiv2Image *self)
 {
