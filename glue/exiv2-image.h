@@ -68,6 +68,7 @@ GType 		exiv2_image_get_type		(void);
 
 void		exiv2_image_readMetadata	(Exiv2Image *self, GError **error);
 void		exiv2_image_writeMetadata	(Exiv2Image *self, GError **error);
+void		exiv2_image_clearMetadata	(Exiv2Image *self);
 
 gboolean	exiv2_image_get_good		(Exiv2Image *self);
 const char*	exiv2_image_get_mimeType	(Exiv2Image *self);

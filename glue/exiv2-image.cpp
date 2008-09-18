@@ -74,6 +74,13 @@ exiv2_image_writeMetadata (Exiv2Image *self, GError **error)
 	}
 }
 
+void
+exiv2_image_clearMetadata (Exiv2Image *self)
+{
+	g_return_if_fail (EXIV2_IS_IMAGE (self));
+	self->priv->imptr->clearMetadata ();	
+}
+
 gboolean
 exiv2_image_get_good (Exiv2Image *self)
 {

@@ -1,5 +1,9 @@
 2008-09-18  Stephane Delcroix  <sdelcroix@novell.com>
 
+	* exiv2-image.h|cpp: clearMetadata
+
+2008-09-18  Stephane Delcroix  <sdelcroix@novell.com>
+
 	* exiv2-image.h|cpp: set/get/clear comment
 
 2008-09-18  Stephane Delcroix  <sdelcroix@novell.com>
