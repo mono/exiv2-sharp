@@ -1,4 +1,4 @@
-all: ExifPrint.exe ExifComment.exe AddModel.exe exifprint XmpSample.exe
+all: ExifPrint.exe ExifComment.exe AddModel.exe exifprint XmpSample.exe ImageInfo.exe
 
 FLAGS=-debug -pkg:glib-sharp-2.0 -pkg:gtk-sharp-2.0
 
@@ -17,6 +17,9 @@ EXIFPRINT_CFILES =		\
 XMPSAMPLE_CSFILES =		\
 	$(srcdir)/XmpSample.cs
 
+IMAGEINFO_CSFILES =		\
+	$(srcdir)/ImageInfo.cs
+
 ExifPrint.exe: $(EXIFPRINT_CSFILES) exiv2-sharp.dll
 	gmcs $(FLAGS) -out:$@ $< -r:exiv2-sharp.dll
 
@@ -27,6 +30,9 @@ AddModel.exe: $(ADDMODEL_CSFILES) exiv2-sharp.dll
 	gmcs $(FLAGS) -out:$@ $< -r:exiv2-sharp.dll
 
 XmpSample.exe: $(XMPSAMPLE_CSFILES) exiv2-sharp.dll
+	gmcs $(FLAGS) -out:$@ $< -r:exiv2-sharp.dll
+
+ImageInfo.exe: $(IMAGEINFO_CSFILES) exiv2-sharp.dll
 	gmcs $(FLAGS) -out:$@ $< -r:exiv2-sharp.dll
 
 $(top_builddir)/lib/Exiv2.dll:
