@@ -33,6 +33,8 @@ namespace Sample
 				Console.WriteLine ("comment: {0}", image.Comment);
 
 				image.Comment = "new comment";
+				//image.ClearMetadata ();
+
 				image.WriteMetadata ();
 
 			} catch (GLib.GException e) {
