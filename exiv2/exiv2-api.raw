@@ -152,6 +152,15 @@
       <method name="GetGood" cname="exiv2_image_get_good">
         <return-type type="gboolean" />
       </method>
+      <method name="GetMimeType" cname="exiv2_image_get_mimeType">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetPixelHeight" cname="exiv2_image_get_pixelHeight">
+        <return-type type="int" />
+      </method>
+      <method name="GetPixelWidth" cname="exiv2_image_get_pixelWidth">
+        <return-type type="int" />
+      </method>
       <method name="GetType" cname="exiv2_image_get_type" shared="true">
         <return-type type="GType" />
       </method>
