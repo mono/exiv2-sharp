@@ -1,2 +1,5 @@
-- Xmp, Iptc
-- map the ExifValue type
+Image:
+	byteorder
+	iptc set/get
+	clearmetadata
+	checkmode
