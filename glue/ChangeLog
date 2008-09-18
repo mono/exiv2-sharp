@@ -1,5 +1,9 @@
 2008-09-18  Stephane Delcroix  <sdelcroix@novell.com>
 
+	* exiv2-image.h|cpp: set/get/clear comment
+
+2008-09-18  Stephane Delcroix  <sdelcroix@novell.com>
+
 	* exiv2-image.h|cpp: mimetype, pixelwidth, pixelheight
 
 2008-09-03  Stephane Delcroix  <stephane@delcroix.org>

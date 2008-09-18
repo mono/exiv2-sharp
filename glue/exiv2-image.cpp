@@ -102,6 +102,25 @@ exiv2_image_get_pixelHeight (Exiv2Image *self)
 	return self->priv->imptr->pixelHeight ();	
 }
 
+const char*
+exiv2_image_get_comment (Exiv2Image *self)
+{
+	g_return_val_if_fail (EXIV2_IS_IMAGE (self), NULL);
+	return self->priv->imptr->comment ().c_str ();	
+}
+
+void exiv2_image_set_comment (Exiv2Image *self, const char* comment)
+{
+	g_return_if_fail (EXIV2_IS_IMAGE (self));
+	self->priv->imptr->setComment (comment);
+}
+
+void exiv2_image_clear_comment (Exiv2Image *self)
+{
+	g_return_if_fail (EXIV2_IS_IMAGE (self));
+	self->priv->imptr->clearComment ();	
+}
+
 Exiv2ExifData*
 exiv2_image_get_exifData (Exiv2Image *self)
 {
