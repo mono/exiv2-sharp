@@ -146,6 +146,12 @@
     </object>
     <object name="Image" cname="Exiv2Image" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2ImagePrivate*" />
+      <method name="ClearComment" cname="exiv2_image_clear_comment">
+        <return-type type="void" />
+      </method>
+      <method name="GetComment" cname="exiv2_image_get_comment">
+        <return-type type="const-char*" />
+      </method>
       <method name="GetExifData" cname="exiv2_image_get_exifData">
         <return-type type="Exiv2ExifData*" />
       </method>
@@ -171,6 +177,12 @@
         <return-type type="void" />
         <parameters>
           <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+      <method name="SetComment" cname="exiv2_image_set_comment">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="comment" />
         </parameters>
       </method>
       <method name="SetExifData" cname="exiv2_image_set_exifData">
