@@ -30,6 +30,11 @@ namespace Sample
 				Console.WriteLine ("Mime type: {0}", image.MimeType);
 				Console.WriteLine ("pixel width: {0}", image.PixelWidth);
 				Console.WriteLine ("pixel height: {0}", image.PixelHeight);
+				Console.WriteLine ("comment: {0}", image.Comment);
+
+				image.Comment = "new comment";
+				image.WriteMetadata ();
+
 			} catch (GLib.GException e) {
 				Console.WriteLine ("Exiv2.Exception caught {0}", e);
 			}
