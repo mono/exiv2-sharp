@@ -2,3 +2,6 @@ Image:
 	byteorder
 	iptc set/get
 	checkmode
+
+ExifThumb:
+	copy

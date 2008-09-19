@@ -18,6 +18,9 @@ libexiv2glue_la_SOURCES =			\
 	exiv2-exifkey.cpp			\
 	exiv2-exifkey.h				\
 	exiv2-exifkey-private.h			\
+	exiv2-exifthumb.cpp			\
+	exiv2-exifthumb.h			\
+	exiv2-exifthumb-private.h		\
 	exiv2-image.cpp				\
 	exiv2-image.h				\
 	exiv2-image-private.h			\

@@ -39,6 +39,9 @@
           <parameter type="const-char*" name="key" />
         </parameters>
       </method>
+      <method name="GetThumb" cname="exiv2_exifdata_get_thumb">
+        <return-type type="Exiv2ExifThumb*" />
+      </method>
       <method name="GetType" cname="exiv2_exifdata_get_type" shared="true">
         <return-type type="GType" />
       </method>
@@ -143,6 +146,24 @@
           <parameter type="const-char*" name="key" />
         </parameters>
       </constructor>
+    </object>
+    <object name="ExifThumb" cname="Exiv2ExifThumb" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2ExifThumbPrivate*" />
+      <method name="GetExtension" cname="exiv2_exifthumb_get_extension">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetMimeType" cname="exiv2_exifthumb_get_mimeType">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetType" cname="exiv2_exifthumb_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="WriteFile" cname="exiv2_exifthumb_writeFile">
+        <return-type type="long" />
+        <parameters>
+          <parameter type="const-char*" name="path" />
+        </parameters>
+      </method>
     </object>
     <object name="Image" cname="Exiv2Image" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2ImagePrivate*" />

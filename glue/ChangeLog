@@ -1,3 +1,8 @@
+2008-09-19  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* exiv2-exifthumb.h|cpp:
+	* exiv2-exifthumb-private.h: map the new (0.18) ExifThumb class
+
 2008-09-18  Stephane Delcroix  <sdelcroix@novell.com>
 
 	* exiv2-image.h|cpp: clearMetadata

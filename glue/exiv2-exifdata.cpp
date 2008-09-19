@@ -32,6 +32,7 @@
 #include "exiv2-exifdata-private.h"
 #include "exiv2-exifdatum-private.h"
 #include "exiv2-exifdatum-iterator-private.h"
+#include "exiv2-exifthumb-private.h"
 #include <exiv2/exif.hpp>
 
 G_BEGIN_DECLS
@@ -128,6 +129,17 @@ exiv2_exifdata_erase (Exiv2ExifData *self, Exiv2ExifKey* key)
 {
 	g_return_if_fail (EXIV2_IS_EXIFDATA (self));
 	self->priv->data->erase (self->priv->data->findKey (*(key->priv->key)));
+}
+
+Exiv2ExifThumb*
+exiv2_exifdata_get_thumb (Exiv2ExifData *self)
+{
+	g_return_val_if_fail (EXIV2_IS_EXIFDATA (self), NULL);
+	Exiv2ExifThumb *thumb;
+	thumb = EXIV2_EXIFTHUMB (g_object_new (EXIV2_TYPE_EXIFTHUMB, NULL));
+	thumb->priv->thumb = new Exiv2::ExifThumb (*(self->priv->data)); 
+
+	return thumb;
 }
 
 G_END_DECLS

@@ -35,6 +35,7 @@
 #include "exiv2-exifkey.h"
 #include "exiv2-exifdatum.h"
 #include "exiv2-exifdatum-iterator.h"
+#include "exiv2-exifthumb.h"
 
 G_BEGIN_DECLS
 
@@ -78,6 +79,8 @@ Exiv2ExifDatum*		exiv2_exifdata_get_this		(Exiv2ExifData *self, const char* key)
 
 Exiv2ExifDatum*		exiv2_exifdata_find_key		(Exiv2ExifData *self, Exiv2ExifKey* key);
 void			exiv2_exifdata_erase		(Exiv2ExifData *self, Exiv2ExifKey* key);
+
+Exiv2ExifThumb*		exiv2_exifdata_get_thumb	(Exiv2ExifData *self);
 
 G_END_DECLS
 
