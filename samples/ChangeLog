@@ -1,3 +1,7 @@
+2008-09-19  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* ExifThumb: new sample, extracts the exif thumbnail
+
 2008-09-18  Stephane Delcroix  <sdelcroix@novell.com>
 
 	* ImageInfo.cs: new test to fill the missing part of Image
