@@ -6,6 +6,9 @@ INCLUDES =				\
 	$(GOBJECT_CFLAGS)
 
 libexiv2glue_la_SOURCES =			\
+	exiv2-databuf.cpp			\
+	exiv2-databuf.h				\
+	exiv2-databuf-private.h			\
 	exiv2-exifdata.cpp			\
 	exiv2-exifdata.h			\
 	exiv2-exifdata-private.h		\

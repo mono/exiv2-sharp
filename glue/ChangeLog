@@ -1,3 +1,10 @@
+2008-09-21  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* exiv2-databuf*: map the Exiv2::DataBuf, meant to be used internally
+	only. FIXME: byte* to byte[] marshalling
+
+	* exiv2-exifthumb.h|cpp: map copy().
+
 2008-09-19  Stephane Delcroix  <sdelcroix@novell.com>
 
 	* exiv2-exifthumb.h|cpp:

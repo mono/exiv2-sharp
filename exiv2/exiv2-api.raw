@@ -7,6 +7,18 @@
 
 -->
   <namespace name="Exiv2" library="libexiv2glue.dll">
+    <object name="DataBuf" cname="Exiv2DataBuf" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2DataBufPrivate*" />
+      <method name="GetPData" cname="exiv2_databuf_get_pData">
+        <return-type type="guint8*" />
+      </method>
+      <method name="GetSize" cname="exiv2_databuf_get_size">
+        <return-type type="glong" />
+      </method>
+      <method name="GetType" cname="exiv2_databuf_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </object>
     <object name="ExifData" cname="Exiv2ExifData" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2ExifDataPrivate*" />
       <method name="Begin" cname="exiv2_exifdata_begin">
@@ -149,6 +161,9 @@
     </object>
     <object name="ExifThumb" cname="Exiv2ExifThumb" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2ExifThumbPrivate*" />
+      <method name="Copy" cname="exiv2_exifthumb_copy">
+        <return-type type="Exiv2DataBuf*" owned="true" />
+      </method>
       <method name="GetExtension" cname="exiv2_exifthumb_get_extension">
         <return-type type="const-char*" />
       </method>
@@ -159,7 +174,7 @@
         <return-type type="GType" />
       </method>
       <method name="WriteFile" cname="exiv2_exifthumb_writeFile">
-        <return-type type="long" />
+        <return-type type="glong" />
         <parameters>
           <parameter type="const-char*" name="path" />
         </parameters>

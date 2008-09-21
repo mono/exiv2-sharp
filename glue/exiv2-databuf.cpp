@@ -1,5 +1,5 @@
 /*
- * exiv2-exifthumb.cpp
+ * exiv2-databuf.cpp
  *
  * Author(s):
  *	Stephane Delcroix  (stephane@delcroix.org)
@@ -27,59 +27,40 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
-#include "exiv2-exifthumb.h"
-#include "exiv2-exifthumb-private.h"
+#include <glib-object.h>
+#include "exiv2-databuf.h"
 #include "exiv2-databuf-private.h"
-#include <exiv2/exif.hpp>
 
 G_BEGIN_DECLS
-
-G_DEFINE_TYPE (Exiv2ExifThumb, exiv2_exifthumb, G_TYPE_OBJECT);
-
-static void
-exiv2_exifthumb_init (Exiv2ExifThumb *self)
-{
-	Exiv2ExifThumbPrivate *priv;
-	self->priv = priv = EXIV2_EXIFTHUMB_GET_PRIVATE (self);
-}
+G_DEFINE_TYPE (Exiv2DataBuf, exiv2_databuf, G_TYPE_OBJECT);
 
 static void
-exiv2_exifthumb_class_init (Exiv2ExifThumbClass *klass)
+exiv2_databuf_init (Exiv2DataBuf *self)
 {
-	g_type_class_add_private (klass, sizeof	(Exiv2ExifThumbPrivate));
+	Exiv2DataBufPrivate *priv;
+	self->priv = priv = EXIV2_DATABUF_GET_PRIVATE (self);
+
+	/* Initialize members */
 }
 
-const char*
-exiv2_exifthumb_get_mimeType (Exiv2ExifThumb *self)
+static void
+exiv2_databuf_class_init (Exiv2DataBufClass *klass)
 {
-	g_return_val_if_fail (EXIV2_IS_EXIFTHUMB (self), NULL);
-	return self->priv->thumb->mimeType ();
+	g_type_class_add_private (klass, sizeof	(Exiv2DataBufPrivate));
 }
 
-const char*
-exiv2_exifthumb_get_extension (Exiv2ExifThumb *self)
+guint8*
+exiv2_databuf_get_pData	(Exiv2DataBuf* self)
 {
-	g_return_val_if_fail (EXIV2_IS_EXIFTHUMB (self), NULL);
-	return self->priv->thumb->extension ();
+	g_return_val_if_fail (EXIV2_IS_DATABUF (self), NULL);
+	return self->priv->buf.pData_;
 }
 
 glong
-exiv2_exifthumb_writeFile (Exiv2ExifThumb *self, const char* path)
+exiv2_databuf_get_size (Exiv2DataBuf* self)
 {
-	g_return_val_if_fail (EXIV2_IS_EXIFTHUMB (self), NULL);
-	return self->priv->thumb->writeFile (path);	
-}
-
-Exiv2DataBuf*
-exiv2_exifthumb_copy (Exiv2ExifThumb *self)
-{
-	g_return_val_if_fail (EXIV2_IS_DATABUF (self), NULL);
-
-	Exiv2DataBuf *databuf;
-	databuf = EXIV2_DATABUF (g_object_new (EXIV2_TYPE_DATABUF, NULL));
-	databuf->priv->buf = self->priv->thumb->copy ();
-
-	return databuf;	
+	g_return_val_if_fail (EXIV2_IS_DATABUF (self), -1);
+	return self->priv->buf.size_;	
 }
 
 G_END_DECLS

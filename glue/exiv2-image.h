@@ -84,4 +84,4 @@ Exiv2XmpData*	exiv2_image_get_xmpData		(Exiv2Image *self);
 
 G_END_DECLS
 
-#endif /*  __EXIV2_IMAGEFACTORY_H__ */
+#endif /*  __EXIV2_IMAGE_H__ */

@@ -32,6 +32,7 @@
 #define __EXIV2_EXIFTHUMB_H__
 
 #include <glib-object.h>
+#include "exiv2-databuf.h"
 
 G_BEGIN_DECLS
 
@@ -66,7 +67,8 @@ GType			exiv2_exifthumb_get_type 	(void);
 
 const char*		exiv2_exifthumb_get_mimeType	(Exiv2ExifThumb *self);
 const char*		exiv2_exifthumb_get_extension	(Exiv2ExifThumb *self);
-long			exiv2_exifthumb_writeFile	(Exiv2ExifThumb *self, const char* path);
+glong			exiv2_exifthumb_writeFile	(Exiv2ExifThumb *self, const char* path);
+Exiv2DataBuf*		exiv2_exifthumb_copy		(Exiv2ExifThumb *self);
 
 G_END_DECLS
 
