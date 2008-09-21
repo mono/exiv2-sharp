@@ -289,6 +289,36 @@
         <return-type type="const-char*" />
       </method>
     </object>
+    <object name="Rational" cname="Exiv2Rational" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2RationalPrivate*" />
+      <method name="GetDenominator" cname="exiv2_rational_getDenominator">
+        <return-type type="gint32" />
+      </method>
+      <method name="GetNumerator" cname="exiv2_rational_getNumerator">
+        <return-type type="gint32" />
+      </method>
+      <method name="GetType" cname="exiv2_rational_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="exiv2_rational_new">
+        <parameters>
+          <parameter type="gint32" name="numerator" />
+          <parameter type="gint32" name="denominator" />
+        </parameters>
+      </constructor>
+      <method name="SetDenominator" cname="exiv2_rational_setDenominator">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint32" name="denominator" />
+        </parameters>
+      </method>
+      <method name="SetNumerator" cname="exiv2_rational_setNumerator">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="gint32" name="numerator" />
+        </parameters>
+      </method>
+    </object>
     <object name="XmpData" cname="Exiv2XmpData" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2XmpDataPrivate*" />
       <method name="Begin" cname="exiv2_xmpdata_begin">

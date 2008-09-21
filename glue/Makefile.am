@@ -31,6 +31,12 @@ libexiv2glue_la_SOURCES =			\
 	exiv2-imagefactory.h			\
 	exiv2-key.cpp				\
 	exiv2-key.h				\
+	exiv2-rational.cpp			\
+	exiv2-rational.h			\
+	exiv2-rational-private.h		\
+	exiv2-urational.cpp			\
+	exiv2-urational.h			\
+	exiv2-urational-private.h		\
 	exiv2-xmpdata.cpp			\
 	exiv2-xmpdata.h				\
 	exiv2-xmpdata-private.h			\

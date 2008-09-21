@@ -4,4 +4,6 @@ Image:
 	checkmode
 
 ExifThumb:
-	copy
+	setters as Set_ methods ?
+DataBuf:
+	byte[] return-type

@@ -18,7 +18,6 @@ CUSTOMS =					\
 	$(srcdir)/XmpDatum.custom
 
 SOURCES =					\
-	$(srcdir)/Rational.cs			\
 	$(srcdir)/URational.cs
 
 CLEANFILES =			\
