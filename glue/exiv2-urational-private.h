@@ -27,8 +27,8 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  *
  */
-#ifndef __EXIV2_EXIFTHUMB_PRIVATE_H__
-#define __EXIV2_EXIFTHUMB_PRIVATE_H__
+#ifndef __EXIV2_URATIONAL_PRIVATE_H__
+#define __EXIV2_URATIONAL_PRIVATE_H__
 
 #include "exiv2-urational.h"
 #include <exiv2/exif.hpp>
@@ -42,4 +42,4 @@ struct _Exiv2URationalPrivate
 
 G_END_DECLS
 
-#endif /* __EXIV2_EXIFTHUMB_PRIVATE_H__ */
+#endif /* __EXIV2_URATIONAL_PRIVATE_H__ */

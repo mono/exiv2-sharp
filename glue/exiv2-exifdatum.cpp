@@ -29,6 +29,8 @@
  */
 #include "exiv2-exifdatum.h"
 #include "exiv2-exifdatum-private.h"
+#include "exiv2-rational-private.h"
+#include "exiv2-urational-private.h"
 #include <exiv2/exif.hpp>
 
 G_BEGIN_DECLS
@@ -43,10 +45,10 @@ const char*	exiv2_exifdatum_real_toString 		(Exiv2ExifDatum *self);
 
 void		exiv2_exifdatum_real_setValueUShort		(Exiv2ExifDatum *self, const guint16 value);
 void		exiv2_exifdatum_real_setValueULong		(Exiv2ExifDatum *self, const guint32 value);
-void		exiv2_exifdatum_real_setValueURational	(Exiv2ExifDatum *self, const guint32 numerator, const guint32 denominator);
+void		exiv2_exifdatum_real_setValueURational	(Exiv2ExifDatum *self, Exiv2URational *urational);
 void		exiv2_exifdatum_real_setValueSShort		(Exiv2ExifDatum *self, const gint16 value);
 void		exiv2_exifdatum_real_setValueSLong		(Exiv2ExifDatum *self, const gint32 value);
-void		exiv2_exifdatum_real_setValueRational	(Exiv2ExifDatum *self, const gint32 numerator, const gint32 denominator);
+void		exiv2_exifdatum_real_setValueRational	(Exiv2ExifDatum *self, Exiv2Rational *rational);
 void		exiv2_exifdatum_real_setValueString		(Exiv2ExifDatum *self, const char* value);
 
 static void
@@ -116,9 +118,9 @@ void exiv2_exifdatum_setValueULong (Exiv2ExifDatum *self, const guint32 value)
 {
 	return EXIV2_EXIFDATUM_GET_CLASS (self)->set_value_ulong (self, value);		
 }
-void exiv2_exifdatum_setValueURational (Exiv2ExifDatum *self, const guint32 numerator, const guint32 denominator)
+void exiv2_exifdatum_setValueURational (Exiv2ExifDatum *self, Exiv2URational *urational)
 {
-	return EXIV2_EXIFDATUM_GET_CLASS (self)->set_value_urational (self, numerator, denominator);		
+	return EXIV2_EXIFDATUM_GET_CLASS (self)->set_value_urational (self, urational);
 }
 
 void exiv2_exifdatum_setValueSShort (Exiv2ExifDatum *self, const gint16 value)
@@ -131,9 +133,9 @@ void exiv2_exifdatum_setValueSLong (Exiv2ExifDatum *self, const gint32 value)
 	return EXIV2_EXIFDATUM_GET_CLASS (self)->set_value_slong (self, value);		
 }
 
-void exiv2_exifdatum_setValueRational (Exiv2ExifDatum *self, const gint32 numerator, const gint32 denominator)
+void exiv2_exifdatum_setValueRational (Exiv2ExifDatum *self, Exiv2Rational *rational)
 {
-	return EXIV2_EXIFDATUM_GET_CLASS (self)->set_value_rational (self, numerator, denominator);
+	return EXIV2_EXIFDATUM_GET_CLASS (self)->set_value_rational (self, rational);
 }
 
 void exiv2_exifdatum_setValueString (Exiv2ExifDatum *self, const char* value)
@@ -191,11 +193,12 @@ void exiv2_exifdatum_real_setValueULong (Exiv2ExifDatum *self, const uint32_t va
 	(*datum) = value;	
 }
 
-void exiv2_exifdatum_real_setValueURational (Exiv2ExifDatum *self, const uint32_t numerator, const uint32_t denominator)
+void exiv2_exifdatum_real_setValueURational (Exiv2ExifDatum *self, Exiv2URational *urational)
 {
 	g_return_if_fail (EXIV2_IS_EXIFDATUM (self));
+	g_return_if_fail (EXIV2_IS_URATIONAL (urational));
 	Exiv2::Exifdatum* datum = self->priv->datum;
-	(*datum) = Exiv2::URational (numerator, denominator);
+	(*datum) = urational->priv->urational;
 }
 
 void exiv2_exifdatum_real_setValueSShort (Exiv2ExifDatum *self, const int16_t value)
@@ -212,11 +215,12 @@ void exiv2_exifdatum_real_setValueSLong (Exiv2ExifDatum *self, const int32_t val
 	(*datum) = value;	
 }
 
-void exiv2_exifdatum_real_setValueRational (Exiv2ExifDatum *self, const int32_t numerator, const int32_t denominator)
+void exiv2_exifdatum_real_setValueRational (Exiv2ExifDatum *self, Exiv2Rational *rational)
 {
 	g_return_if_fail (EXIV2_IS_EXIFDATUM (self));
+	g_return_if_fail (EXIV2_IS_RATIONAL (rational));
 	Exiv2::Exifdatum* datum = self->priv->datum;
-	(*datum) = Exiv2::Rational (numerator, denominator);	
+	(*datum) = rational->priv->rational;
 }
 
 void exiv2_exifdatum_real_setValueString (Exiv2ExifDatum *self, const char* value)

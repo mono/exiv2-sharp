@@ -31,6 +31,8 @@
 #define __EXIV2_EXIFDATUM_H__
 
 #include <glib-object.h>
+#include "exiv2-rational.h"
+#include "exiv2-urational.h"
 
 G_BEGIN_DECLS
 
@@ -68,10 +70,10 @@ struct _Exiv2ExifDatumClass
 
 	void		(*set_value_ushort)	(Exiv2ExifDatum *self, const guint16 value);
 	void		(*set_value_ulong)	(Exiv2ExifDatum *self, const guint32 value);
-	void		(*set_value_urational)	(Exiv2ExifDatum *self, const guint32 denominator, const guint32 numerator);
+	void		(*set_value_urational)	(Exiv2ExifDatum *self, Exiv2URational *urational);
 	void		(*set_value_sshort)	(Exiv2ExifDatum *self, const gint16 value);
 	void		(*set_value_slong)	(Exiv2ExifDatum *self, const gint32 value);
-	void		(*set_value_rational)	(Exiv2ExifDatum *self, const gint32 numerator, const gint32 denominator);
+	void		(*set_value_rational)	(Exiv2ExifDatum *self, Exiv2Rational *rational);
 	void		(*set_value_string)	(Exiv2ExifDatum *self, const char* value);
 };
 
@@ -84,10 +86,10 @@ const char*	exiv2_exifdatum_toString	(Exiv2ExifDatum *self);
 
 void		exiv2_exifdatum_setValueUShort		(Exiv2ExifDatum *self, const guint16 value);
 void		exiv2_exifdatum_setValueULong		(Exiv2ExifDatum *self, const guint32 value);
-void		exiv2_exifdatum_setValueURational	(Exiv2ExifDatum *self, const guint32 numerator, const guint32 denominator);
+void		exiv2_exifdatum_setValueURational	(Exiv2ExifDatum *self, Exiv2URational *urational);
 void		exiv2_exifdatum_setValueSShort		(Exiv2ExifDatum *self, const gint16 value);
 void		exiv2_exifdatum_setValueSLong		(Exiv2ExifDatum *self, const gint32 value);
-void		exiv2_exifdatum_setValueRational	(Exiv2ExifDatum *self, const gint32 numerator, const gint32 denominator);
+void		exiv2_exifdatum_setValueRational	(Exiv2ExifDatum *self, Exiv2Rational *rational);
 void		exiv2_exifdatum_setValueString		(Exiv2ExifDatum *self, const char* value);
 
 G_END_DECLS

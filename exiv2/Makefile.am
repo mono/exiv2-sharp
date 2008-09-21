@@ -17,8 +17,7 @@ CUSTOMS =					\
 	$(srcdir)/ExifDatumIterator.custom	\
 	$(srcdir)/XmpDatum.custom
 
-SOURCES =					\
-	$(srcdir)/URational.cs
+SOURCES =
 
 CLEANFILES =			\
 	exiv2-api.xml		\

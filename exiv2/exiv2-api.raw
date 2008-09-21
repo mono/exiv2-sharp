@@ -79,8 +79,7 @@
       <method name="SetValueRational" cname="exiv2_exifdatum_setValueRational">
         <return-type type="void" />
         <parameters>
-          <parameter type="const-gint32" name="numerator" />
-          <parameter type="const-gint32" name="denominator" />
+          <parameter type="Exiv2Rational*" name="rational" />
         </parameters>
       </method>
       <method name="SetValueSLong" cname="exiv2_exifdatum_setValueSLong">
@@ -110,8 +109,7 @@
       <method name="SetValueURational" cname="exiv2_exifdatum_setValueURational">
         <return-type type="void" />
         <parameters>
-          <parameter type="const-guint32" name="numerator" />
-          <parameter type="const-guint32" name="denominator" />
+          <parameter type="Exiv2URational*" name="urational" />
         </parameters>
       </method>
       <method name="SetValueUShort" cname="exiv2_exifdatum_setValueUShort">
@@ -316,6 +314,36 @@
         <return-type type="void" />
         <parameters>
           <parameter type="gint32" name="numerator" />
+        </parameters>
+      </method>
+    </object>
+    <object name="URational" cname="Exiv2URational" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2URationalPrivate*" />
+      <method name="GetDenominator" cname="exiv2_urational_getDenominator">
+        <return-type type="guint32" />
+      </method>
+      <method name="GetNumerator" cname="exiv2_urational_getNumerator">
+        <return-type type="guint32" />
+      </method>
+      <method name="GetType" cname="exiv2_urational_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="exiv2_urational_new">
+        <parameters>
+          <parameter type="guint32" name="numerator" />
+          <parameter type="guint32" name="denominator" />
+        </parameters>
+      </constructor>
+      <method name="SetDenominator" cname="exiv2_urational_setDenominator">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint32" name="denominator" />
+        </parameters>
+      </method>
+      <method name="SetNumerator" cname="exiv2_urational_setNumerator">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="guint32" name="numerator" />
         </parameters>
       </method>
     </object>

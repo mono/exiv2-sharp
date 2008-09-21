@@ -31,6 +31,8 @@
 #define __EXIV2_XMPDATUM_H__
 
 #include <glib-object.h>
+#include "exiv2-rational.h"
+#include "exiv2-urational.h"
 
 G_BEGIN_DECLS
 
@@ -68,10 +70,10 @@ struct _Exiv2XmpDatumClass
 
 	void		(*set_value_ushort)	(Exiv2XmpDatum *self, const guint16 value);
 	void		(*set_value_ulong)	(Exiv2XmpDatum *self, const guint32 value);
-	void		(*set_value_urational)	(Exiv2XmpDatum *self, const guint32 denominator, const guint32 numerator);
+	void		(*set_value_urational)	(Exiv2XmpDatum *self, Exiv2URational *urational);
 	void		(*set_value_sshort)	(Exiv2XmpDatum *self, const gint16 value);
 	void		(*set_value_slong)	(Exiv2XmpDatum *self, const gint32 value);
-	void		(*set_value_rational)	(Exiv2XmpDatum *self, const gint32 numerator, const gint32 denominator);
+	void		(*set_value_rational)	(Exiv2XmpDatum *self, Exiv2Rational *rational);
 	void		(*set_value_string)	(Exiv2XmpDatum *self, const char* value);
 };
 
