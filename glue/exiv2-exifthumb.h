@@ -33,6 +33,7 @@
 
 #include <glib-object.h>
 #include "exiv2-databuf.h"
+#include "exiv2-urational.h"
 
 G_BEGIN_DECLS
 
@@ -69,8 +70,10 @@ const char*		exiv2_exifthumb_get_mimeType	(Exiv2ExifThumb *self);
 const char*		exiv2_exifthumb_get_extension	(Exiv2ExifThumb *self);
 glong			exiv2_exifthumb_writeFile	(Exiv2ExifThumb *self, const char* path);
 Exiv2DataBuf*		exiv2_exifthumb_copy		(Exiv2ExifThumb *self);
-void			exiv2_exifthumb_jpegThumbnailPath (Exiv2ExifThumb *self, const char* path, GError **error);
-void			exiv2_exifthumb_jpegThumbnailBuf (Exiv2ExifThumb *self, const guint8 *buf, glong n_buf);
+void			exiv2_exifthumb_jpegThumbnailPath (Exiv2ExifThumb *self, const char* path, Exiv2URational *xres, Exiv2URational *yres, guint16 unit, GError **error);
+void			exiv2_exifthumb_jpegThumbnailPathSimple (Exiv2ExifThumb *self, const char* path, GError **error);
+void			exiv2_exifthumb_jpegThumbnailBuf (Exiv2ExifThumb *self, const guint8 *buf, Exiv2URational *xres, Exiv2URational *yres, guint16 unit, glong n_buf);
+void			exiv2_exifthumb_jpegThumbnailBufSimple (Exiv2ExifThumb *self, const guint8 *buf, glong n_buf);
 void			exiv2_exifthumb_erase		(Exiv2ExifThumb *self);
 
 G_END_DECLS

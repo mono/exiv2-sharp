@@ -30,7 +30,9 @@
 #include "exiv2-exifthumb.h"
 #include "exiv2-exifthumb-private.h"
 #include "exiv2-databuf-private.h"
+#include "exiv2-urational-private.h"
 #include <exiv2/error.hpp>
+#include <exiv2/types.hpp>
 #include <exiv2/exif.hpp>
 
 G_BEGIN_DECLS
@@ -84,7 +86,20 @@ exiv2_exifthumb_copy (Exiv2ExifThumb *self)
 }
 
 void
-exiv2_exifthumb_jpegThumbnailPath (Exiv2ExifThumb *self, const char* path, GError **error)
+exiv2_exifthumb_jpegThumbnailPath (Exiv2ExifThumb *self, const char* path, Exiv2URational *xres, Exiv2URational *yres, guint16 unit, GError **error)
+{
+	g_return_if_fail (EXIV2_IS_EXIFTHUMB (self));
+	g_return_if_fail (EXIV2_IS_URATIONAL (xres));
+	g_return_if_fail (EXIV2_IS_URATIONAL (yres));
+	try {
+		self->priv->thumb->setJpegThumbnail (path, xres->priv->urational, yres->priv->urational, unit);
+	} catch (Exiv2::Error e) {
+		g_set_error (error, g_quark_from_string ("Exiv2"), e.code (), e.what ());	
+	}	
+}
+
+void
+exiv2_exifthumb_jpegThumbnailPathSimple (Exiv2ExifThumb *self, const char* path, GError **error)
 {
 	g_return_if_fail (EXIV2_IS_EXIFTHUMB (self));
 	try {
@@ -95,7 +110,16 @@ exiv2_exifthumb_jpegThumbnailPath (Exiv2ExifThumb *self, const char* path, GErro
 }
 
 void
-exiv2_exifthumb_jpegThumbnailBuf (Exiv2ExifThumb *self, const guint8* buf, glong n_buf)
+exiv2_exifthumb_jpegThumbnailBuf (Exiv2ExifThumb *self, const guint8 *buf, Exiv2URational *xres, Exiv2URational *yres, guint16 unit, glong n_buf)
+{
+	g_return_if_fail (EXIV2_IS_EXIFTHUMB (self));
+	g_return_if_fail (EXIV2_IS_URATIONAL (xres));
+	g_return_if_fail (EXIV2_IS_URATIONAL (yres));
+	self->priv->thumb->setJpegThumbnail (buf, n_buf, xres->priv->urational, yres->priv->urational, unit);	
+}
+
+void
+exiv2_exifthumb_jpegThumbnailBufSimple (Exiv2ExifThumb *self, const guint8* buf, glong n_buf)
 {
 	g_return_if_fail (EXIV2_IS_EXIFTHUMB (self));
 	self->priv->thumb->setJpegThumbnail (buf, n_buf);
