@@ -176,6 +176,13 @@
       <method name="GetType" cname="exiv2_exifthumb_get_type" shared="true">
         <return-type type="GType" />
       </method>
+      <method name="JpegThumbnailBuf" cname="exiv2_exifthumb_jpegThumbnailBuf">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-guint8*" name="buf" />
+          <parameter type="glong" name="n_buf" />
+        </parameters>
+      </method>
       <method name="JpegThumbnailPath" cname="exiv2_exifthumb_jpegThumbnailPath">
         <return-type type="void" />
         <parameters>

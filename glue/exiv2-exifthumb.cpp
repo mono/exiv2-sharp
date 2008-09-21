@@ -95,6 +95,13 @@ exiv2_exifthumb_jpegThumbnailPath (Exiv2ExifThumb *self, const char* path, GErro
 }
 
 void
+exiv2_exifthumb_jpegThumbnailBuf (Exiv2ExifThumb *self, const guint8* buf, glong n_buf)
+{
+	g_return_if_fail (EXIV2_IS_EXIFTHUMB (self));
+	self->priv->thumb->setJpegThumbnail (buf, n_buf);
+}
+
+void
 exiv2_exifthumb_erase (Exiv2ExifThumb *self)
 {
 	g_return_if_fail (EXIV2_IS_EXIFTHUMB (self));
