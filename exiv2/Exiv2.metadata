@@ -8,5 +8,6 @@
   <attr path="/api/namespace/object[@cname='Exiv2ExifData']/method[@name='GetThis']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='Exiv2ExifThumb']/method[@name='JpegThumbnailPath']" name="name">SetJpegThumbnail</attr>
   <attr path="/api/namespace/object[@cname='Exiv2ExifThumb']/method[@cname='exiv2_exifthumb_jpegThumbnailBuf']/*/*[@name='buf']" name="array">1</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2ExifThumb']/method[@cname='exiv2_exifthumb_jpegThumbnailBufSimple']/*/*[@name='buf']" name="array">1</attr>
   <attr path="/api/namespace/object[@cname='Exiv2DataBuf']/method[@name='PData']/return_type" name="type">byte []</attr>
 </metadata>

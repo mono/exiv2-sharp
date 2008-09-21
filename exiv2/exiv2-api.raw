@@ -178,10 +178,30 @@
         <return-type type="void" />
         <parameters>
           <parameter type="const-guint8*" name="buf" />
+          <parameter type="Exiv2URational*" name="xres" />
+          <parameter type="Exiv2URational*" name="yres" />
+          <parameter type="guint16" name="unit" />
+          <parameter type="glong" name="n_buf" />
+        </parameters>
+      </method>
+      <method name="JpegThumbnailBufSimple" cname="exiv2_exifthumb_jpegThumbnailBufSimple">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-guint8*" name="buf" />
           <parameter type="glong" name="n_buf" />
         </parameters>
       </method>
       <method name="JpegThumbnailPath" cname="exiv2_exifthumb_jpegThumbnailPath">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="path" />
+          <parameter type="Exiv2URational*" name="xres" />
+          <parameter type="Exiv2URational*" name="yres" />
+          <parameter type="guint16" name="unit" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
+      <method name="JpegThumbnailPathSimple" cname="exiv2_exifthumb_jpegThumbnailPathSimple">
         <return-type type="void" />
         <parameters>
           <parameter type="const-char*" name="path" />
