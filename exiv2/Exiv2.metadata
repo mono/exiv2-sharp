@@ -6,4 +6,5 @@
   <attr path="/api/namespace/object[@cname='Exiv2ExifData']/method[@name='Begin']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='Exiv2ExifData']/method[@name='End']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='Exiv2ExifData']/method[@name='GetThis']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2ExifThumb']/method[@name='JpegThumbnailPath']" name="name">SetJpegThumbnail</attr>
 </metadata>

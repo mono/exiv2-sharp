@@ -30,6 +30,7 @@
 #include "exiv2-exifthumb.h"
 #include "exiv2-exifthumb-private.h"
 #include "exiv2-databuf-private.h"
+#include <exiv2/error.hpp>
 #include <exiv2/exif.hpp>
 
 G_BEGIN_DECLS
@@ -73,13 +74,31 @@ exiv2_exifthumb_writeFile (Exiv2ExifThumb *self, const char* path)
 Exiv2DataBuf*
 exiv2_exifthumb_copy (Exiv2ExifThumb *self)
 {
-	g_return_val_if_fail (EXIV2_IS_DATABUF (self), NULL);
+	g_return_val_if_fail (EXIV2_IS_EXIFTHUMB (self), NULL);
 
 	Exiv2DataBuf *databuf;
 	databuf = EXIV2_DATABUF (g_object_new (EXIV2_TYPE_DATABUF, NULL));
 	databuf->priv->buf = self->priv->thumb->copy ();
 
 	return databuf;	
+}
+
+void
+exiv2_exifthumb_jpegThumbnailPath (Exiv2ExifThumb *self, const char* path, GError **error)
+{
+	g_return_if_fail (EXIV2_IS_EXIFTHUMB (self));
+	try {
+		self->priv->thumb->setJpegThumbnail (path);
+	} catch (Exiv2::Error e) {
+		g_set_error (error, g_quark_from_string ("Exiv2"), e.code (), e.what ());	
+	}
+}
+
+void
+exiv2_exifthumb_erase (Exiv2ExifThumb *self)
+{
+	g_return_if_fail (EXIV2_IS_EXIFTHUMB (self));
+	self->priv->thumb->erase ();
 }
 
 G_END_DECLS

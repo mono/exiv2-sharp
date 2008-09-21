@@ -164,6 +164,9 @@
       <method name="Copy" cname="exiv2_exifthumb_copy">
         <return-type type="Exiv2DataBuf*" owned="true" />
       </method>
+      <method name="Erase" cname="exiv2_exifthumb_erase">
+        <return-type type="void" />
+      </method>
       <method name="GetExtension" cname="exiv2_exifthumb_get_extension">
         <return-type type="const-char*" />
       </method>
@@ -172,6 +175,13 @@
       </method>
       <method name="GetType" cname="exiv2_exifthumb_get_type" shared="true">
         <return-type type="GType" />
+      </method>
+      <method name="JpegThumbnailPath" cname="exiv2_exifthumb_jpegThumbnailPath">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="path" />
+          <parameter type="GError**" name="error" />
+        </parameters>
       </method>
       <method name="WriteFile" cname="exiv2_exifthumb_writeFile">
         <return-type type="glong" />
