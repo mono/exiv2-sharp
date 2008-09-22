@@ -59,6 +59,40 @@ public static void OpenAsync (string path, object userToken, OpenCompletedEventH
 	async_thread.Start (cb_args);
 }
 
+public static void OpenAsync (System.IO.Stream stream)
+{
+	OpenAsync (stream, null);
+}
+
+public static void OpenAsync (System.IO.Stream stream, object userToken)
+{
+	OpenAsync (stream, userToken, null);
+}
+
+public static void OpenAsync (System.IO.Stream stream, object userToken, OpenCompletedEventHandler completed_handler)
+{
+	if (stream == null)
+		throw new ArgumentException ("stream");
+	
+	System.Threading.Thread async_thread = new System.Threading.Thread (delegate (object state) {
+		object [] args = (object []) state;
+		try {
+			byte [] buffer = new byte [stream.Length];
+			int offset = 0, count;
+			while ((count = stream.Read (buffer, offset, 1024)) > 0)
+				offset+=count;
+			Exiv2.Image data = Open (buffer);
+			OnOpenCompleted (new OpenCompletedEventArgs (data, null, false, args [1]), completed_handler);
+		} catch (System.Threading.ThreadInterruptedException) {
+			OnOpenCompleted (new OpenCompletedEventArgs (null, null, true, args [1]), completed_handler);
+		} catch (Exception e) {
+			OnOpenCompleted (new OpenCompletedEventArgs (null, e, false, args [1]), completed_handler);
+		}
+	});
+	object [] cb_args = new object [] {stream, userToken};
+	async_thread.Start (cb_args);
+}
+
 static void OnOpenCompleted (OpenCompletedEventArgs args, OpenCompletedEventHandler completed_handler)
 {
 	if (completed_handler != null)
