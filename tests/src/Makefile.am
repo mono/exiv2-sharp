@@ -3,6 +3,8 @@ all: run-tests
 TESTASSEMBLY = exiv2.tests.dll
 
 SOURCES =			\
+	ExifThumb.cs		\
+	Image.cs		\
 	ImageFactory.cs
 
 PKGS =				\
