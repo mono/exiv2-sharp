@@ -22,4 +22,5 @@ samples/Makefile
 docs/Makefile
 tests/Makefile
 tests/src/Makefile
+tests/data/Makefile
 )

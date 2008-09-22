@@ -1,2 +1,3 @@
 SUBDIRS=	\
+	data	\
 	src

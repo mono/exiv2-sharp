@@ -3,12 +3,12 @@ EXTRA_DIST = autogen.sh
 SUBDIRS = 		\
 	glue		\
 	sources		\
-	exiv2		\
-	samples
+	exiv2
 
 DIST_SUBDIRS =		\
 	$(SUBDIRS)	\
 	docs		\
+	samples		\
 	tests
 
 test:
