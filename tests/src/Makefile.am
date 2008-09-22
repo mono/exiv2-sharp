@@ -12,7 +12,7 @@ PKGS =				\
 REFS =				\
 	-r:$(top_builddir)/exiv2/exiv2-sharp.dll
 
-FLAGS = -t:library
+FLAGS = -g -t:library
 
 $(TESTASSEMBLY): $(SOURCES)
 	gmcs $(FLAGS) $(PKGS) $(REFS) $(SOURCES) -out:$@

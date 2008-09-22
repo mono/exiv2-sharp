@@ -59,5 +59,27 @@ namespace Exiv2.Tests
 			Image image = ImageFactory.Open (buffer);
 			Assert.IsTrue (image.Good, String.Format ("Exiv2.Image.Good returned false for {0}", file));
 		}
+
+		[Test]
+		public void OpenAsyncPath ()
+		{
+			foreach (string image in images)
+				OpenAsyncPath (image);		
+			System.Threading.Thread.Sleep (1000);
+		}
+
+		void OpenAsyncPath (string file)
+		{
+			ImageFactory.OpenAsync (file, null, OpenAsyncCompleted);
+		}
+
+		void OpenAsyncCompleted (object o, OpenCompletedEventArgs args)
+		{
+			Assert.IsNull (o);
+			Assert.IsNotNull (args);
+			Assert.IsFalse (args.Cancelled);
+			Assert.IsNull (args.Error);
+			Assert.IsTrue(args.Result.Good);
+		}
 	}
 }
