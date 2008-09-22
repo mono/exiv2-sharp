@@ -1,0 +1,68 @@
+/*
+ * ImageFactory.custom: async loaders for ImageFactory
+ *
+ * Author(s):
+ *	Stephane Delcroix  (stephane@delcroix.org)
+ *
+ * Copyright (c) 2008 Novell, Inc.
+ *
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ */
+public static event OpenCompletedEventHandler OpenCompleted;
+
+public static void OpenAsync (string path)
+{
+	OpenAsync (path, null);
+}
+
+public static void OpenAsync (string path, object userToken)
+{
+	OpenAsync (path, userToken, null);
+}
+
+public static void OpenAsync (string path, object userToken, OpenCompletedEventHandler completed_handler)
+{
+	if (String.IsNullOrEmpty (path))
+		throw new ArgumentException ("path");
+	
+	System.Threading.Thread async_thread = new System.Threading.Thread (delegate (object state) {
+		object [] args = (object []) state;
+		try {
+			Exiv2.Image data = Open (path);
+			OnOpenCompleted (new OpenCompletedEventArgs (data, null, false, args [1]), completed_handler);
+		} catch (System.Threading.ThreadInterruptedException) {
+			OnOpenCompleted (new OpenCompletedEventArgs (null, null, true, args [1]), completed_handler);
+		} catch (Exception e) {
+			OnOpenCompleted (new OpenCompletedEventArgs (null, e, false, args [1]), completed_handler);
+		}
+	});
+	object [] cb_args = new object [] {path, userToken};
+	async_thread.Start (cb_args);
+}
+
+static void OnOpenCompleted (OpenCompletedEventArgs args, OpenCompletedEventHandler completed_handler)
+{
+	if (completed_handler != null)
+		completed_handler (null, args);
+	if (OpenCompleted != null)
+		OpenCompleted (null, args);
+}

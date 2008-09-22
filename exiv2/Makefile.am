@@ -15,9 +15,12 @@ CUSTOMS =					\
 	$(srcdir)/ExifData.custom		\
 	$(srcdir)/ExifDatum.custom		\
 	$(srcdir)/ExifDatumIterator.custom	\
+	$(srcdir)/ImageFactory.custom		\
 	$(srcdir)/XmpDatum.custom
 
-SOURCES =
+SOURCES =					\
+	$(srcdir)/OpenCompletedEventArgs.cs	\
+	$(srcdir)/OpenCompletedEventHandler.cs
 
 CLEANFILES =			\
 	exiv2-api.xml		\
