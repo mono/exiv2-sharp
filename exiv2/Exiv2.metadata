@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
 <metadata>
   <add-node path="/api/namespace/object[@cname='Exiv2ExifData']"><implements><interface name="IEnumerable"/></implements></add-node>"
+  <attr path="/api/namespace/object[@cname='Exiv2ImageFactory']/method[@cname='exiv2_imagefactory_open_buf']/*/*[@name='data']" name="array">1</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2ImageFactory']/method[@cname='exiv2_imagefactory_open_buf']" name="name">Open</attr>
   <attr path="/api/namespace/object[@cname='Exiv2ExifDatumIterator']/method[@name='Next']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='Exiv2ExifDatumIterator']/method[@name='Equals']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='Exiv2ExifData']/method[@name='Begin']" name="hidden">1</attr>
