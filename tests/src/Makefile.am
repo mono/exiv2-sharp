@@ -20,6 +20,10 @@ $(TESTASSEMBLY): $(SOURCES)
 run-tests: $(TESTASSEMBLY)
 	MONO_PATH=$(top_builddir)/exiv2/ LD_LIBRARY_PATH=$(top_builddir)/glue/.libs/ nunit-console2 $(TESTASSEMBLY)
 
+run-gui: $(TESTASSEMBLY)
+	MONO_PATH=$(top_builddir)/exiv2/ LD_LIBRARY_PATH=$(top_builddir)/glue/.libs/ gnunit2 $(TESTASSEMBLY)
+
+
 EXTRA_DIST =		\
 	$(SOURCES)
 
@@ -28,4 +32,4 @@ CLEANFILES =		\
 	TestResults.xml	\
 	$(TESTASSEMBLY)*
 
-.PHONY = all run-tests
+.PHONY = all run-tests run-gui

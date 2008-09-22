@@ -1,0 +1,3 @@
+2008-09-22  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* ImageFactory.cs: tests for Open (byte[])

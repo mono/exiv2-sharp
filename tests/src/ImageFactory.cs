@@ -42,5 +42,22 @@ namespace Exiv2.Tests
 			Image image = ImageFactory.Open ("./" + file);
 			Assert.IsTrue (image.Good, String.Format ("Exiv2.Image.Good returned false for {0}", file));
 		}
+
+		[Test]
+		public void OpenByteArray ()
+		{
+			foreach (string image in images)
+				OpenByteArray (image);	
+		}
+
+		void OpenByteArray (string file)
+		{
+			FileStream fs = new FileStream ("./" + file, FileMode.Open, FileAccess.Read);
+			byte [] buffer = new byte [fs.Length];
+			int count = (int)fs.Read (buffer, 0, (int)fs.Length);
+			Assert.IsTrue (count > 0);
+			Image image = ImageFactory.Open (buffer);
+			Assert.IsTrue (image.Good, String.Format ("Exiv2.Image.Good returned false for {0}", file));
+		}
 	}
 }
