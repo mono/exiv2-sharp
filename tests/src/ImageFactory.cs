@@ -73,12 +73,27 @@ namespace Exiv2.Tests
 			ImageFactory.OpenAsync (file, null, OpenAsyncCompleted);
 		}
 
+		[Test]
+		public void OpenAsyncStream ()
+		{
+			foreach (string image in images)
+				OpenAsyncStream (image);		
+			System.Threading.Thread.Sleep (1000);	
+		}
+
+		void OpenAsyncStream (string file)
+		{
+			FileStream fs = new FileStream ("./" + file, FileMode.Open, FileAccess.Read);
+			ImageFactory.OpenAsync (fs, null, OpenAsyncCompleted);	
+		}
+
 		void OpenAsyncCompleted (object o, OpenCompletedEventArgs args)
 		{
 			Assert.IsNull (o);
 			Assert.IsNotNull (args);
 			Assert.IsFalse (args.Cancelled);
 			Assert.IsNull (args.Error);
+			Assert.IsNotNull (args.Result);
 			Assert.IsTrue(args.Result.Good);
 		}
 	}
