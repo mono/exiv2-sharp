@@ -77,9 +77,10 @@ public static void OpenAsync (System.IO.Stream stream, object userToken, OpenCom
 	System.Threading.Thread async_thread = new System.Threading.Thread (delegate (object state) {
 		object [] args = (object []) state;
 		try {
-			byte [] buffer = new byte [stream.Length];
+			long length = stream.Length;
+			byte [] buffer = new byte [length];
 			int offset = 0, count;
-			while ((count = stream.Read (buffer, offset, 1024)) > 0)
+			while ((count = stream.Read (buffer, offset, length - offset > 1024 ? 1024 : (int)(length - offset))) > 0)
 				offset+=count;
 			Exiv2.Image data = Open (buffer);
 			OnOpenCompleted (new OpenCompletedEventArgs (data, null, false, args [1]), completed_handler);

@@ -1,5 +1,9 @@
 2008-09-22  Stephane Delcroix  <sdelcroix@novell.com>
 
+	* ImageFactory.custom: prevent exception on overread.
+
+2008-09-22  Stephane Delcroix  <sdelcroix@novell.com>
+
 	* ImageFactory.custom: OpenAsync (Stream)
 
 2008-09-22  Stephane Delcroix  <sdelcroix@novell.com>
