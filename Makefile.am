@@ -8,6 +8,7 @@ SUBDIRS = 		\
 
 DIST_SUBDIRS =		\
 	$(SUBDIRS)	\
+	docs		\
 	tests
 
 test:

@@ -3,7 +3,7 @@ all: run-tests
 TESTASSEMBLY = exiv2.tests.dll
 
 SOURCES =			\
-	*.cs
+	ImageFactory.cs
 
 PKGS =				\
 	-pkg:mono-nunit		\
