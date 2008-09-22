@@ -59,5 +59,18 @@ exiv2_imagefactory_open (const char *path, GError **error)
 
 	return image;
 }
+Exiv2Image*
+exiv2_imagefactory_open_buf (const guint8 *data, glong n_data, GError **error)
+{
+	Exiv2Image *image;
+	image = EXIV2_IMAGE (g_object_new (EXIV2_TYPE_IMAGE, NULL));
+	try {
+		image->priv->imptr = (Exiv2::ImageFactory::open (data, n_data));
+	} catch (Exiv2::Error e) {
+		g_set_error (error, g_quark_from_string ("Exiv2"), e.code (), e.what ());
+	}
+
+	return image;	
+}
 
 G_END_DECLS

@@ -283,6 +283,14 @@
           <parameter type="GError**" name="error" />
         </parameters>
       </method>
+      <method name="OpenBuf" cname="exiv2_imagefactory_open_buf" shared="true">
+        <return-type type="Exiv2Image*" />
+        <parameters>
+          <parameter type="const-guint8*" name="data" />
+          <parameter type="glong" name="n_data" />
+          <parameter type="GError**" name="error" />
+        </parameters>
+      </method>
     </object>
     <object name="Key" cname="Exiv2Key" parent="GObject">
       <method name="GetFamilyName" cname="exiv2_key_get_familyName">

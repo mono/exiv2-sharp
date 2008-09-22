@@ -1,3 +1,7 @@
+2008-09-22  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* exiv2-imagefactory.h|cpp: open_buf (byte*, long)
+
 2008-09-21  Stephane Delcroix  <sdelcroix@novell.com>
 
 	* exiv2-rational*:

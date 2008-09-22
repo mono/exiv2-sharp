@@ -58,8 +58,9 @@ struct _Exiv2ImageFactoryClass
 
 };
 
-GType exiv2_imagefactory_get_type (void);
-Exiv2Image* exiv2_imagefactory_open (const char *path, GError **error);
+GType 		exiv2_imagefactory_get_type 	(void);
+Exiv2Image* 	exiv2_imagefactory_open 	(const char *path, GError **error);
+Exiv2Image* 	exiv2_imagefactory_open_buf 	(const guint8 *data, glong n_data, GError **error);
 
 G_END_DECLS
 #endif /*  __EXIV2_IMAGEFACTORY_H__ */
