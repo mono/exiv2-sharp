@@ -63,9 +63,11 @@ namespace Exiv2.Tests
 		[Test]
 		public void OpenAsyncPath ()
 		{
-			foreach (string image in images)
+			foreach (string image in images) {
 				OpenAsyncPath (image);		
-			System.Threading.Thread.Sleep (1000);
+				System.Threading.Thread.Sleep (200);
+				OpenAsyncTests ();
+			}
 		}
 
 		void OpenAsyncPath (string file)
@@ -76,9 +78,11 @@ namespace Exiv2.Tests
 		[Test]
 		public void OpenAsyncStream ()
 		{
-			foreach (string image in images)
+			foreach (string image in images) {
 				OpenAsyncStream (image);		
-			System.Threading.Thread.Sleep (1000);	
+				System.Threading.Thread.Sleep (200); //wait for thread termination
+				OpenAsyncTests ();
+			}
 		}
 
 		void OpenAsyncStream (string file)
@@ -87,9 +91,15 @@ namespace Exiv2.Tests
 			ImageFactory.OpenAsync (fs, null, OpenAsyncCompleted);	
 		}
 
+
+		OpenCompletedEventArgs args;
 		void OpenAsyncCompleted (object o, OpenCompletedEventArgs args)
 		{
-			Assert.IsNull (o);
+			this.args = args;
+		}
+
+		void OpenAsyncTests ()
+		{
 			Assert.IsNotNull (args);
 			Assert.IsFalse (args.Cancelled);
 			Assert.IsNull (args.Error);
