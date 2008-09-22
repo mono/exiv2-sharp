@@ -1,0 +1,46 @@
+using NUnit.Framework;
+using System;
+using System.IO;
+using Exiv2;
+
+namespace Exiv2.Tests
+{
+	[TestFixture]
+	public class ImageFactoryTests
+	{
+	
+		string [] images = {
+			"alex.jpg",
+		};
+
+		[SetUp]
+		public void SetUp ()
+		{
+			GLib.GType.Init ();
+			foreach (string image in images)
+				File.Copy ("../data/" + image, "./" + image, true);
+		}
+
+		[TearDown]
+		public void TearDown ()
+		{
+			foreach (string image in images)
+				try {
+					File.Delete ("./" + image);
+				} catch {}
+		}
+
+		[Test]
+		public void OpenPath ()
+		{
+			foreach (string image in images)
+				OpenPath (image);
+		}
+
+		void OpenPath (string file)
+		{
+			Image image = ImageFactory.Open ("./" + file);
+			Assert.IsTrue (image.Good, String.Format ("Exiv2.Image.Good returned false for {0}", file));
+		}
+	}
+}

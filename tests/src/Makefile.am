@@ -1,0 +1,24 @@
+all: run-tests
+
+TESTASSEMBLY = exiv2.tests.dll
+
+SOURCES =			\
+	*.cs
+
+PKGS =				\
+	-pkg:mono-nunit		\
+	-pkg:glib-sharp-2.0
+
+REFS =				\
+	-r:$(top_builddir)/exiv2/exiv2-sharp.dll
+
+FLAGS = -t:library
+
+$(TESTASSEMBLY): $(SOURCES)
+	gmcs $(FLAGS) $(PKGS) $(REFS) $(SOURCES) -out:$@
+
+run-tests: $(TESTASSEMBLY)
+	MONO_PATH=$(top_builddir)/exiv2/ LD_LIBRARY_PATH=$(top_builddir)/glue/.libs/ nunit-console2 $(TESTASSEMBLY)
+
+EXTRA_DIST =		\
+	$(SOURCES)
