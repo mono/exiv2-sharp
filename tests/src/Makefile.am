@@ -22,3 +22,10 @@ run-tests: $(TESTASSEMBLY)
 
 EXTRA_DIST =		\
 	$(SOURCES)
+
+CLEANFILES =		\
+	*~		\
+	TestResults.xml	\
+	$(TESTASSEMBLY)*
+
+.PHONY = all run-tests
