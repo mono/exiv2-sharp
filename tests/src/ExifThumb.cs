@@ -32,6 +32,7 @@ using NUnit.Framework;
 using System;
 using System.IO;
 using Exiv2;
+using Gdk;
 
 namespace Exiv2.Tests
 {
@@ -63,13 +64,23 @@ namespace Exiv2.Tests
 		[Test]
 		public void MimeType ()
 		{
-			Assert.AreEqual (thumb.MimeType, "image/jpeg");
+			Assert.AreEqual ("image/jpeg", thumb.MimeType);
 		}
 
 		[Test]
 		public void Extension ()
 		{
-			Assert.AreEqual (thumb.Extension, ".jpg");
+			Assert.AreEqual (".jpg", thumb.Extension);
+		}
+
+		[Test]
+		public void CreatePixbufFromThumb ()
+		{
+			byte [] data = thumb.Copy ();
+			Assert.AreEqual (8613, data.Length);
+			Pixbuf pixbuf = new Pixbuf (data);
+			Assert.AreEqual (160, pixbuf.Width);
+			Assert.AreEqual (120, pixbuf.Height);
 		}
 	}
 }

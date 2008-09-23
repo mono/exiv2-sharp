@@ -9,6 +9,7 @@ SOURCES =			\
 
 PKGS =				\
 	-pkg:mono-nunit		\
+	-pkg:gtk-sharp-2.0	\
 	-pkg:glib-sharp-2.0
 
 REFS =				\
