@@ -1,0 +1,80 @@
+/*
+ * ExifThumb.custom
+ *
+ * Author(s):
+ *	Stephane Delcroix  (stephane@delcroix.org)
+ *
+ * Copyright (c) 2008 Novell, Inc.
+ *
+ * 
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
+ * 
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ *
+ */
+
+[DllImport("libexiv2glue.dll")]
+static extern IntPtr exiv2_exifthumb_copy(IntPtr raw);
+
+Exiv2.DataBuf copy() {
+	IntPtr raw_ret = exiv2_exifthumb_copy(Handle);
+	Exiv2.DataBuf ret = GLib.Object.GetObject(raw_ret, true) as Exiv2.DataBuf;
+	return ret;
+}
+
+public byte [] Copy () {
+	return copy().Serialize ();
+}
+
+[DllImport("libexiv2glue.dll")]
+static extern void exiv2_exifthumb_jpegThumbnailBuf(IntPtr raw, byte[] buf, IntPtr xres, IntPtr yres, ushort unit, IntPtr n_buf);
+
+public void SetJpegThumbnail(byte[] buf, Exiv2.URational xres, Exiv2.URational yres, ushort unit, long n_buf) {
+	exiv2_exifthumb_jpegThumbnailBuf(Handle, buf, xres == null ? IntPtr.Zero : xres.Handle, yres == null ? IntPtr.Zero : yres.Handle, unit, new IntPtr (n_buf));
+}
+
+[DllImport("libexiv2glue.dll")]
+static extern unsafe void exiv2_exifthumb_jpegThumbnailPathSimple(IntPtr raw, IntPtr path, out IntPtr error);
+
+public unsafe void SetJpegThumbnail(string path) {
+	IntPtr native_path = GLib.Marshaller.StringToPtrGStrdup (path);
+	IntPtr error = IntPtr.Zero;
+	exiv2_exifthumb_jpegThumbnailPathSimple(Handle, native_path, out error);
+	GLib.Marshaller.Free (native_path);
+	if (error != IntPtr.Zero) throw new GLib.GException (error);
+}
+
+[DllImport("libexiv2glue.dll")]
+static extern void exiv2_exifthumb_jpegThumbnailBufSimple(IntPtr raw, byte[] buf, IntPtr n_buf);
+
+public void SetJpegThumbnail(byte[] buf) {
+	exiv2_exifthumb_jpegThumbnailBufSimple(Handle, buf, new IntPtr ((long) (buf == null ? 0 : buf.Length)));
+}
+
+[DllImport("libexiv2glue.dll")]
+static extern unsafe void exiv2_exifthumb_jpegThumbnailPath(IntPtr raw, IntPtr path, IntPtr xres, IntPtr yres, ushort unit, out IntPtr error);
+
+public unsafe void SetJpegThumbnail(string path, Exiv2.URational xres, Exiv2.URational yres, ushort unit) {
+	IntPtr native_path = GLib.Marshaller.StringToPtrGStrdup (path);
+	IntPtr error = IntPtr.Zero;
+	exiv2_exifthumb_jpegThumbnailPath(Handle, native_path, xres == null ? IntPtr.Zero : xres.Handle, yres == null ? IntPtr.Zero : yres.Handle, unit, out error);
+	GLib.Marshaller.Free (native_path);
+	if (error != IntPtr.Zero) throw new GLib.GException (error);
+}
+
+

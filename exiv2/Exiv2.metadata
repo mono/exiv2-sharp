@@ -8,8 +8,11 @@
   <attr path="/api/namespace/object[@cname='Exiv2ExifData']/method[@name='Begin']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='Exiv2ExifData']/method[@name='End']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='Exiv2ExifData']/method[@name='GetThis']" name="hidden">1</attr>
-  <attr path="/api/namespace/object[@cname='Exiv2ExifThumb']/method[@name='JpegThumbnailPath']" name="name">SetJpegThumbnail</attr>
-  <attr path="/api/namespace/object[@cname='Exiv2ExifThumb']/method[@cname='exiv2_exifthumb_jpegThumbnailBuf']/*/*[@name='buf']" name="array">1</attr>
-  <attr path="/api/namespace/object[@cname='Exiv2ExifThumb']/method[@cname='exiv2_exifthumb_jpegThumbnailBufSimple']/*/*[@name='buf']" name="array">1</attr>
-  <attr path="/api/namespace/object[@cname='Exiv2DataBuf']/method[@name='PData']/return_type" name="type">byte []</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2ExifThumb']/method[@cname='exiv2_exifthumb_jpegThumbnailPath']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2ExifThumb']/method[@cname='exiv2_exifthumb_jpegThumbnailPathSimple']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2ExifThumb']/method[@cname='exiv2_exifthumb_jpegThumbnailBuf']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2ExifThumb']/method[@cname='exiv2_exifthumb_jpegThumbnailBufSimple']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2ExifThumb']/method[@cname='exiv2_exifthumb_copy']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2DataBuf']/method[@cname='exiv2_databuf_get_pData']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2DataBuf']/method[@cname='exiv2_databuf_get_size']" name="hidden">1</attr>
 </metadata>

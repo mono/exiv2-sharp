@@ -12,9 +12,11 @@ exiv2-api.xml: $(srcdir)/exiv2-api.raw $(srcdir)/Exiv2.metadata
 	gapi2-fixup --api=exiv2-api.xml --metadata=$(srcdir)/Exiv2.metadata
 
 CUSTOMS =					\
+	$(srcdir)/DataBuf.custom		\
 	$(srcdir)/ExifData.custom		\
 	$(srcdir)/ExifDatum.custom		\
 	$(srcdir)/ExifDatumIterator.custom	\
+	$(srcdir)/ExifThumb.custom		\
 	$(srcdir)/ImageFactory.custom		\
 	$(srcdir)/XmpData.custom
 

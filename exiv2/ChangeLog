@@ -1,3 +1,9 @@
+2008-09-23  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* Exiv2.metadata:
+	* ExifThumb.custom:
+	* DataBuf.custom: Serialize the databuf, clean the ExifThumb api
+
 2008-09-22  Stephane Delcroix  <sdelcroix@novell.com>
 
 	* ImageFactory.custom: prevent exception on overread.
