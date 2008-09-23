@@ -12,13 +12,17 @@
   <Copyright>To be added.</Copyright>
   <Types>
     <Namespace Name="Exiv2">
+      <Type Name="DataBuf" />
       <Type Name="ExifData" />
       <Type Name="ExifDatum" />
       <Type Name="ExifDatumIterator" />
       <Type Name="ExifKey" />
+      <Type Name="ExifThumb" />
       <Type Name="Image" />
       <Type Name="ImageFactory" />
       <Type Name="Key" />
+      <Type Name="OpenCompletedEventArgs" />
+      <Type Name="OpenCompletedEventHandler" />
       <Type Name="Rational" />
       <Type Name="URational" />
       <Type Name="XmpData" />

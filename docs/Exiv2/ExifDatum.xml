@@ -105,46 +105,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="SetValueRational">
-      <MemberSignature Language="C#" Value="public void SetValueRational (int numerator, int denominator);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="numerator" Type="System.Int32" />
-        <Parameter Name="denominator" Type="System.Int32" />
-      </Parameters>
-      <Docs>
-        <param name="numerator">To be added.</param>
-        <param name="denominator">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="SetValueURational">
-      <MemberSignature Language="C#" Value="public void SetValueURational (uint numerator, uint denominator);" />
-      <MemberType>Method</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>0.0.0.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>System.Void</ReturnType>
-      </ReturnValue>
-      <Parameters>
-        <Parameter Name="numerator" Type="System.UInt32" />
-        <Parameter Name="denominator" Type="System.UInt32" />
-      </Parameters>
-      <Docs>
-        <param name="numerator">To be added.</param>
-        <param name="denominator">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Tag">
       <MemberSignature Language="C#" Value="public ushort Tag { get; }" />
       <MemberType>Property</MemberType>
@@ -183,6 +143,21 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.Object</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ValueRational">
+      <MemberSignature Language="C#" Value="public Exiv2.Rational ValueRational { set; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Exiv2.Rational</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
@@ -243,6 +218,21 @@
       </AssemblyInfo>
       <ReturnValue>
         <ReturnType>System.UInt32</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ValueURational">
+      <MemberSignature Language="C#" Value="public Exiv2.URational ValueURational { set; }" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>0.0.0.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>Exiv2.URational</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>To be added.</summary>
