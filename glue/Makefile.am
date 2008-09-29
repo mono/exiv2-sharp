@@ -34,6 +34,9 @@ libexiv2glue_la_SOURCES =			\
 	exiv2-rational.cpp			\
 	exiv2-rational.h			\
 	exiv2-rational-private.h		\
+	exiv2-taginfo.cpp			\
+	exiv2-taginfo.h				\
+	exiv2-taginfo-private.h			\
 	exiv2-urational.cpp			\
 	exiv2-urational.h			\
 	exiv2-urational-private.h		\
