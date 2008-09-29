@@ -315,6 +315,12 @@
         <return-type type="const-char*" />
       </method>
     </object>
+    <object name="NikonMakerNote" cname="Exiv2NikonMakerNote" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2NikonMakerNotePrivate*" />
+      <method name="GetType" cname="exiv2_nikon_makernote_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </object>
     <object name="Rational" cname="Exiv2Rational" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2RationalPrivate*" />
       <method name="GetDenominator" cname="exiv2_rational_getDenominator">
@@ -343,6 +349,24 @@
         <parameters>
           <parameter type="gint32" name="numerator" />
         </parameters>
+      </method>
+    </object>
+    <object name="TagInfo" cname="Exiv2TagInfo" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2TagInfoPrivate*" />
+      <method name="GetDesc" cname="exiv2_taginfo_get_desc">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetName" cname="exiv2_taginfo_get_name">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetTag" cname="exiv2_taginfo_get_tag">
+        <return-type type="guint16" />
+      </method>
+      <method name="GetTitle" cname="exiv2_taginfo_get_title">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetType" cname="exiv2_taginfo_get_type" shared="true">
+        <return-type type="GType" />
       </method>
     </object>
     <object name="URational" cname="Exiv2URational" parent="GObject">
