@@ -15,7 +15,6 @@ CUSTOMS =					\
 	$(srcdir)/DataBuf.custom		\
 	$(srcdir)/ExifData.custom		\
 	$(srcdir)/ExifDatum.custom		\
-	$(srcdir)/ExifDatumIterator.custom	\
 	$(srcdir)/ExifThumb.custom		\
 	$(srcdir)/ImageFactory.custom		\
 	$(srcdir)/XmpData.custom

@@ -28,24 +28,6 @@
  *
  */
 
-[DllImport("libexiv2glue.dll")]
-static extern IntPtr exiv2_exifdata_begin(IntPtr raw);
-
-private Exiv2.ExifDatumIterator Begin() {
-	IntPtr raw_ret = exiv2_exifdata_begin(Handle);
-	Exiv2.ExifDatumIterator ret = GLib.Object.GetObject(raw_ret) as Exiv2.ExifDatumIterator;
-	return ret;
-}[DllImport("libexiv2glue.dll")]
-
-static extern IntPtr exiv2_exifdata_end(IntPtr raw);
-
-private Exiv2.ExifDatumIterator End() {
-	IntPtr raw_ret = exiv2_exifdata_end(Handle);
-	Exiv2.ExifDatumIterator ret = GLib.Object.GetObject(raw_ret) as Exiv2.ExifDatumIterator;
-	return ret;
-}
-
-
 public IEnumerator GetEnumerator ()
 {
 	return new Enumerator (this);
@@ -86,17 +68,6 @@ class Enumerator : IEnumerator
 	{
 		current = null;
 	}
-}
-
-[DllImport("libexiv2glue.dll")]
-static extern IntPtr exiv2_exifdata_get_this(IntPtr raw, IntPtr key);
-
-private Exiv2.ExifDatum GetThis(string key) {
-	IntPtr native_key = GLib.Marshaller.StringToPtrGStrdup (key);
-	IntPtr raw_ret = exiv2_exifdata_get_this(Handle, native_key);
-	Exiv2.ExifDatum ret = GLib.Object.GetObject(raw_ret) as Exiv2.ExifDatum;
-	GLib.Marshaller.Free (native_key);
-	return ret;
 }
 
 public object this [string key]
