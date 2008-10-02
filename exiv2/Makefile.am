@@ -3,7 +3,7 @@ all: exiv2-sharp.dll
 generated/Image.cs: exiv2-api.xml
 	gapi2-codegen --outdir=generated --customdir=$(srcdir) --generate exiv2-api.xml
 
-exiv2-sharp.dll: $(srcdir)/generated/Image.cs $(SOURCES)
+exiv2-sharp.dll: $(srcdir)/generated/Image.cs $(SOURCES) $(CUSTOMS)
 	gmcs -unsafe -pkg:glib-sharp-2.0 -target:library -out:exiv2-sharp.dll $(srcdir)/generated/*.cs $(SOURCES)
 
 exiv2-api.xml: $(srcdir)/exiv2-api.raw $(srcdir)/Exiv2.metadata
@@ -17,6 +17,9 @@ CUSTOMS =					\
 	$(srcdir)/ExifDatum.custom		\
 	$(srcdir)/ExifThumb.custom		\
 	$(srcdir)/ImageFactory.custom		\
+	$(srcdir)/Nikon1MakerNote.custom	\
+	$(srcdir)/Nikon2MakerNote.custom	\
+	$(srcdir)/Nikon3MakerNote.custom	\
 	$(srcdir)/XmpData.custom
 
 SOURCES =					\

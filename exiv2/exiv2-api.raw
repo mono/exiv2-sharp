@@ -315,10 +315,37 @@
         <return-type type="const-char*" />
       </method>
     </object>
-    <object name="NikonMakerNote" cname="Exiv2NikonMakerNote" parent="GObject">
-      <field name="Priv" cname="priv" type="Exiv2NikonMakerNotePrivate*" />
-      <method name="GetType" cname="exiv2_nikon_makernote_get_type" shared="true">
+    <object name="Nikon1MakerNote" cname="Exiv2Nikon1MakerNote" parent="GObject">
+      <method name="GetType" cname="exiv2_nikon1makernote_get_type" shared="true">
         <return-type type="GType" />
+      </method>
+      <method name="TagListItem" cname="exiv2_nikon1makernote_tagList_item" shared="true">
+        <return-type type="Exiv2TagInfo*" />
+        <parameters>
+          <parameter type="int" name="item" />
+        </parameters>
+      </method>
+    </object>
+    <object name="Nikon2MakerNote" cname="Exiv2Nikon2MakerNote" parent="GObject">
+      <method name="GetType" cname="exiv2_nikon2makernote_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="TagListItem" cname="exiv2_nikon2makernote_tagList_item" shared="true">
+        <return-type type="Exiv2TagInfo*" />
+        <parameters>
+          <parameter type="int" name="item" />
+        </parameters>
+      </method>
+    </object>
+    <object name="Nikon3MakerNote" cname="Exiv2Nikon3MakerNote" parent="GObject">
+      <method name="GetType" cname="exiv2_nikon3makernote_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="TagListItem" cname="exiv2_nikon3makernote_tagList_item" shared="true">
+        <return-type type="Exiv2TagInfo*" />
+        <parameters>
+          <parameter type="int" name="item" />
+        </parameters>
       </method>
     </object>
     <object name="Rational" cname="Exiv2Rational" parent="GObject">

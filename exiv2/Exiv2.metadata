@@ -16,4 +16,7 @@
   <attr path="/api/namespace/object[@cname='Exiv2ExifThumb']/method[@cname='exiv2_exifthumb_copy']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='Exiv2DataBuf']/method[@cname='exiv2_databuf_get_pData']" name="hidden">1</attr>
   <attr path="/api/namespace/object[@cname='Exiv2DataBuf']/method[@cname='exiv2_databuf_get_size']" name="hidden">1</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2Nikon1MakerNote']/method[@cname='exiv2_nikon1makernote_tagList_item']" name="accessibility">private</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2Nikon2MakerNote']/method[@cname='exiv2_nikon2makernote_tagList_item']" name="accessibility">private</attr>
+  <attr path="/api/namespace/object[@cname='Exiv2Nikon3MakerNote']/method[@cname='exiv2_nikon3makernote_tagList_item']" name="accessibility">private</attr>
 </metadata>

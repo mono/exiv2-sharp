@@ -1,3 +1,10 @@
+2008-10-01  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* Exiv2.metadata:
+	* Nikon1MakerNote.custom:
+	* Nikon2MakerNote.custom:
+	* Nikon3MakerNote.custom: api fixups
+
 2008-09-30  Stephane Delcroix  <sdelcroix@novell.com>
 
 	less custom code with gapi 2.12.5
