@@ -12,7 +12,6 @@
   <Copyright>To be added.</Copyright>
   <Types>
     <Namespace Name="Exiv2">
-      <Type Name="DataBuf" />
       <Type Name="ExifData" />
       <Type Name="ExifDatum" />
       <Type Name="ExifDatumIterator" />
@@ -21,9 +20,13 @@
       <Type Name="Image" />
       <Type Name="ImageFactory" />
       <Type Name="Key" />
+      <Type Name="Nikon1MakerNote" />
+      <Type Name="Nikon2MakerNote" />
+      <Type Name="Nikon3MakerNote" />
       <Type Name="OpenCompletedEventArgs" />
       <Type Name="OpenCompletedEventHandler" />
       <Type Name="Rational" />
+      <Type Name="TagInfo" />
       <Type Name="URational" />
       <Type Name="XmpData" />
       <Type Name="XmpDatum" />
