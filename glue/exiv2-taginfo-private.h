@@ -38,7 +38,7 @@ G_BEGIN_DECLS
 
 struct _Exiv2TagInfoPrivate
 {
-	Exiv2::TagInfo* taginfo;
+	const Exiv2::TagInfo* taginfo;
 };
 
 G_END_DECLS
