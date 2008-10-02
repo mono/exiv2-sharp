@@ -5,7 +5,8 @@ TESTASSEMBLY = exiv2.tests.dll
 SOURCES =			\
 	ExifThumb.cs		\
 	Image.cs		\
-	ImageFactory.cs
+	ImageFactory.cs		\
+	NikonMakerNote.cs
 
 PKGS =				\
 	-pkg:mono-nunit		\

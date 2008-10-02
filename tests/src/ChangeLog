@@ -1,3 +1,7 @@
+2008-10-01  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* NikonMakerNote.cs: some new tests
+
 2008-09-23  Stephane Delcroix  <sdelcroix@novell.com>
 
 	* ExifThumb.cs: CreatePixbuf test.
