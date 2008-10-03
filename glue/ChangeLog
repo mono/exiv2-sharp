@@ -1,5 +1,11 @@
 2008-10-03  Stephane Delcroix  <sdelcroix@novell.com>
 
+	* exiv2-ifdid.h: copying the enum locally.
+
+	* exiv2-exiftags.h|.cpp: almost empty so far
+
+2008-10-03  Stephane Delcroix  <sdelcroix@novell.com>
+
 	* exiv2-exifkey.cpp:
 	* exiv2-exifthumb.cpp:
 	* exiv2-taginfo.cpp:
