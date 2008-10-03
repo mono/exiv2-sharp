@@ -1,3 +1,16 @@
+2008-10-03  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* exiv2-exifkey.cpp:
+	* exiv2-exifthumb.cpp:
+	* exiv2-taginfo.cpp:
+	* exiv2-xmpdata.cpp:
+	* exiv2-xmpdatum.cpp:
+	* exiv2-xmpkey.cpp: add finalizers.
+
+2008-10-02  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* exiv2-exifdata.cpp: cleanup on finalize ()
+
 2008-10-01  Stephane Delcroix  <sdelcroix@novell.com>
 	
 	* exiv2-taginfo-private.h: mark the field as const

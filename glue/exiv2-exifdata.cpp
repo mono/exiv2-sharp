@@ -39,17 +39,34 @@ G_BEGIN_DECLS
 
 G_DEFINE_TYPE (Exiv2ExifData, exiv2_exifdata, G_TYPE_OBJECT);
 
+static void exiv2_exifdata_finalize (GObject *gobject);
+
 static void
 exiv2_exifdata_init (Exiv2ExifData *self)
 {
 	Exiv2ExifDataPrivate *priv;
 	self->priv = priv = EXIV2_EXIFDATA_GET_PRIVATE (self);
+	priv->data = NULL;
 }
 
 static void
 exiv2_exifdata_class_init (Exiv2ExifDataClass *klass)
 {
+	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
+	gobject_class->finalize = exiv2_exifdata_finalize;
+
 	g_type_class_add_private (klass, sizeof	(Exiv2ExifDataPrivate));
+}
+
+static void
+exiv2_exifdata_finalize (GObject *gobject)
+{
+	Exiv2ExifData *self = EXIV2_EXIFDATA (gobject);
+	if (self->priv->data) {
+		delete self->priv->data;
+		self->priv->data = NULL;
+	}
+	G_OBJECT_CLASS (exiv2_exifdata_parent_class)->finalize (gobject);
 }
 
 Exiv2ExifData*

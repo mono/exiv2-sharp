@@ -36,6 +36,8 @@ G_BEGIN_DECLS
 
 G_DEFINE_TYPE (Exiv2ExifKey, exiv2_exifkey, EXIV2_TYPE_KEY);
 
+static void exiv2_exifkey_finalize (GObject *gobject);
+
 const char*	exiv2_exifkey_real_to_string 		(Exiv2Key *self);
 const char*	exiv2_exifkey_real_get_familyName	(Exiv2Key *self);
 const char*	exiv2_exifkey_real_get_groupName	(Exiv2Key *self);
@@ -54,6 +56,9 @@ exiv2_exifkey_init (Exiv2ExifKey *self)
 static void
 exiv2_exifkey_class_init (Exiv2ExifKeyClass *klass)
 {
+	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
+	gobject_class->finalize = exiv2_exifkey_finalize;
+
 	Exiv2KeyClass *key_class = EXIV2_KEY_CLASS (klass);
 
 	key_class->to_string = exiv2_exifkey_real_to_string;
@@ -64,6 +69,17 @@ exiv2_exifkey_class_init (Exiv2ExifKeyClass *klass)
 	key_class->get_tag = exiv2_exifkey_real_get_tag;
 
 	g_type_class_add_private (klass, sizeof	(Exiv2ExifKeyPrivate));
+}
+
+static void
+exiv2_exifkey_finalize (GObject *gobject)
+{
+	Exiv2ExifKey *self = EXIV2_EXIFKEY (gobject);
+	if (self->priv->key) {
+		delete self->priv->key;
+		self->priv->key = NULL;
+	}
+	G_OBJECT_CLASS (exiv2_exifkey_parent_class)->finalize (gobject);
 }
 
 Exiv2ExifKey*

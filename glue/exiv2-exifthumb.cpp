@@ -39,6 +39,8 @@ G_BEGIN_DECLS
 
 G_DEFINE_TYPE (Exiv2ExifThumb, exiv2_exifthumb, G_TYPE_OBJECT);
 
+static void exiv2_exifthumb_finalize (GObject *gobject);
+
 static void
 exiv2_exifthumb_init (Exiv2ExifThumb *self)
 {
@@ -49,7 +51,21 @@ exiv2_exifthumb_init (Exiv2ExifThumb *self)
 static void
 exiv2_exifthumb_class_init (Exiv2ExifThumbClass *klass)
 {
+	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
+	gobject_class->finalize = exiv2_exifthumb_finalize;
+
 	g_type_class_add_private (klass, sizeof	(Exiv2ExifThumbPrivate));
+}
+
+static void
+exiv2_exifthumb_finalize (GObject *gobject)
+{
+	Exiv2ExifThumb *self = EXIV2_EXIFTHUMB (gobject);
+	if (self->priv->thumb) {
+		delete self->priv->thumb;
+		self->priv->thumb = NULL;
+	}
+	G_OBJECT_CLASS (exiv2_exifthumb_parent_class)->finalize (gobject);
 }
 
 const char*

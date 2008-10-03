@@ -38,6 +38,8 @@ G_BEGIN_DECLS
 
 G_DEFINE_TYPE (Exiv2XmpData, exiv2_xmpdata, G_TYPE_OBJECT);
 
+static void exiv2_xmpdata_finalize (GObject *gobject);
+
 static void
 exiv2_xmpdata_init (Exiv2XmpData *self)
 {
@@ -48,7 +50,21 @@ exiv2_xmpdata_init (Exiv2XmpData *self)
 static void
 exiv2_xmpdata_class_init (Exiv2XmpDataClass *klass)
 {
+	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
+	gobject_class->finalize = exiv2_xmpdata_finalize;
+
 	g_type_class_add_private (klass, sizeof	(Exiv2XmpDataPrivate));
+}
+
+static void
+exiv2_xmpdata_finalize (GObject *gobject)
+{
+	Exiv2XmpData *self = EXIV2_XMPDATA (gobject);
+	if (self->priv->data) {
+		delete self->priv->data;
+		self->priv->data = NULL;
+	}
+	G_OBJECT_CLASS (exiv2_xmpdata_parent_class)->finalize (gobject);
 }
 
 Exiv2XmpData*

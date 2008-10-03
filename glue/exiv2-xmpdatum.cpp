@@ -35,6 +35,8 @@ G_BEGIN_DECLS
 
 G_DEFINE_TYPE (Exiv2XmpDatum, exiv2_xmpdatum, G_TYPE_OBJECT);
 
+static void exiv2_xmpdatum_finalize (GObject *gobject);
+
 const char*	exiv2_xmpdatum_real_get_key 		(Exiv2XmpDatum *self);
 guint16		exiv2_xmpdatum_real_get_tag		(Exiv2XmpDatum *self);
 const char*	exiv2_xmpdatum_real_get_typename	(Exiv2XmpDatum *self);
@@ -59,6 +61,9 @@ exiv2_xmpdatum_init (Exiv2XmpDatum *self)
 static void
 exiv2_xmpdatum_class_init (Exiv2XmpDatumClass *klass)
 {
+	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
+	gobject_class->finalize = exiv2_xmpdatum_finalize;
+
 	klass->get_key = exiv2_xmpdatum_real_get_key;
 	klass->get_tag = exiv2_xmpdatum_real_get_tag;
 	klass->get_typename = exiv2_xmpdatum_real_get_typename;
@@ -73,6 +78,17 @@ exiv2_xmpdatum_class_init (Exiv2XmpDatumClass *klass)
 //	klass->set_value_string		= exiv2_xmpdatum_real_setValueString;
 //
 	g_type_class_add_private (klass, sizeof	(Exiv2XmpDatumPrivate));
+}
+
+static void
+exiv2_xmpdatum_finalize (GObject *gobject)
+{
+	Exiv2XmpDatum *self = EXIV2_XMPDATUM (gobject);
+	if (self->priv->datum) {
+		delete self->priv->datum;
+		self->priv->datum = NULL;
+	}
+	G_OBJECT_CLASS (exiv2_xmpdatum_parent_class)->finalize (gobject);
 }
 
 const char*

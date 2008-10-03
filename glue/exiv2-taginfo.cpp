@@ -35,6 +35,8 @@
 G_BEGIN_DECLS
 G_DEFINE_TYPE (Exiv2TagInfo, exiv2_taginfo, G_TYPE_OBJECT);
 
+static void exiv2_taginfo_finalize (GObject *gobject);
+
 static void
 exiv2_taginfo_init (Exiv2TagInfo *self)
 {
@@ -47,7 +49,21 @@ exiv2_taginfo_init (Exiv2TagInfo *self)
 static void
 exiv2_taginfo_class_init (Exiv2TagInfoClass *klass)
 {
+	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
+	gobject_class->finalize = exiv2_taginfo_finalize;
+
 	g_type_class_add_private (klass, sizeof	(Exiv2TagInfoPrivate));
+}
+
+static void
+exiv2_taginfo_finalize (GObject *gobject)
+{
+	Exiv2TagInfo *self = EXIV2_TAGINFO (gobject);
+	if (self->priv->taginfo) {
+		delete self->priv->taginfo;
+		self->priv->taginfo = NULL;
+	}
+	G_OBJECT_CLASS (exiv2_taginfo_parent_class)->finalize (gobject);
 }
 
 guint16
