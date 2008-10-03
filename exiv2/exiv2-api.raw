@@ -157,6 +157,18 @@
         </parameters>
       </constructor>
     </object>
+    <object name="ExifTags" cname="Exiv2ExifTags" parent="GObject">
+      <method name="GetTagName" cname="exiv2_exiftags_get_tagName" shared="true">
+        <return-type type="const-char*" />
+        <parameters>
+          <parameter type="guint16" name="tag" />
+          <parameter type="Exiv2IfdId" name="ifdid" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="exiv2_exiftags_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </object>
     <object name="ExifThumb" cname="Exiv2ExifThumb" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2ExifThumbPrivate*" />
       <method name="Copy" cname="exiv2_exifthumb_copy">

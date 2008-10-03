@@ -1,3 +1,12 @@
+2008-10-03  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* exiv2-api.raw: api regen
+
+	* ExifTags.custom:
+	* Exiv2.metadata:
+	* IfdId.cs:
+	* Makefile.am: IfdId enum, tagName in ExifTags
+
 2008-10-02  Stephane Delcroix  <sdelcroix@novell.com>
 
 	* Exiv2.metadata: return-type:owned for the methods creating objects

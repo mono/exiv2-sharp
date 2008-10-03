@@ -15,6 +15,7 @@ CUSTOMS =					\
 	$(srcdir)/DataBuf.custom		\
 	$(srcdir)/ExifData.custom		\
 	$(srcdir)/ExifDatum.custom		\
+	$(srcdir)/ExifTags.custom		\
 	$(srcdir)/ExifThumb.custom		\
 	$(srcdir)/ImageFactory.custom		\
 	$(srcdir)/Nikon1MakerNote.custom	\
@@ -23,6 +24,7 @@ CUSTOMS =					\
 	$(srcdir)/XmpData.custom
 
 SOURCES =					\
+	$(srcdir)/IfdId.cs			\
 	$(srcdir)/OpenCompletedEventArgs.cs	\
 	$(srcdir)/OpenCompletedEventHandler.cs
 
