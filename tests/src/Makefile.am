@@ -3,6 +3,7 @@ all: run-tests
 TESTASSEMBLY = exiv2.tests.dll
 
 SOURCES =			\
+	ExifTags.cs		\
 	ExifThumb.cs		\
 	Image.cs		\
 	ImageFactory.cs		\
