@@ -14,7 +14,6 @@
     <Namespace Name="Exiv2">
       <Type Name="ExifData" />
       <Type Name="ExifDatum" />
-      <Type Name="ExifDatumIterator" />
       <Type Name="ExifKey" />
       <Type Name="ExifThumb" />
       <Type Name="Image" />
@@ -30,7 +29,6 @@
       <Type Name="URational" />
       <Type Name="XmpData" />
       <Type Name="XmpDatum" />
-      <Type Name="XmpDatumIterator" />
       <Type Name="XmpKey" />
     </Namespace>
   </Types>

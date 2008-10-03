@@ -1,0 +1,23 @@
+<Type Name="OpenCompletedEventHandler" FullName="Exiv2.OpenCompletedEventHandler">
+  <TypeSignature Language="C#" Value="public delegate void OpenCompletedEventHandler(object sender, OpenCompletedEventArgs e);" />
+  <AssemblyInfo>
+    <AssemblyName>exiv2-sharp</AssemblyName>
+    <AssemblyVersion>0.0.0.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>System.Delegate</BaseTypeName>
+  </Base>
+  <Parameters>
+    <Parameter Name="sender" Type="System.Object" />
+    <Parameter Name="e" Type="Exiv2.OpenCompletedEventArgs" />
+  </Parameters>
+  <ReturnValue>
+    <ReturnType>System.Void</ReturnType>
+  </ReturnValue>
+  <Docs>
+    <param name="sender">To be added.</param>
+    <param name="e">To be added.</param>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+</Type>
