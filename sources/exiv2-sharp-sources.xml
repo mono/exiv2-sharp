@@ -3,6 +3,7 @@
     <library name="libexiv2glue.dll">
       <namespace name="Exiv2">
         <dir>../glue</dir>
+        <exclude>../glue/exiv2-ifdid.h</exclude>
       </namespace>
     </library>
   </api>
