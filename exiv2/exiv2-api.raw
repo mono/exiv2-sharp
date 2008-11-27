@@ -253,6 +253,9 @@
       <method name="GetPixelWidth" cname="exiv2_image_get_pixelWidth">
         <return-type type="int" />
       </method>
+      <method name="GetPreviewManager" cname="exiv2_image_get_previewManager">
+        <return-type type="Exiv2PreviewManager*" />
+      </method>
       <method name="GetType" cname="exiv2_image_get_type" shared="true">
         <return-type type="GType" />
       </method>
@@ -358,6 +361,12 @@
         <parameters>
           <parameter type="int" name="item" />
         </parameters>
+      </method>
+    </object>
+    <object name="PreviewManager" cname="Exiv2PreviewManager" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2PreviewManagerPrivate*" />
+      <method name="GetType" cname="exiv2_previewmanager_get_type" shared="true">
+        <return-type type="GType" />
       </method>
     </object>
     <object name="Rational" cname="Exiv2Rational" parent="GObject">
