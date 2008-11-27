@@ -34,7 +34,6 @@
 #include "exiv2-image-private.h"
 #include "exiv2-exifdata-private.h"
 #include "exiv2-xmpdata-private.h"
-#include "exiv2-previewmanager-private.h"
 
 G_BEGIN_DECLS
 G_DEFINE_TYPE (Exiv2Image, exiv2_image, G_TYPE_OBJECT);
@@ -160,18 +159,6 @@ exiv2_image_get_xmpData (Exiv2Image *self)
 	xmpdata->priv->data = &(self->priv->imptr->xmpData ());
 
 	return xmpdata;
-}
-
-Exiv2PreviewManager*
-exiv2_image_get_previewManager (Exiv2Image *self)
-{
-	g_return_val_if_fail (EXIV2_IS_IMAGE (self), NULL);
-	
-	Exiv2PreviewManager *previewmanager;
-	previewmanager = EXIV2_PREVIEWMANAGER (g_object_new (EXIV2_TYPE_PREVIEWMANAGER, NULL));
-	previewmanager->priv->manager = new Exiv2::PreviewManager (*(self->priv->imptr));
-
-	return previewmanager;
 }
 
 G_END_DECLS

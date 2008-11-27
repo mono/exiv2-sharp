@@ -1,5 +1,11 @@
 2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>
 
+	* exiv2-previewmanager.h|cpp: add a ctor (Image)
+
+	* exiv2-image.h|cpp: drop the get_previewManager
+
+2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>
+
 	* exiv2-previewmanager.h|cpp: _get_previewProperties, returns a GList*
 
 2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>

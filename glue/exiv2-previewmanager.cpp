@@ -30,6 +30,7 @@
 #include <glib-object.h>
 #include <exiv2/preview.hpp>
 #include <vector>
+#include "exiv2-image-private.h"
 #include "exiv2-previewmanager.h"
 #include "exiv2-previewmanager-private.h"
 #include "exiv2-previewproperties-private.h"
@@ -50,6 +51,18 @@ static void
 exiv2_previewmanager_class_init (Exiv2PreviewManagerClass *klass)
 {
 	g_type_class_add_private (klass, sizeof	(Exiv2PreviewManagerPrivate));
+}
+
+Exiv2PreviewManager*
+exiv2_previewmanager_new (Exiv2Image *image)
+{
+	g_return_val_if_fail (EXIV2_IS_IMAGE (image), NULL);
+	
+	Exiv2PreviewManager *previewmanager;
+	previewmanager = EXIV2_PREVIEWMANAGER (g_object_new (EXIV2_TYPE_PREVIEWMANAGER, NULL));
+	previewmanager->priv->manager = new Exiv2::PreviewManager (*(image->priv->imptr));
+
+	return previewmanager;	
 }
 
 GList*

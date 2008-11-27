@@ -31,6 +31,7 @@
 #define __EXIV2_PREVIEWMANAGER_H__
 
 #include <glib-object.h>
+#include "exiv2-image.h"
 
 G_BEGIN_DECLS
 
@@ -62,6 +63,7 @@ struct _Exiv2PreviewManagerClass
 
 GType 			exiv2_previewmanager_get_type		(void);
 
+Exiv2PreviewManager*	exiv2_previewmanager_new			(Exiv2Image *image);
 GList*			exiv2_previewmanager_get_previewProperties	(Exiv2PreviewManager *self);
 
 G_END_DECLS
