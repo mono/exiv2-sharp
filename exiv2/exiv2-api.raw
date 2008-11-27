@@ -360,6 +360,21 @@
         </parameters>
       </method>
     </object>
+    <object name="PreviewImage" cname="Exiv2PreviewImage" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2PreviewImagePrivate*" />
+      <method name="GetExtension" cname="exiv2_previewimage_get_extension">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetMimeType" cname="exiv2_previewimage_get_mimeType">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetSize" cname="exiv2_previewimage_get_size">
+        <return-type type="guint32" />
+      </method>
+      <method name="GetType" cname="exiv2_previewimage_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+    </object>
     <object name="PreviewManager" cname="Exiv2PreviewManager" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2PreviewManagerPrivate*" />
       <method name="GetPreviewProperties" cname="exiv2_previewmanager_get_previewProperties">
