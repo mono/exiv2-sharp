@@ -1,3 +1,8 @@
+2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* configure.ac: depend on gapi 2.12.7 (svn for now) to get the
+	accessibility attribute on ctors.
+
 2008-09-30  Stephane Delcroix  <sdelcroix@novell.com>
 
 	* configure.ac: depend on gapi 2.12.5 (svn for now) to be able
