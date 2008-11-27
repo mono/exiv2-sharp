@@ -42,6 +42,9 @@ libexiv2glue_la_SOURCES =			\
 	exiv2-nikon2makernote.h			\
 	exiv2-nikon3makernote.cpp		\
 	exiv2-nikon3makernote.h			\
+	exiv2-previewimage.cpp			\
+	exiv2-previewimage.h			\
+	exiv2-previewimage-private.h		\
 	exiv2-previewmanager.cpp		\
 	exiv2-previewmanager.h			\
 	exiv2-previewmanager-private.h		\

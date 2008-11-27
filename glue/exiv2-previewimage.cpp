@@ -1,5 +1,5 @@
 /*
- * exiv2-previewproperties.cpp
+ * exiv2-previewimage.cpp
  *
  * Author(s):
  *	Stephane Delcroix  (stephane@delcroix.org)
@@ -29,65 +29,49 @@
  */
 #include <glib-object.h>
 #include <exiv2/preview.hpp>
-#include "exiv2-previewproperties.h"
-#include "exiv2-previewproperties-private.h"
+#include "exiv2-previewimage.h"
+#include "exiv2-previewimage-private.h"
 
 G_BEGIN_DECLS
-G_DEFINE_TYPE (Exiv2PreviewProperties, exiv2_previewproperties, G_TYPE_OBJECT);
+G_DEFINE_TYPE (Exiv2PreviewImage, exiv2_previewimage, G_TYPE_OBJECT);
 
 static void
-exiv2_previewproperties_init (Exiv2PreviewProperties *self)
+exiv2_previewimage_init (Exiv2PreviewImage *self)
 {
-	Exiv2PreviewPropertiesPrivate *priv;
-	self->priv = priv = EXIV2_PREVIEWPROPERTIES_GET_PRIVATE (self);
+	Exiv2PreviewImagePrivate *priv;
+	self->priv = priv = EXIV2_PREVIEWIMAGE_GET_PRIVATE (self);
 
 	/* Initialize members */
 }
 
 static void
-exiv2_previewproperties_class_init (Exiv2PreviewPropertiesClass *klass)
+exiv2_previewimage_class_init (Exiv2PreviewImageClass *klass)
 {
-	g_type_class_add_private (klass, sizeof	(Exiv2PreviewPropertiesPrivate));
+	g_type_class_add_private (klass, sizeof	(Exiv2PreviewImagePrivate));
 }
 
 const char*
-exiv2_previewproperties_get_mimeType (Exiv2PreviewProperties *self)
+exiv2_previewimage_get_mimeType	(Exiv2PreviewImage *self)
 {
-	g_return_val_if_fail (EXIV2_IS_PREVIEWPROPERTIES (self), NULL);
+	g_return_val_if_fail (EXIV2_IS_PREVIEWIMAGE (self), NULL);
 
-	return self->priv->prop->mimeType_.c_str();
+	return self->priv->prev->mimeType ().c_str();
 }
 
 const char*
-exiv2_previewproperties_get_extension (Exiv2PreviewProperties *self)
+exiv2_previewimage_get_extension (Exiv2PreviewImage *self)
 {
-	g_return_val_if_fail (EXIV2_IS_PREVIEWPROPERTIES (self), NULL);
+	g_return_val_if_fail (EXIV2_IS_PREVIEWIMAGE (self), NULL);
 
-	return self->priv->prop->extension_.c_str();	
+	return self->priv->prev->extension ().c_str();	
 }
 
 guint32
-exiv2_previewproperties_get_size (Exiv2PreviewProperties *self)
+exiv2_previewimage_get_size (Exiv2PreviewImage *self)
 {
-	g_return_val_if_fail (EXIV2_IS_PREVIEWPROPERTIES (self), 0);
+	g_return_val_if_fail (EXIV2_IS_PREVIEWIMAGE (self), 0);
 
-	return self->priv->prop->size_;
-}
-
-guint32
-exiv2_previewproperties_get_width (Exiv2PreviewProperties *self)
-{
-	g_return_val_if_fail (EXIV2_IS_PREVIEWPROPERTIES (self), 0);
-
-	return self->priv->prop->width_;
-}
-
-guint32
-exiv2_previewproperties_get_height (Exiv2PreviewProperties *self)
-{
-	g_return_val_if_fail (EXIV2_IS_PREVIEWPROPERTIES (self), 0);
-
-	return self->priv->prop->height_;
+	return self->priv->prev->size ();
 }
 
 G_END_DECLS
