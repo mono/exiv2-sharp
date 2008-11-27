@@ -1,5 +1,9 @@
 2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>
 
+	* exiv2-previewproperties*: map Exiv2::PreviewProperties
+
+2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>
+
 	* exiv2-previewmanager*: map Exiv2::PreviewManager (stubbed)
 	* exiv2-image.h|cpp: get the PreviewManager for an image.
 

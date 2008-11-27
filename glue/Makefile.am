@@ -43,6 +43,9 @@ libexiv2glue_la_SOURCES =			\
 	exiv2-previewmanager.cpp		\
 	exiv2-previewmanager.h			\
 	exiv2-previewmanager-private.h		\
+	exiv2-previewproperties.cpp		\
+	exiv2-previewproperties.h		\
+	exiv2-previewproperties-private.h	\
 	exiv2-rational.cpp			\
 	exiv2-rational.h			\
 	exiv2-rational-private.h		\
