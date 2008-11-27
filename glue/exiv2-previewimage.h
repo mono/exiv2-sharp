@@ -31,6 +31,7 @@
 #define __EXIV2_PREVIEWIMAGE_H__
 
 #include <glib-object.h>
+#include "exiv2-databuf.h"
 
 G_BEGIN_DECLS
 
@@ -62,6 +63,8 @@ struct _Exiv2PreviewImageClass
 
 GType 			exiv2_previewimage_get_type		(void);
 
+glong			exiv2_previewimage_writeFile		(Exiv2PreviewImage *self, const char* path);
+Exiv2DataBuf*		exiv2_previewimage_copy			(Exiv2PreviewImage *self);
 const char*		exiv2_previewimage_get_mimeType		(Exiv2PreviewImage *self);
 const char*		exiv2_previewimage_get_extension	(Exiv2PreviewImage *self);
 guint32			exiv2_previewimage_get_size		(Exiv2PreviewImage *self);

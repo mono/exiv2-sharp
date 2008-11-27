@@ -31,6 +31,7 @@
 #include <exiv2/preview.hpp>
 #include "exiv2-previewimage.h"
 #include "exiv2-previewimage-private.h"
+#include "exiv2-databuf-private.h"
 
 G_BEGIN_DECLS
 G_DEFINE_TYPE (Exiv2PreviewImage, exiv2_previewimage, G_TYPE_OBJECT);
@@ -49,6 +50,26 @@ exiv2_previewimage_class_init (Exiv2PreviewImageClass *klass)
 {
 	g_type_class_add_private (klass, sizeof	(Exiv2PreviewImagePrivate));
 }
+
+glong
+exiv2_previewimage_writeFile (Exiv2PreviewImage *self, const char* path)
+{
+	g_return_val_if_fail (EXIV2_IS_PREVIEWIMAGE (self), NULL);
+	return self->priv->prev->writeFile (path);	
+}
+
+Exiv2DataBuf*
+exiv2_previewimage_copy (Exiv2PreviewImage *self)
+{
+	g_return_val_if_fail (EXIV2_IS_PREVIEWIMAGE (self), NULL);
+
+	Exiv2DataBuf *databuf;
+	databuf = EXIV2_DATABUF (g_object_new (EXIV2_TYPE_DATABUF, NULL));
+	databuf->priv->buf = self->priv->prev->copy ();
+
+	return databuf;	
+}
+
 
 const char*
 exiv2_previewimage_get_mimeType	(Exiv2PreviewImage *self)
