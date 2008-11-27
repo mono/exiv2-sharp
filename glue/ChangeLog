@@ -1,5 +1,9 @@
 2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>
 
+	* exiv2-previewmanager.h|cpp: _get_previewImage ()
+
+2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>
+
 	* exiv2-previewimage.h|cpp: map Exiv2::PreviewImage
 
 2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>

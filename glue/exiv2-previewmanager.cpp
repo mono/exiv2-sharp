@@ -34,6 +34,7 @@
 #include "exiv2-previewmanager.h"
 #include "exiv2-previewmanager-private.h"
 #include "exiv2-previewproperties-private.h"
+#include "exiv2-previewimage-private.h"
 
 G_BEGIN_DECLS
 G_DEFINE_TYPE (Exiv2PreviewManager, exiv2_previewmanager, G_TYPE_OBJECT);
@@ -81,6 +82,19 @@ exiv2_previewmanager_get_previewProperties (Exiv2PreviewManager *self)
 
 	return g_list_reverse (list);
 	
+}
+
+Exiv2PreviewImage*
+exiv2_previewmanager_get_previewImage (Exiv2PreviewManager *self, Exiv2PreviewProperties *prop)
+{
+	g_return_val_if_fail (EXIV2_IS_PREVIEWMANAGER (self), NULL);
+	
+	Exiv2PreviewImage *preview;
+	preview = EXIV2_PREVIEWIMAGE (g_object_new (EXIV2_TYPE_PREVIEWIMAGE, NULL));
+	const Exiv2::PreviewProperties pprop = *(prop->priv->prop);
+	preview->priv->prev = &(self->priv->manager->getPreviewImage (pprop));
+
+	return preview;
 }
 
 G_END_DECLS

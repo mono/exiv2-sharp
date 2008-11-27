@@ -32,6 +32,8 @@
 
 #include <glib-object.h>
 #include "exiv2-image.h"
+#include "exiv2-previewimage.h"
+#include "exiv2-previewproperties.h"
 
 G_BEGIN_DECLS
 
@@ -65,6 +67,7 @@ GType 			exiv2_previewmanager_get_type		(void);
 
 Exiv2PreviewManager*	exiv2_previewmanager_new			(Exiv2Image *image);
 GList*			exiv2_previewmanager_get_previewProperties	(Exiv2PreviewManager *self);
+Exiv2PreviewImage*	exiv2_previewmanager_get_previewImage		(Exiv2PreviewManager *self, Exiv2PreviewProperties *prop);
 
 G_END_DECLS
 
