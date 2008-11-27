@@ -92,7 +92,7 @@ exiv2_previewmanager_get_previewImage (Exiv2PreviewManager *self, Exiv2PreviewPr
 	Exiv2PreviewImage *preview;
 	preview = EXIV2_PREVIEWIMAGE (g_object_new (EXIV2_TYPE_PREVIEWIMAGE, NULL));
 	const Exiv2::PreviewProperties pprop = *(prop->priv->prop);
-	preview->priv->prev = &(self->priv->manager->getPreviewImage (pprop));
+	preview->priv->prev = new Exiv2::PreviewImage (self->priv->manager->getPreviewImage (pprop));
 
 	return preview;
 }

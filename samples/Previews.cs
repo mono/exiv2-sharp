@@ -30,7 +30,7 @@ namespace Sample
 				foreach (PreviewProperties prop in manager.PreviewProperties) {
 					Console.WriteLine ("\t t:{0} e:{1} s:{2} w:{3} h:{4}", prop.MimeType, prop.Extension, prop.Size, prop.Width, prop.Height );
 					PreviewImage prev = manager.GetPreviewImage (prop);
-					Console.WriteLine ("t\t t:{0} e:{1} s:{2}", prev.MimeType, prev.Extension, prev.Size);
+					Console.WriteLine ("\t\t t:{0} e:{1} s:{2}", prev.MimeType, prev.Extension, prev.Size);
 				}
 			} catch (GLib.GException e) {
 				Console.WriteLine ("Exiv2.Exception caught {0}", e);
