@@ -32,14 +32,17 @@ libexiv2glue_la_SOURCES =			\
 	exiv2-image-private.h			\
 	exiv2-imagefactory.cpp			\
 	exiv2-imagefactory.h			\
+	exiv2-key.cpp				\
+	exiv2-key.h				\
 	exiv2-nikon1makernote.cpp		\
 	exiv2-nikon1makernote.h			\
 	exiv2-nikon2makernote.cpp		\
 	exiv2-nikon2makernote.h			\
 	exiv2-nikon3makernote.cpp		\
 	exiv2-nikon3makernote.h			\
-	exiv2-key.cpp				\
-	exiv2-key.h				\
+	exiv2-previewmanager.cpp		\
+	exiv2-previewmanager.h			\
+	exiv2-previewmanager-private.h		\
 	exiv2-rational.cpp			\
 	exiv2-rational.h			\
 	exiv2-rational-private.h		\

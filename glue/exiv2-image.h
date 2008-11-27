@@ -33,7 +33,7 @@
 #include <glib-object.h>
 #include "exiv2-exifdata.h"
 #include "exiv2-xmpdata.h"
-
+#include "exiv2-previewmanager.h"
 
 G_BEGIN_DECLS
 
@@ -64,23 +64,24 @@ struct _Exiv2ImageClass
 
 };
 
-GType 		exiv2_image_get_type		(void);
+GType 			exiv2_image_get_type		(void);
 
-void		exiv2_image_readMetadata	(Exiv2Image *self, GError **error);
-void		exiv2_image_writeMetadata	(Exiv2Image *self, GError **error);
-void		exiv2_image_clearMetadata	(Exiv2Image *self);
+void			exiv2_image_readMetadata	(Exiv2Image *self, GError **error);
+void			exiv2_image_writeMetadata	(Exiv2Image *self, GError **error);
+void			exiv2_image_clearMetadata	(Exiv2Image *self);
 
-gboolean	exiv2_image_get_good		(Exiv2Image *self);
-const char*	exiv2_image_get_mimeType	(Exiv2Image *self);
-int		exiv2_image_get_pixelWidth	(Exiv2Image *self);
-int		exiv2_image_get_pixelHeight	(Exiv2Image *self);
-const char*	exiv2_image_get_comment		(Exiv2Image *self);
-void		exiv2_image_set_comment		(Exiv2Image *self, const char* comment);
-void		exiv2_image_clear_comment	(Exiv2Image *self);
-int		exiv2_image_get_pixelHeight	(Exiv2Image *self);
-Exiv2ExifData*	exiv2_image_get_exifData	(Exiv2Image *self);
-void		exiv2_image_set_exifData	(Exiv2Image *self, Exiv2ExifData *data);
-Exiv2XmpData*	exiv2_image_get_xmpData		(Exiv2Image *self);
+gboolean		exiv2_image_get_good		(Exiv2Image *self);
+const char*		exiv2_image_get_mimeType	(Exiv2Image *self);
+int			exiv2_image_get_pixelWidth	(Exiv2Image *self);
+int			exiv2_image_get_pixelHeight	(Exiv2Image *self);
+const char*		exiv2_image_get_comment		(Exiv2Image *self);
+void			exiv2_image_set_comment		(Exiv2Image *self, const char* comment);
+void			exiv2_image_clear_comment	(Exiv2Image *self);
+int			exiv2_image_get_pixelHeight	(Exiv2Image *self);
+Exiv2ExifData*		exiv2_image_get_exifData	(Exiv2Image *self);
+void			exiv2_image_set_exifData	(Exiv2Image *self, Exiv2ExifData *data);
+Exiv2XmpData*		exiv2_image_get_xmpData		(Exiv2Image *self);
+Exiv2PreviewManager*	exiv2_image_get_previewManager	(Exiv2Image *self);
 
 G_END_DECLS
 
