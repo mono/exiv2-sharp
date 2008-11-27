@@ -55,7 +55,7 @@ exiv2_previewproperties_get_mimeType (Exiv2PreviewProperties *self)
 {
 	g_return_val_if_fail (EXIV2_IS_PREVIEWPROPERTIES (self), NULL);
 
-	return self->priv->prop.mimeType_.c_str();
+	return self->priv->prop->mimeType_.c_str();
 }
 
 const char*
@@ -63,7 +63,7 @@ exiv2_previewproperties_get_extension (Exiv2PreviewProperties *self)
 {
 	g_return_val_if_fail (EXIV2_IS_PREVIEWPROPERTIES (self), NULL);
 
-	return self->priv->prop.extension_.c_str();
+	return self->priv->prop->extension_.c_str();
 	
 }
 
@@ -72,21 +72,21 @@ exiv2_previewproperties_get_size (Exiv2PreviewProperties *self)
 {
 	g_return_val_if_fail (EXIV2_IS_PREVIEWPROPERTIES (self), 0);
 
-	return self->priv->prop.size_;
+	return self->priv->prop->size_;
 }
 guint32
 exiv2_previewproperties_get_width (Exiv2PreviewProperties *self)
 {
 	g_return_val_if_fail (EXIV2_IS_PREVIEWPROPERTIES (self), 0);
 
-	return self->priv->prop.width_;
+	return self->priv->prop->width_;
 }
 guint32
 exiv2_previewproperties_get_height (Exiv2PreviewProperties *self)
 {
 	g_return_val_if_fail (EXIV2_IS_PREVIEWPROPERTIES (self), 0);
 
-	return self->priv->prop.height_;
+	return self->priv->prop->height_;
 }
 
 G_END_DECLS

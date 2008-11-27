@@ -5,6 +5,8 @@ INCLUDES =				\
 	$(GLIB_CFLAGS)			\
 	$(GOBJECT_CFLAGS)
 
+CFLAGS = -g
+
 libexiv2glue_la_SOURCES =			\
 	exiv2-databuf.cpp			\
 	exiv2-databuf.h				\

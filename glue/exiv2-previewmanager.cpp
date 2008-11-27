@@ -62,7 +62,7 @@ exiv2_previewmanager_get_previewProperties (Exiv2PreviewManager *self)
 	std::vector<Exiv2::PreviewProperties> vector = self->priv->manager->getPreviewProperties ();
 	for (iter = vector.begin(); iter != vector.end(); iter++) {
 		Exiv2PreviewProperties *prop = EXIV2_PREVIEWPROPERTIES (g_object_new (EXIV2_TYPE_PREVIEWPROPERTIES, NULL));
-		prop->priv->prop = *iter;
+		prop->priv->prop = new Exiv2::PreviewProperties (*iter);
 		list = g_list_prepend (list, prop);
 	}
 
