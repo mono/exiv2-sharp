@@ -1,3 +1,10 @@
+2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* Exiv2.metadata: make the PreviewManager ctor internal
+
+	* Image.custom: PreviewManager Property, ensuring there's only one
+	PreviewManager created.
+
 2008-10-03  Stephane Delcroix  <sdelcroix@novell.com>
 
 	* exiv2-api.raw: api regen
