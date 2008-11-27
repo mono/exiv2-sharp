@@ -4,7 +4,7 @@
  * Author(s):
  *	Stephane Delcroix  (stephane@delcroix.org)
  *
- * Copyright (c) 2008 Novell
+ * Copyright (c) 2008 Novell, Inc
  *
  * 
  * Permission is hereby granted, free of charge, to any person obtaining
