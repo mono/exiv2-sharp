@@ -362,6 +362,9 @@
     </object>
     <object name="PreviewImage" cname="Exiv2PreviewImage" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2PreviewImagePrivate*" />
+      <method name="Copy" cname="exiv2_previewimage_copy">
+        <return-type type="Exiv2DataBuf*" owned="true" />
+      </method>
       <method name="GetExtension" cname="exiv2_previewimage_get_extension">
         <return-type type="const-char*" />
       </method>
@@ -373,6 +376,12 @@
       </method>
       <method name="GetType" cname="exiv2_previewimage_get_type" shared="true">
         <return-type type="GType" />
+      </method>
+      <method name="WriteFile" cname="exiv2_previewimage_writeFile">
+        <return-type type="glong" />
+        <parameters>
+          <parameter type="const-char*" name="path" />
+        </parameters>
       </method>
     </object>
     <object name="PreviewManager" cname="Exiv2PreviewManager" parent="GObject">
