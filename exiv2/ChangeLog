@@ -1,5 +1,10 @@
 2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>
 
+	* Exiv2.metadata:
+	* PreviewImage.custom: return a byte[] for Copy ()
+
+2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>
+
 	* Exiv2.metadata: make the PreviewManager ctor internal
 
 	* Image.custom: PreviewManager Property, ensuring there's only one

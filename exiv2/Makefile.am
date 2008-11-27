@@ -22,6 +22,7 @@ CUSTOMS =					\
 	$(srcdir)/Nikon1MakerNote.custom	\
 	$(srcdir)/Nikon2MakerNote.custom	\
 	$(srcdir)/Nikon3MakerNote.custom	\
+	$(srcdir)/PreviewImage.custom		\
 	$(srcdir)/XmpData.custom
 
 SOURCES =					\
