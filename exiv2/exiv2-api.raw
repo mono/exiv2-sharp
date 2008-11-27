@@ -365,8 +365,32 @@
     </object>
     <object name="PreviewManager" cname="Exiv2PreviewManager" parent="GObject">
       <field name="Priv" cname="priv" type="Exiv2PreviewManagerPrivate*" />
+      <method name="GetPreviewProperties" cname="exiv2_previewmanager_get_previewProperties">
+        <return-type type="GList*" />
+      </method>
       <method name="GetType" cname="exiv2_previewmanager_get_type" shared="true">
         <return-type type="GType" />
+      </method>
+    </object>
+    <object name="PreviewProperties" cname="Exiv2PreviewProperties" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2PreviewPropertiesPrivate*" />
+      <method name="GetExtension" cname="exiv2_previewproperties_get_extension">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetHeight" cname="exiv2_previewproperties_get_height">
+        <return-type type="guint32" />
+      </method>
+      <method name="GetMimeType" cname="exiv2_previewproperties_get_mimeType">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetSize" cname="exiv2_previewproperties_get_size">
+        <return-type type="guint32" />
+      </method>
+      <method name="GetType" cname="exiv2_previewproperties_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetWidth" cname="exiv2_previewproperties_get_width">
+        <return-type type="guint32" />
       </method>
     </object>
     <object name="Rational" cname="Exiv2Rational" parent="GObject">
