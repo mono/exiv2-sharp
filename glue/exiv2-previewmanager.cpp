@@ -29,8 +29,10 @@
  */
 #include <glib-object.h>
 #include <exiv2/preview.hpp>
+#include <vector>
 #include "exiv2-previewmanager.h"
 #include "exiv2-previewmanager-private.h"
+#include "exiv2-previewproperties-private.h"
 
 G_BEGIN_DECLS
 G_DEFINE_TYPE (Exiv2PreviewManager, exiv2_previewmanager, G_TYPE_OBJECT);
@@ -48,6 +50,24 @@ static void
 exiv2_previewmanager_class_init (Exiv2PreviewManagerClass *klass)
 {
 	g_type_class_add_private (klass, sizeof	(Exiv2PreviewManagerPrivate));
+}
+
+GList*
+exiv2_previewmanager_get_previewProperties (Exiv2PreviewManager *self)
+{
+	g_return_val_if_fail (EXIV2_IS_PREVIEWMANAGER (self), NULL);
+	
+	GList* list = NULL;
+	std::vector<Exiv2::PreviewProperties>::iterator iter;
+	std::vector<Exiv2::PreviewProperties> vector = self->priv->manager->getPreviewProperties ();
+	for (iter = vector.begin(); iter != vector.end(); iter++) {
+		Exiv2PreviewProperties *prop = EXIV2_PREVIEWPROPERTIES (g_object_new (EXIV2_TYPE_PREVIEWPROPERTIES, NULL));
+		prop->priv->prop = *iter;
+		list = g_list_prepend (list, prop);
+	}
+
+	return g_list_reverse (list);
+	
 }
 
 G_END_DECLS

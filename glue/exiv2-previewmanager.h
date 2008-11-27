@@ -62,6 +62,8 @@ struct _Exiv2PreviewManagerClass
 
 GType 			exiv2_previewmanager_get_type		(void);
 
+GList*			exiv2_previewmanager_get_previewProperties	(Exiv2PreviewManager *self);
+
 G_END_DECLS
 
 #endif /*  __EXIV2_PREVIEWMANAGER_H__ */

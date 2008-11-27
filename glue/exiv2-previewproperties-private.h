@@ -38,7 +38,7 @@ G_BEGIN_DECLS
 
 struct _Exiv2PreviewPropertiesPrivate
 {
-	Exiv2::PreviewProperties *prop;
+	Exiv2::PreviewProperties prop;
 };
 
 G_END_DECLS
