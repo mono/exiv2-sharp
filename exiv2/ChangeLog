@@ -1,3 +1,8 @@
+2008-12-02  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* Exiv2.metadata: change the signature of 
+	PreviewManager.PreviewProperties to return a PreviewProperties []
+
 2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>
 
 	* Exiv2.metadata:
