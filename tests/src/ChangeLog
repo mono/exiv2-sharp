@@ -1,3 +1,8 @@
+2008-12-02  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* Makefile.am: launch nunit with -noshadow to workaround a bug in 
+	current runtime
+
 2008-10-03  Stephane Delcroix  <sdelcroix@novell.com>
 
 	* ExifTags.cpp: new tests.

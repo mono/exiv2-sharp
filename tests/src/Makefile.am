@@ -7,7 +7,8 @@ SOURCES =			\
 	ExifThumb.cs		\
 	Image.cs		\
 	ImageFactory.cs		\
-	NikonMakerNote.cs
+	NikonMakerNote.cs	\
+	PreviewImage.cs
 
 PKGS =				\
 	-pkg:mono-nunit		\
@@ -23,10 +24,10 @@ $(TESTASSEMBLY): $(SOURCES)
 	gmcs $(FLAGS) $(PKGS) $(REFS) $(SOURCES) -out:$@
 
 run-tests: $(TESTASSEMBLY)
-	MONO_PATH=$(top_builddir)/exiv2/ LD_LIBRARY_PATH=$(top_builddir)/glue/.libs/ nunit-console2 $(TESTASSEMBLY)
+	MONO_PATH=$(top_builddir)/exiv2/ LD_LIBRARY_PATH=$(top_builddir)/glue/.libs/ nunit-console2 -noshadow $(TESTASSEMBLY)
 
 run-gui: $(TESTASSEMBLY)
-	MONO_PATH=$(top_builddir)/exiv2/ LD_LIBRARY_PATH=$(top_builddir)/glue/.libs/ gnunit2 $(TESTASSEMBLY)
+	MONO_PATH=$(top_builddir)/exiv2/ LD_LIBRARY_PATH=$(top_builddir)/glue/.libs/ gnunit2 -noshadow $(TESTASSEMBLY)
 
 
 EXTRA_DIST =		\
