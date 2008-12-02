@@ -28,7 +28,7 @@
  *
  */
 
-	byte [] Copy ()
+	public byte [] Copy ()
 	{
 		return copy ().Serialize ();
 	}
