@@ -95,4 +95,20 @@ exiv2_previewimage_get_size (Exiv2PreviewImage *self)
 	return self->priv->prev->size ();
 }
 
+guint32
+exiv2_previewimage_get_height (Exiv2PreviewImage *self)
+{
+	g_return_val_if_fail (EXIV2_IS_PREVIEWIMAGE (self), 0);
+
+	return self->priv->prev->height ();
+}
+
+guint32
+exiv2_previewimage_get_width (Exiv2PreviewImage *self)
+{
+	g_return_val_if_fail (EXIV2_IS_PREVIEWIMAGE (self), 0);
+
+	return self->priv->prev->width ();
+}
+
 G_END_DECLS

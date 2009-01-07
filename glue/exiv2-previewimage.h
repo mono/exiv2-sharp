@@ -68,7 +68,8 @@ Exiv2DataBuf*		exiv2_previewimage_copy			(Exiv2PreviewImage *self);
 const char*		exiv2_previewimage_get_mimeType		(Exiv2PreviewImage *self);
 const char*		exiv2_previewimage_get_extension	(Exiv2PreviewImage *self);
 guint32			exiv2_previewimage_get_size		(Exiv2PreviewImage *self);
-
+guint32			exiv2_previewimage_get_height		(Exiv2PreviewImage *self);
+guint32			exiv2_previewimage_get_width		(Exiv2PreviewImage *self);
 G_END_DECLS
 
 #endif /*  __EXIV2_PREVIEWIMAGE_H__ */
