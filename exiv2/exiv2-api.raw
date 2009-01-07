@@ -368,6 +368,9 @@
       <method name="GetExtension" cname="exiv2_previewimage_get_extension">
         <return-type type="const-char*" />
       </method>
+      <method name="GetHeight" cname="exiv2_previewimage_get_height">
+        <return-type type="guint32" />
+      </method>
       <method name="GetMimeType" cname="exiv2_previewimage_get_mimeType">
         <return-type type="const-char*" />
       </method>
@@ -376,6 +379,9 @@
       </method>
       <method name="GetType" cname="exiv2_previewimage_get_type" shared="true">
         <return-type type="GType" />
+      </method>
+      <method name="GetWidth" cname="exiv2_previewimage_get_width">
+        <return-type type="guint32" />
       </method>
       <method name="WriteFile" cname="exiv2_previewimage_writeFile">
         <return-type type="glong" />
