@@ -1,5 +1,9 @@
 2009-03-17  Stephane Delcroix  <sdelcroix@novell.com>
 
+	* Exiv2.metadata: mark SetValue* as private
+
+2009-03-17  Stephane Delcroix  <sdelcroix@novell.com>
+
 	* Xmpdata.custom, XmpDatum.custom: index setter for bool and string
 
 2009-03-17  Stephane Delcroix  <sdelcroix@novell.com>

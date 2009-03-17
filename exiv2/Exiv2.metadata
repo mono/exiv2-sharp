@@ -47,6 +47,8 @@
   <attr 	path="/api/namespace/object[@cname='Exiv2XmpData']/method[@cname='exiv2_xmpdata_end']/return-type" name="owned">true</attr>
   <attr 	path="/api/namespace/object[@cname='Exiv2XmpData']/method[@cname='exiv2_xmpdata_find_key']/return-type" name="owned">true</attr>
   <attr 	path="/api/namespace/object[@cname='Exiv2XmpDatumIterator']" name="internal">1</attr>
+  <attr		path="/api/namespace/object[@cname='Exiv2XmpDatum']/method[@name='SetValueBool']" name="accessibility">private</attr>
+  <attr		path="/api/namespace/object[@cname='Exiv2XmpDatum']/method[@name='SetValueString']" name="accessibility">private</attr>
   <attr		path="/api/namespace/object[@cname='Exiv2PreviewManager']/constructor[@cname='exiv2_previewmanager_new']" name="accessibility">internal</attr>
   <attr		path="/api/namespace/object[@cname='Exiv2PreviewManager']/method[@cname='exiv2_previewmanager_get_previewProperties']/return-type" name="element_type">Exiv2PreviewProperties*</attr>
   <attr		path="/api/namespace/object[@cname='Exiv2PreviewManager']/method[@cname='exiv2_previewmanager_get_previewProperties']/return-type" name="owned">true</attr>
