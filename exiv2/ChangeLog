@@ -1,3 +1,7 @@
+2009-01-07  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* Exiv2.metadata: ExifData.erase_range() to Erase()
+
 2008-12-02  Stephane Delcroix  <sdelcroix@novell.com>
 
 	* Exiv2.metadata: change the signature of 

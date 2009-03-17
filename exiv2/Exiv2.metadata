@@ -12,6 +12,7 @@
   <attr 	path="/api/namespace/object[@cname='Exiv2ExifData']/method[@cname='exiv2_exifdata_end']/return-type" name="owned">true</attr>
   <attr 	path="/api/namespace/object[@cname='Exiv2ExifData']/method[@cname='exiv2_exifdata_find_key']/return-type" name="owned">true</attr>
   <attr 	path="/api/namespace/object[@cname='Exiv2ExifData']/method[@cname='exiv2_exifdata_get_thumb']/return-type" name="owned">true</attr>
+  <attr		path="/api/namespace/object[@cname='Exiv2ExifData']/method[@cname='exiv2_exifdata_erase_range']" name="name">Erase</attr>
   <attr 	path="/api/namespace/object[@cname='Exiv2ExifDatumIterator']" name="internal">1</attr>
   <attr 	path="/api/namespace/object[@cname='Exiv2ExifDatumIterator']/method[@name='Next']" name="accessibility">internal</attr>
   <attr 	path="/api/namespace/object[@cname='Exiv2ExifDatumIterator']/method[@name='Equals']" name="accessibility">internal</attr>
