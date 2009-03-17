@@ -33,6 +33,13 @@
           <parameter type="Exiv2ExifKey*" name="key" />
         </parameters>
       </method>
+      <method name="EraseRange" cname="exiv2_exifdata_erase_range">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="Exiv2ExifKey*" name="begin" />
+          <parameter type="Exiv2ExifKey*" name="end" />
+        </parameters>
+      </method>
       <method name="FindKey" cname="exiv2_exifdata_find_key">
         <return-type type="Exiv2ExifDatum*" />
         <parameters>
