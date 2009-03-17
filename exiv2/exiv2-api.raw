@@ -251,6 +251,9 @@
       <method name="GetGood" cname="exiv2_image_get_good">
         <return-type type="gboolean" />
       </method>
+      <method name="GetIptcData" cname="exiv2_image_get_iptcData">
+        <return-type type="Exiv2IptcData*" />
+      </method>
       <method name="GetMimeType" cname="exiv2_image_get_mimeType">
         <return-type type="const-char*" />
       </method>
@@ -310,6 +313,108 @@
           <parameter type="GError**" name="error" />
         </parameters>
       </method>
+    </object>
+    <object name="IptcData" cname="Exiv2IptcData" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2IptcDataPrivate*" />
+      <method name="Begin" cname="exiv2_iptcdata_begin">
+        <return-type type="Exiv2IptcDatumIterator*" />
+      </method>
+      <method name="End" cname="exiv2_iptcdata_end">
+        <return-type type="Exiv2IptcDatumIterator*" />
+      </method>
+      <method name="Erase" cname="exiv2_iptcdata_erase">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="Exiv2IptcKey*" name="key" />
+        </parameters>
+      </method>
+      <method name="FindKey" cname="exiv2_iptcdata_find_key">
+        <return-type type="Exiv2IptcDatum*" />
+        <parameters>
+          <parameter type="Exiv2IptcKey*" name="key" />
+        </parameters>
+      </method>
+      <method name="GetCount" cname="exiv2_iptcdata_get_count">
+        <return-type type="long" />
+      </method>
+      <method name="GetIsEmpty" cname="exiv2_iptcdata_get_isEmpty">
+        <return-type type="gboolean" />
+      </method>
+      <method name="GetThis" cname="exiv2_iptcdata_get_this">
+        <return-type type="Exiv2IptcDatum*" />
+        <parameters>
+          <parameter type="const-char*" name="key" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="exiv2_iptcdata_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="exiv2_iptcdata_new" />
+    </object>
+    <object name="IptcDatum" cname="Exiv2IptcDatum" parent="GObject">
+      <field name="Priv" cname="priv" type="Exiv2IptcDatumPrivate*" />
+      <method name="GetCount" cname="exiv2_iptcdatum_get_count">
+        <return-type type="glong" />
+      </method>
+      <method name="GetKey" cname="exiv2_iptcdatum_get_key">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetTag" cname="exiv2_iptcdatum_get_tag">
+        <return-type type="guint16" />
+      </method>
+      <method name="GetType" cname="exiv2_iptcdatum_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="GetTypename" cname="exiv2_iptcdatum_get_typename">
+        <return-type type="const-char*" />
+      </method>
+      <method name="SetValueString" cname="exiv2_iptcdatum_setValueString">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="value" />
+        </parameters>
+      </method>
+      <method name="SetValueUShort" cname="exiv2_iptcdatum_setValueUShort">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-guint16" name="value" />
+        </parameters>
+      </method>
+      <method name="ToString" cname="exiv2_iptcdatum_toString">
+        <return-type type="const-char*" />
+      </method>
+    </object>
+    <object name="IptcDatumIterator" cname="Exiv2IptcDatumIterator" parent="Exiv2IptcDatum">
+      <field name="Priv" cname="priv" type="Exiv2IptcDatumIteratorPrivate*" />
+      <method name="Equals" cname="exiv2_iptcdatumiterator_equals">
+        <return-type type="gboolean" />
+        <parameters>
+          <parameter type="Exiv2IptcDatumIterator*" name="other" />
+        </parameters>
+      </method>
+      <method name="GetType" cname="exiv2_iptcdatumiterator_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <method name="Next" cname="exiv2_iptcdatumiterator_next">
+        <return-type type="void" />
+      </method>
+    </object>
+    <object name="IptcKey" cname="Exiv2IptcKey" parent="Exiv2Key">
+      <field name="Priv" cname="priv" type="Exiv2IptcKeyPrivate*" />
+      <method name="GetRecord" cname="exiv2_iptckey_get_record">
+        <return-type type="guint16" />
+      </method>
+      <method name="GetRecordName" cname="exiv2_iptckey_get_recordName">
+        <return-type type="const-char*" />
+      </method>
+      <method name="GetType" cname="exiv2_iptckey_get_type" shared="true">
+        <return-type type="GType" />
+      </method>
+      <constructor cname="exiv2_iptckey_new">
+        <parameters>
+          <parameter type="const-char*" name="key" />
+        </parameters>
+      </constructor>
     </object>
     <object name="Key" cname="Exiv2Key" parent="GObject">
       <method name="GetFamilyName" cname="exiv2_key_get_familyName">
@@ -569,6 +674,18 @@
       </method>
       <method name="GetTypename" cname="exiv2_xmpdatum_get_typename">
         <return-type type="const-char*" />
+      </method>
+      <method name="SetValueBool" cname="exiv2_xmpdatum_setValueBool">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-gboolean" name="value" />
+        </parameters>
+      </method>
+      <method name="SetValueString" cname="exiv2_xmpdatum_setValueString">
+        <return-type type="void" />
+        <parameters>
+          <parameter type="const-char*" name="value" />
+        </parameters>
       </method>
       <method name="ToString" cname="exiv2_xmpdatum_toString">
         <return-type type="const-char*" />
