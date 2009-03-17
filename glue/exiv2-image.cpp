@@ -34,6 +34,7 @@
 #include "exiv2-image-private.h"
 #include "exiv2-exifdata-private.h"
 #include "exiv2-xmpdata-private.h"
+#include "exiv2-iptcdata-private.h"
 
 G_BEGIN_DECLS
 G_DEFINE_TYPE (Exiv2Image, exiv2_image, G_TYPE_OBJECT);
@@ -159,6 +160,18 @@ exiv2_image_get_xmpData (Exiv2Image *self)
 	xmpdata->priv->data = &(self->priv->imptr->xmpData ());
 
 	return xmpdata;
+}
+
+Exiv2IptcData*
+exiv2_image_get_iptcData		(Exiv2Image *self)
+{
+	g_return_val_if_fail (EXIV2_IS_IMAGE (self), NULL);
+
+	Exiv2IptcData *iptcdata;
+	iptcdata = EXIV2_IPTCDATA (g_object_new (EXIV2_TYPE_IPTCDATA, NULL));
+	iptcdata->priv->data = &(self->priv->imptr->iptcData ());
+
+	return iptcdata;
 }
 
 G_END_DECLS

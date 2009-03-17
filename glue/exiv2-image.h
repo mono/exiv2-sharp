@@ -33,6 +33,7 @@
 #include <glib-object.h>
 #include "exiv2-exifdata.h"
 #include "exiv2-xmpdata.h"
+#include "exiv2-iptcdata.h"
 
 G_BEGIN_DECLS
 
@@ -80,6 +81,7 @@ int			exiv2_image_get_pixelHeight	(Exiv2Image *self);
 Exiv2ExifData*		exiv2_image_get_exifData	(Exiv2Image *self);
 void			exiv2_image_set_exifData	(Exiv2Image *self, Exiv2ExifData *data);
 Exiv2XmpData*		exiv2_image_get_xmpData		(Exiv2Image *self);
+Exiv2IptcData*		exiv2_image_get_iptcData		(Exiv2Image *self);
 
 G_END_DECLS
 

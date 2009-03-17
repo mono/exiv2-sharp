@@ -1,5 +1,9 @@
 2009-03-17  Stephane Delcroix  <sdelcroix@novell.com>
 
+	* exiv2-image.h|cpp: hook the iptc stuff in (patch from Mike Gemuende)
+
+2009-03-17  Stephane Delcroix  <sdelcroix@novell.com>
+
 	* exiv2-iptc*: iptc support, Patch contributed by Mike Gemuende
 
 2009-01-07  Stephane Delcroix  <sdelcroix@novell.com>
