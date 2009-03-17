@@ -34,6 +34,18 @@ libexiv2glue_la_SOURCES =			\
 	exiv2-image-private.h			\
 	exiv2-imagefactory.cpp			\
 	exiv2-imagefactory.h			\
+	exiv2-iptcdata.cpp			\
+	exiv2-iptcdata.h			\
+	exiv2-iptcdata-private.h		\
+	exiv2-iptcdatum.cpp			\
+	exiv2-iptcdatum.h			\
+	exiv2-iptcdatum-iterator.cpp		\
+	exiv2-iptcdatum-iterator.h		\
+	exiv2-iptcdatum-iterator-private.h	\
+	exiv2-iptcdatum-private.h		\
+	exiv2-iptckey.cpp			\
+	exiv2-iptckey.h				\
+	exiv2-iptckey-private.h			\
 	exiv2-key.cpp				\
 	exiv2-key.h				\
 	exiv2-nikon1makernote.cpp		\
