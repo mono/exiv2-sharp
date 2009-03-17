@@ -79,6 +79,7 @@ Exiv2ExifDatum*		exiv2_exifdata_get_this		(Exiv2ExifData *self, const char* key)
 
 Exiv2ExifDatum*		exiv2_exifdata_find_key		(Exiv2ExifData *self, Exiv2ExifKey* key);
 void			exiv2_exifdata_erase		(Exiv2ExifData *self, Exiv2ExifKey* key);
+void			exiv2_exifdata_erase_range	(Exiv2ExifData *self, Exiv2ExifKey* begin, Exiv2ExifKey* end);
 
 Exiv2ExifThumb*		exiv2_exifdata_get_thumb	(Exiv2ExifData *self);
 

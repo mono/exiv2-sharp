@@ -1,5 +1,9 @@
 2009-01-07  Stephane Delcroix  <sdelcroix@novell.com>
 
+	* exiv-exifdata.h|cpp: _erase_range (), as added in 0.18
+
+2009-01-07  Stephane Delcroix  <sdelcroix@novell.com>
+
 	* exiv2-previewimage.h|cpp: map Width, Height introduced in 0.18 final
 
 2008-11-27  Stephane Delcroix  <sdelcroix@novell.com>

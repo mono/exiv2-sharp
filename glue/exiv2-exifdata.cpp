@@ -148,6 +148,13 @@ exiv2_exifdata_erase (Exiv2ExifData *self, Exiv2ExifKey* key)
 	self->priv->data->erase (self->priv->data->findKey (*(key->priv->key)));
 }
 
+void
+exiv2_exifdata_erase_range (Exiv2ExifData *self, Exiv2ExifKey* begin, Exiv2ExifKey* end)
+{
+	g_return_if_fail (EXIV2_IS_EXIFDATA (self));
+	self->priv->data->erase (self->priv->data->findKey (*(begin->priv->key)), self->priv->data->findKey (*(end->priv->key)));
+}
+
 Exiv2ExifThumb*
 exiv2_exifdata_get_thumb (Exiv2ExifData *self)
 {
