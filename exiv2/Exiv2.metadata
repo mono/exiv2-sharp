@@ -29,6 +29,12 @@
   <attr 	path="/api/namespace/object[@cname='Exiv2ImageFactory']/method[@cname='exiv2_imagefactory_open_buf']/*/*[@name='data']" name="array">1</attr>
   <attr 	path="/api/namespace/object[@cname='Exiv2ImageFactory']/method[@cname='exiv2_imagefactory_open_buf']" name="name">Open</attr>
   <attr 	path="/api/namespace/object[@cname='Exiv2ImageFactory']/method[@cname='exiv2_imagefactory_open_buf']/return-type" name="owned">true</attr>
+  <attr 	path="/api/namespace/object[@cname='Exiv2IptcData']/method[@cname='exiv2_iptcdata_begin']" name="accessibility">private</attr>
+  <attr 	path="/api/namespace/object[@cname='Exiv2IptcData']/method[@cname='exiv2_iptcdata_begin']/return-type" name="owned">true</attr>
+  <attr 	path="/api/namespace/object[@cname='Exiv2IptcData']/method[@cname='exiv2_iptcdata_end']" name="accessibility">private</attr>
+  <attr 	path="/api/namespace/object[@cname='Exiv2IptcData']/method[@cname='exiv2_iptcdata_end']/return-type" name="owned">true</attr>
+  <attr 	path="/api/namespace/object[@cname='Exiv2IptcData']/method[@cname='exiv2_iptcdata_find_key']/return-type" name="owned">true</attr>
+  <attr 	path="/api/namespace/object[@cname='Exiv2IptcDatumIterator']" name="internal">1</attr>
   <attr 	path="/api/namespace/object[@cname='Exiv2Nikon1MakerNote']/method[@cname='exiv2_nikon1makernote_tagList_item']" name="accessibility">private</attr>
   <attr 	path="/api/namespace/object[@cname='Exiv2Nikon1MakerNote']/method[@cname='exiv2_nikon1makernote_tagList_item']/return-type" name="owned">true</attr>
   <attr 	path="/api/namespace/object[@cname='Exiv2Nikon2MakerNote']/method[@cname='exiv2_nikon2makernote_tagList_item']" name="accessibility">private</attr>

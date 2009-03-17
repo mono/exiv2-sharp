@@ -1,3 +1,7 @@
+2009-03-17  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* Exiv2.metadata: api massaging for iptc support
+
 2009-01-07  Stephane Delcroix  <sdelcroix@novell.com>
 
 	* Exiv2.metadata: ExifData.erase_range() to Erase()
