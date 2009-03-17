@@ -68,13 +68,14 @@ struct _Exiv2XmpDatumClass
 	glong		(*get_count)		(Exiv2XmpDatum *self);
 	const char*	(*toString)		(Exiv2XmpDatum *self);
 
-	void		(*set_value_ushort)	(Exiv2XmpDatum *self, const guint16 value);
-	void		(*set_value_ulong)	(Exiv2XmpDatum *self, const guint32 value);
-	void		(*set_value_urational)	(Exiv2XmpDatum *self, Exiv2URational *urational);
-	void		(*set_value_sshort)	(Exiv2XmpDatum *self, const gint16 value);
-	void		(*set_value_slong)	(Exiv2XmpDatum *self, const gint32 value);
-	void		(*set_value_rational)	(Exiv2XmpDatum *self, Exiv2Rational *rational);
+//	void		(*set_value_ushort)	(Exiv2XmpDatum *self, const guint16 value);
+//	void		(*set_value_ulong)	(Exiv2XmpDatum *self, const guint32 value);
+//	void		(*set_value_urational)	(Exiv2XmpDatum *self, Exiv2URational *urational);
+//	void		(*set_value_sshort)	(Exiv2XmpDatum *self, const gint16 value);
+//	void		(*set_value_slong)	(Exiv2XmpDatum *self, const gint32 value);
+//	void		(*set_value_rational)	(Exiv2XmpDatum *self, Exiv2Rational *rational);
 	void		(*set_value_string)	(Exiv2XmpDatum *self, const char* value);
+	void		(*set_value_bool)		(Exiv2XmpDatum *self, const gboolean value);
 };
 
 GType		exiv2_xmpdatum_get_type 	(void);
@@ -90,7 +91,8 @@ const char*	exiv2_xmpdatum_toString	(Exiv2XmpDatum *self);
 //void		exiv2_xmpdatum_setValueSShort		(Exiv2XmpDatum *self, const gint16 value);
 //void		exiv2_xmpdatum_setValueSLong		(Exiv2XmpDatum *self, const gint32 value);
 //void		exiv2_xmpdatum_setValueRational	(Exiv2XmpDatum *self, const gint32 numerator, const gint32 denominator);
-//void		exiv2_xmpdatum_setValueString		(Exiv2XmpDatum *self, const char* value);
+void		exiv2_xmpdatum_setValueString		(Exiv2XmpDatum *self, const char* value);
+void		exiv2_xmpdatum_setValueBool			(Exiv2XmpDatum *self, const gboolean value);
 
 G_END_DECLS
 

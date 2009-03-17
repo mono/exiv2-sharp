@@ -49,7 +49,8 @@ const char*	exiv2_xmpdatum_real_toString 		(Exiv2XmpDatum *self);
 //void		exiv2_xmpdatum_real_setValueSShort		(Exiv2XmpDatum *self, const gint16 value);
 //void		exiv2_xmpdatum_real_setValueSLong		(Exiv2XmpDatum *self, const gint32 value);
 //void		exiv2_xmpdatum_real_setValueRational	(Exiv2XmpDatum *self, const gint32 numerator, const gint32 denominator);
-//void		exiv2_xmpdatum_real_setValueString		(Exiv2XmpDatum *self, const char* value);
+void		exiv2_xmpdatum_real_setValueString		(Exiv2XmpDatum *self, const char* value);
+void		exiv2_xmpdatum_real_setValueBool		(Exiv2XmpDatum *self, const gboolean value);
 
 static void
 exiv2_xmpdatum_init (Exiv2XmpDatum *self)
@@ -75,8 +76,9 @@ exiv2_xmpdatum_class_init (Exiv2XmpDatumClass *klass)
 //	klass->set_value_sshort		= exiv2_xmpdatum_real_setValueSShort;
 //	klass->set_value_slong		= exiv2_xmpdatum_real_setValueSLong;
 //	klass->set_value_rational	= exiv2_xmpdatum_real_setValueRational;
-//	klass->set_value_string		= exiv2_xmpdatum_real_setValueString;
-//
+	klass->set_value_string		= exiv2_xmpdatum_real_setValueString;
+	klass->set_value_bool		= exiv2_xmpdatum_real_setValueBool;
+	
 	g_type_class_add_private (klass, sizeof	(Exiv2XmpDatumPrivate));
 }
 
@@ -149,11 +151,16 @@ exiv2_xmpdatum_toString (Exiv2XmpDatum *self)
 //{
 //	return EXIV2_XMPDATUM_GET_CLASS (self)->set_value_rational (self, numerator, denominator);
 //}
-//
-//void exiv2_xmpdatum_setValueString (Exiv2XmpDatum *self, const char* value)
-//{
-//	return EXIV2_XMPDATUM_GET_CLASS (self)->set_value_string (self, value);		
-//}
+
+void exiv2_xmpdatum_setValueString (Exiv2XmpDatum *self, const char* value)
+{
+	return EXIV2_XMPDATUM_GET_CLASS (self)->set_value_string (self, value);		
+}
+
+void exiv2_xmpdatum_setValueBool (Exiv2XmpDatum *self, const gboolean value)
+{
+	return EXIV2_XMPDATUM_GET_CLASS (self)->set_value_bool (self, value);		
+}
 
 const char*
 exiv2_xmpdatum_real_get_key (Exiv2XmpDatum *self)
@@ -232,13 +239,19 @@ exiv2_xmpdatum_real_toString (Exiv2XmpDatum *self)
 //	Exiv2::Exifdatum* datum = self->priv->datum;
 //	(*datum) = Exiv2::Rational (numerator, denominator);	
 //}
-//
-//void exiv2_xmpdatum_real_setValueString (Exiv2XmpDatum *self, const char* value)
-//{
-//	g_return_if_fail (EXIV2_IS_XMPDATUM (self));
-//	Exiv2::Exifdatum* datum = self->priv->datum;
-//	(*datum) = value;	
-//}
 
+void exiv2_xmpdatum_real_setValueString (Exiv2XmpDatum *self, const char* value)
+{
+	g_return_if_fail (EXIV2_IS_XMPDATUM (self));
+	Exiv2::Xmpdatum* datum = self->priv->datum;
+	(*datum) = value;	
+}
+
+void exiv2_xmpdatum_real_setValueBool (Exiv2XmpDatum *self, const gboolean value)
+{
+	g_return_if_fail (EXIV2_IS_XMPDATUM (self));
+	Exiv2::Xmpdatum* datum = self->priv->datum;
+	(*datum) = value;
+}
 
 G_END_DECLS
