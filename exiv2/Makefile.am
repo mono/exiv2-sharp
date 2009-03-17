@@ -25,7 +25,8 @@ CUSTOMS =					\
 	$(srcdir)/Nikon2MakerNote.custom	\
 	$(srcdir)/Nikon3MakerNote.custom	\
 	$(srcdir)/PreviewImage.custom		\
-	$(srcdir)/XmpData.custom
+	$(srcdir)/XmpData.custom		\
+	$(srcdir)/XmpDatum.custom
 
 SOURCES =					\
 	$(srcdir)/IfdId.cs			\

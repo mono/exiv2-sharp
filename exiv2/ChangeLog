@@ -1,10 +1,16 @@
 2009-03-17  Stephane Delcroix  <sdelcroix@novell.com>
 
-	* IptdData.custom, IptcDatum.custom: Enumerator
+	* Xmpdata.custom, XmpDatum.custom: index setter for bool and string
 
 2009-03-17  Stephane Delcroix  <sdelcroix@novell.com>
 
-	* Exiv2.metadata: api massaging for iptc support
+	* IptdData.custom, IptcDatum.custom: Enumerator (patch from
+	Mike Gemuende)
+
+2009-03-17  Stephane Delcroix  <sdelcroix@novell.com>
+
+	* Exiv2.metadata: api massaging for iptc support (patch from Mike
+	Gemuende)
 
 2009-01-07  Stephane Delcroix  <sdelcroix@novell.com>
 
