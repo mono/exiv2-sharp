@@ -19,6 +19,8 @@ CUSTOMS =					\
 	$(srcdir)/ExifThumb.custom		\
 	$(srcdir)/Image.custom			\
 	$(srcdir)/ImageFactory.custom		\
+	$(srcdir)/IptcData.custom		\
+	$(srcdir)/IptcDatum.custom		\
 	$(srcdir)/Nikon1MakerNote.custom	\
 	$(srcdir)/Nikon2MakerNote.custom	\
 	$(srcdir)/Nikon3MakerNote.custom	\
