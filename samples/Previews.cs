@@ -26,7 +26,7 @@ namespace Sample
 				image.ReadMetadata ();
 
 				PreviewManager manager = image.PreviewManager;
-				Console.WriteLine ("manager.PreviewProperties.Count = {0}", manager.PreviewProperties.Count);
+				//Console.WriteLine ("manager.PreviewProperties.Count = {0}", manager.PreviewProperties.Count);
 				foreach (PreviewProperties prop in manager.PreviewProperties) {
 					Console.WriteLine ("\t t:{0} e:{1} s:{2} w:{3} h:{4}", prop.MimeType, prop.Extension, prop.Size, prop.Width, prop.Height );
 					PreviewImage prev = manager.GetPreviewImage (prop);

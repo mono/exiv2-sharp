@@ -7,6 +7,7 @@ TARGETS =				\
 	$(builddir)/exifprint		\
 	$(builddir)/XmpSample.exe	\
 	$(builddir)/ImageInfo.exe	\
+	$(builddir)/IptcSample.exe	\
 	$(builddir)/ExifThumb.exe	\
 	$(builddir)/Previews.exe
 
@@ -36,6 +37,7 @@ EXTRA_DIST = 			\
 	ExifComment.cs		\
 	XmpSample.cs		\
 	ImageInfo.cs		\
+	IptcSample.cs		\
 	ExifThumb.cs		\
 	Previews.cs		\
 	exifprint.c		\
@@ -44,6 +46,7 @@ EXTRA_DIST = 			\
 	ExifComment		\
 	XmpSample		\
 	ImageInfo		\
+	IptcSample		\
 	ExifThumb		\
 	Previews
 

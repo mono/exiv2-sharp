@@ -1,8 +1,9 @@
 /*
- * XmpSample: some tests using Xmp
+ * IptcSample: some tests using Iptc
  *
  * Author(s):
  *	Stephane Delcroix  <stephane@delcroix.org>
+ *	Mike Gemuende <mike@gemuende.de>
  *
  * This is free software. See COPYING for details
  */
@@ -12,7 +13,7 @@ using Exiv2;
 
 namespace Sample
 {
-	public class XmpSample
+	public class IptcSample
 	{
 		static void Main (string [] args)
 		{
@@ -25,7 +26,7 @@ namespace Sample
 				GLib.Log.SetLogHandler ("GLib-GObject", GLib.LogLevelFlags.Critical, logFunc);
 				GLib.Log.SetLogHandler ("GLib-GObject", GLib.LogLevelFlags.Warning, logFunc);
 				if (args.Length == 0) {
-					Console.WriteLine ("Usage: XmpSample.exe [file list]");
+					Console.WriteLine ("Usage: IptcSample.exe [file list]");
 					System.Environment.Exit (1);
 				}
 				
@@ -35,18 +36,18 @@ namespace Sample
 					image.ReadMetadata ();
 
 					Console.WriteLine (image.Good);
-
-					XmpData xmp_data = image.XmpData;
-					if (xmp_data.IsEmpty)
-						Console.WriteLine ("No XMP data found in file");
-
-					Console.WriteLine ("Xmp count: {0}", xmp_data.Count);
 	
-					foreach (XmpDatum datum in xmp_data)
-						Console.WriteLine ("{0} {1} {2} {3}", datum.Key, datum.Typename, datum.Count, datum.ToString ());
+					IptcData iptc_data = image.IptcData;
+					if (iptc_data.IsEmpty)
+						Console.WriteLine ("No Iptc data found in file");
 
+					Console.WriteLine ("Iptc count: {0}", iptc_data.Count);
+
+					foreach (IptcDatum datum in iptc_data)
+						Console.WriteLine ("{0} {1} {2} {3}", datum.Key, datum.Typename, datum.Count, datum.ToString ());
 				}
-					
+				
+
 			} catch (GLib.GException e) {
 				Console.WriteLine ("Exiv2.Exception caught {0}", e);
 			}
